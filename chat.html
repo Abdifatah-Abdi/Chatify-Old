@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/chat.css">
+    <link rel="stylesheet" href="/stylesheets/font-faces.css">
+    <link rel="stylesheet" href="/stylesheets/navigation-bar.css">
+    <link rel="stylesheet" href="./stylesheets/defined-styles.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="./src/chat.js" defer type="module"></script>
+    <title>Chatify - Chat</title>
+</head>
+<body>
+    <nav class="navigation-bar">
+        <div>
+            <a href="/main.html">
+                <img src="./assets/images/Logo160x.png" alt="Logo of site.">
+            </a>
+            <p>Chatify</p>
+        </div>
+        <div class="navigation-bar-middle">
+            <a class="navigation-bar-link animated-underline active" href="/main.html">
+                <p class="link-content">Home</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="/chat.html">
+                <p class="link-content">Chat</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="#">
+                <p class="link-content">Community</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="#">
+                <p class="link-content">Blog</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="#">
+                <p class="link-content">Support</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="./about.html">
+                <p class="link-content">About</p>
+            </a>
+        </div>
+        <a class="navigation-bar-link" id="login-button" href="./login.html">
+            <p class="link-content">Sign in / Sign up</p>
+        </a>
+    </nav>
+    <div id="container">
+        <div class="top">
+            <div class="left-side">
+                <div class="chats">
+                    <div class="chat start-chat" id="active-chat" data-group-id="0">
+                        <p class="chat-name">Chat name</p>
+                    </div>
+                    <div class="chat" data-group-id="1">
+                        <p class="chat-name">Chat name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div id="messages-container"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottom-left">
+                <div class="account-panel">
+                    <img class="account-panel-pfp" src="./assets/images/profiles/default_profile.png" alt="pfp">
+                    <p id="username">Username 😀😀😀</p>
+                </div>
+            </div>
+            <div class="bottom-right">
+                <div class="messaging-section">
+                    <div id="send-media-section" class="hidden-send-media">
+                        <div class="send-media-container">
+                            <img src="./assets/images/icons/upload_gif.svg" alt="" class="send-media-icon">
+                            <p class="send-media-title">Find GIFs</p>
+                        </div>
+                        <div class="send-media-container">
+                            <img src="./assets/images/icons/upload_picture.svg" alt="" class="send-media-icon">
+                            <p class="send-media-title">Upload Images</p>
+                        </div>
+                        <div class="send-media-container">
+                            <img src="./assets/images/icons/upload_audio.svg" alt="" class="send-media-icon">
+                            <p class="send-media-title">Send an Audio Recording</p>
+                        </div>
+                        <div class="send-media-container end">
+                            <img src="./assets/images/icons/upload_file.svg" alt="" class="send-media-icon">
+                            <p class="send-media-title">Upload a File</p>
+                        </div>
+                    </div>
+                    <div id="send-media-button-container" class="send-button-containers">
+                        <img src="./assets/images/icons/upload.svg" alt="">
+                    </div>
+                    <textarea id="message-text-box"></textarea>
+                    <div id="send-message-button-container" class="send-button-containers">
+                        <img src="./assets/images/icons/send_message_icon.svg" class="send-message-button"
+                            alt="Send message">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archives -->
+    <div class="message-archives">
+        <div class="message-container inbound-message-container inbound-clone" data-message-id="1"
+            data-message-group-id="">
+            <div class="message-holder">
+                <img src="./assets/images/profiles/default_profile.png" alt="" class="message-profile-picture">
+                <div class="message inbound-message">
+                    <p class="message-text">Message</p>
+                </div>
+            </div>
+            <div class="time-sent">Today at</div>
+        </div>
+        <div class="message-container outbound-message-container outbound-clone" data-message-id="1"
+            data-message-group-id="">
+            <div class="message-holder">
+                <div class="message outbound-message">
+                    <p class="message-text">Message</p>
+                </div>
+                <img src="./assets/images/profiles/default_profile.png" alt="" class="message-profile-picture">
+            </div>
+            <div class="time-sent">Today at</div>
+        </div>
+    </div>
+
+    <div class="context-menu-message hidden-context-menu">
+        <div class="menu-message-item" id="context-menu-copy-text">
+            <img src="./assets/images/icons/context_menu/copy_icon.svg" alt="An image of a copy icon"
+                class="menu-message-item-icon">
+            <p class="menu-message-item-text">Copy Message</p>
+        </div>
+        <div class="menu-message-item" id="context-menu-copy-id">
+            <img src="./assets/images/icons/context_menu/copy_id_icon.svg" alt="An image of a copy icon"
+                class="menu-message-item-icon">
+            <p class="menu-message-item-text">Copy Message Id</p>
+        </div>
+        <div class="menu-message-item" id="context-menu-copy-url">
+            <img src="./assets/images/icons/context_menu/copy_url_icon.svg" alt="An image of a url icon"
+                class="menu-message-item-icon">
+            <p class="menu-message-item-text">Copy Message Link</p>
+        </div>
+        <div class="menu-message-item" id="context-menu-reply">
+            <img src="./assets/images/icons/context_menu/reply_icon.svg" alt="An image of a reply icon"
+                class="menu-message-item-icon">
+            <p class="menu-message-item-text">Reply</p>
+        </div>
+        <div class="menu-message-item" id="context-menu-report">
+            <img src="./assets/images/icons/context_menu/report_icon.svg" alt="An image of a report icon"
+                class="menu-message-item-icon">
+            <p class="menu-message-item-text">Report Message</p>
+        </div>
+        <div class="menu-message-item end" id="context-menu-delete">
+            <img src="./assets/images/icons/context_menu/delete_icon.svg" alt="An image of a trash can icon"
+                class="menu-message-item-icon">
+            <p class="menu-message-item-text">Delete Message</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Valera;
+
+    color: white;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+    background-color: #22282f;
+}
+
+img {
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #566576;
+
+    transition: background-color 500ms;
+}
+
+.button:hover {
+    color: white;
+    background-color: #67788c;
+}
+
+.animated-underline {
+    color: white;
+}
+
+.animated-underline p {
+    display: inline-block;
+    position: relative;
+    color: white;
+}
+
+.animated-underline p::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+
+    transform: scaleX(0);
+    left: 0;
+    bottom: 0;
+
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 250ms ease-in-out;
+}
+
+.animated-underline p:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.allow-user-select {
+    user-select: all;
+}

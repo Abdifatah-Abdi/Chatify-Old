@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Valera;
+    src: url(/assets/fonts/ValeraRound/VarelaRound-Regular.ttf);
+}
+
+@font-face {
+    font-family: REM;
+    src: url(/assets/fonts/REM/REM-Regular_Variable.ttf);
+}
+
+@font-face {
+    font-family: REM_Italic;
+    src: url(/assets/fonts/REM/REM-Italic_Variable.ttf);
+}

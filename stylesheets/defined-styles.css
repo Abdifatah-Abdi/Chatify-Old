@@ -1,0 +1,12 @@
+.active {
+    color: rgb(205, 205, 205);
+    text-decoration: underline;
+}
+
+.first {
+    margin: 0;
+}
+
+.end {
+    margin: 0;
+}
