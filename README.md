@@ -23,6 +23,39 @@ Chatify is unique because unlike other platforms, we don't collect and sell user
 ## What is Chatify built on?
 Chatify, unlike other chatting application, uses plain HTML, JavaScript, and CSS. Messages, Users, and Groups are stored in a DataBase (for the time being, [Airtable](airtable.com)), and [Socket.io](https://socket.io/), used to send, and update messages real-time.
 
+## TODO List
+- For Chatting
+    - [ ] Media Uploading
+    - [ ] Pictures
+    - [ ] GIFS and Videos
+    - [ ] Embeds
+    - [ ] Voice Recordings
+    - [ ] Calls
+    - [ ] Video Calls
+    - [ ] Sharing Screens
+    - [ ] Different DMs
+    - [ ] Adding friends
+    - [ ] Account Control Panels
+    - [ ] Username updating
+    - [ ] Password updating
+    - [ ] Profile pictures
+    - [ ] UI optimization
+    - [ ] Increased responiveness
+    - [ ] Mobile support
+    - [ ] UI design changes
+    - [ ] End-To-End encryptions
+
+- For logging in
+    - [ ] Creating new accounts
+    - [ ] Storing accounts in a DataBase
+    - [ ] Hashing and salting passwords in the DataBase
+    - [ ] Logging into accounts
+    - [ ] Store IDs into cookies
+
+- For Chatify itself
+    - [ ] Move away from Airtable and have a custom DataBase
+    - [ ] (Optional) Make a Mobile App
+
 ## What licence does Chatify fall under?
 Chatify falls under the [MIT](https://choosealicense.com/licenses/mit/) Licence, meaning users can:
 - Distribute Chatify
