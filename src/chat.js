@@ -92,9 +92,11 @@ window.addEventListener("load", async () => {
 			outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
 		messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
 		messageElement.childNodes[3].textContent =
-			`${messageElement.childNodes[3].textContent}${convertTimeToUserTimezone(record.fields.time)}`;
+			`${messageElement.childNodes[3].textContent}${new Date(record.fields.time / 1000)}`;
 		messageElement.dataset.messageId = record.fields.message_id;
 		messageElement.dataset.messageGroupId = record.fields.group_id;
+		messageElement.dataset.messageUserId = record.fields.user_id;
+		messageElement.dataset.messageContent = record.fields.message;
 		messagesContainer.appendChild(messageElement);
 	};
 
@@ -142,7 +144,7 @@ sendMessageButton?.addEventListener("mouseup", async () => {
 				user_id: userId,
 				group_id: activeChatNumber,
 				message: textMessage,
-				time: hours + ':' + minutes,
+				time: date.getTime() / 1000,
 			},
 		}),
 	});
@@ -181,7 +183,9 @@ function onMessageLoad() {
 			contextMenu.style.left = `${x}px`;
 			contextMenu.style.top = `${y}px`;
 
-			messageContextMenuHandler(element.parentElement.parentElement.dataset.messageId, element.parentElement.parentElement.dataset.messageGroupId);
+			const elementDataSet = element.parentElement.parentElement;
+			messageContextMenuHandler(elementDataSet.dataset.messageId, elementDataSet.dataset.messageGroupId, elementDataSet.dataset.messageUserId,
+				elementDataSet.dataset.messageContent);
 		});
 	});
 };
@@ -193,53 +197,57 @@ document.addEventListener("contextmenu", event => {
 
 document.addEventListener("click", () => contextMenu.classList.add("hidden-context-menu"));
 
-async function messageContextMenuHandler(messageId, groupId) {
-	console.log(messageId);
+async function messageContextMenuHandler(messageId, messageGroupId, messageUserId, messageContent) {
+	contextMenuReport.classList.add(messageUserId == userId ? "hidden-context-menu-item" : "a");
+	contextMenuDelete.classList.add(messageUserId != userId ? "hidden-context-menu-item" : "a");
+	// console.log(messageUserId);
+
+	contextMenuCopyText.addEventListener("mouseup", () => {
+		navigator.clipboard.writeText(messageContent);
+	});
+
+	contextMenuCopyId.addEventListener("mouseup", () => {
+		navigator.clipboard.writeText(messageId);
+	});
+
+	contextMenuCopyUrl.addEventListener("mouseup", () => {
+		navigator.clipboard.writeText(`https://google.com/`);
+	});
+
+	contextMenuReport.addEventListener("mouseup", () => {
+		console.log("Deal with it");
+	});
+
+	contextMenuDelete.addEventListener("mouseup", () => {
+		contextMenuDeleteRecord(messageId);
+	});
+};
+
+async function contextMenuDeleteRecord(messageId) {
 	const messageResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
 		method: "GET",
 		headers: {
 			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
 		},
 	});
-	const messageData = await messageResponse.json();
+	const data = await messageResponse.json();
 
-	for (let index = 0; index < messageData.records.length; index++) {
-		const record = messageData.records[index];
+	for (let index = 0; index < data.records.length; index++) {
+		const record = data.records[index];
+		const recordId = record.id;
 
 		if (record.fields.message_id != messageId)
 			continue;
 
-		console.log(`A ${record.fields.message_id}`);
-		console.log(`B ${messageId}`);
-
-		console.log(record.fields.user_id);
-		if (record.fields.user_id == userId) {
-			contextMenuReport.classList.add("hidden-context-menu-item");
-		} else if (record.fields.user_id != userId) {
-			contextMenuDelete.classList.add("hidden-context-menu-item");
-		};
-
-		contextMenuCopyText.addEventListener("mouseup", () => {
-			if (messageId == record.fields.message_id) {
-				const messageText = record.fields.message;
-				navigator.clipboard.writeText(messageText);
-			};
-		});
-
-		contextMenuCopyId.addEventListener("mouseup", () => {
-			if (messageId == record.fields.message_id) {
-				const messageId = record.fields.message_id;
-				navigator.clipboard.writeText(messageId);
-			};
-		});
-
-		contextMenuCopyUrl.addEventListener("mouseup", () => {
-			if (messageId == record.fields.message_id) {
-				// const messageId = record.fields.message_id;
-				navigator.clipboard.writeText(`https://google.com/`);
-			};
+		await fetch(`https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages/${recordId}`, {
+			method: "DELETE",
+			headers: {
+				"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			},
 		});
 	};
+
+	document.querySelector(`[data-message-id="${messageId}"]`).remove();
 };
 
 document.querySelectorAll("*").forEach(element => {
