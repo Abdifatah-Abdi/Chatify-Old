@@ -238,6 +238,13 @@ footer {
     transition: filter 250ms;
 }
 
+.github {
+    object-fit: cover;
+    width: 1.80em;
+    margin-left: 0.75em;
+    transition: filter 250ms;
+}
+
 .social:hover {
     filter: invert(70%);
 }
