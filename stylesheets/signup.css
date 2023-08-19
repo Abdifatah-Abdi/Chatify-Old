@@ -103,3 +103,11 @@
     animation: shake 0.2s ease-in-out;
     border: 0.2em solid red;
   }
+
+  #top-text {
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8em;
+    visibility: hidden;
+  }
