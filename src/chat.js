@@ -1,4 +1,4 @@
-import { getCookie, convertTimeToUserTimezone } from "./methods.js";
+import { getCookie } from "./methods.js";
 
 const message = document.getElementsByClassName("message");
 
@@ -27,6 +27,8 @@ const contextMenuReply = document.getElementById("context-menu-reply");
 const contextMenuReport = document.getElementById("context-menu-report");
 const contextMenuDelete = document.getElementById("context-menu-delete");
 
+
+const userTimezoneOffset = new Date().getTimezoneOffset() * 60;
 const date = new Date()
 let minutes = date.getMinutes();
 let hours = '';
@@ -38,6 +40,32 @@ if (date.getHours() < 13) {
 	hours = (date.getHours() - 12);
 	minutes += "pm";
 };
+
+function formatTime(time) {
+    const convertedTime = new Date(time * 1000);
+    const currentDate = new Date();
+
+    const hours = convertedTime.getHours();
+    const minutes = convertedTime.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+
+    if (
+        convertedTime.getDate() === currentDate.getDate() &&
+        convertedTime.getMonth() === currentDate.getMonth() &&
+        convertedTime.getFullYear() === currentDate.getFullYear()
+    ) {
+        return `Today at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+    } else if (
+        convertedTime.getDate() === currentDate.getDate() - 1 &&
+        convertedTime.getMonth() === currentDate.getMonth() &&
+        convertedTime.getFullYear() === currentDate.getFullYear()
+    ) {
+        return `Yesterday at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+    } else {
+        return `${convertedTime.getDate()} at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+    }
+}
 
 /* Load necessary details
 */
@@ -92,7 +120,7 @@ window.addEventListener("load", async () => {
 			outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
 		messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
 		messageElement.childNodes[3].textContent =
-			`${messageElement.childNodes[3].textContent}${new Date(record.fields.time / 1000)}`;
+			`${formatTime(record.fields.time)}`;
 		messageElement.dataset.messageId = record.fields.message_id;
 		messageElement.dataset.messageGroupId = record.fields.group_id;
 		messageElement.dataset.messageUserId = record.fields.user_id;
