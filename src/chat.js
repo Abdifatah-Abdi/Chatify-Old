@@ -228,7 +228,6 @@ document.addEventListener("click", () => contextMenu.classList.add("hidden-conte
 async function messageContextMenuHandler(messageId, messageGroupId, messageUserId, messageContent) {
 	contextMenuReport.classList.add(messageUserId == userId ? "hidden-context-menu-item" : "a");
 	contextMenuDelete.classList.add(messageUserId != userId ? "hidden-context-menu-item" : "a");
-	// console.log(messageUserId);
 
 	contextMenuCopyText.addEventListener("mouseup", () => {
 		navigator.clipboard.writeText(messageContent);
@@ -277,6 +276,10 @@ async function contextMenuDeleteRecord(messageId) {
 
 	document.querySelector(`[data-message-id="${messageId}"]`).remove();
 };
+
+async function contextMenuReportMessage() {
+
+}
 
 document.querySelectorAll("*").forEach(element => {
 	element.addEventListener("mouseup", () => {
