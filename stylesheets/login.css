@@ -119,6 +119,10 @@
     color: black;
 }
 
+.google-logo {
+    width: 42px;
+}
+
 #login-with-container>div>a:hover {
     background-color: lightgrey;
     cursor: pointer;
