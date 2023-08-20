@@ -5,9 +5,6 @@ const message = document.getElementsByClassName("message");
 const sendMessageButton = document.getElementById("send-message-button-container");
 const sendMessageTextBox = document.getElementById("message-text-box");
 
-const uploadMediaButton = document.getElementById("send-media-button-container");
-const sendMediaSection = document.getElementById("send-media-section");
-
 const inboundMessage = document.querySelector(".inbound-clone");
 const outboundMessage = document.querySelector(".outbound-clone");
 const messagesContainer = document.getElementById("messages-container");
@@ -19,6 +16,7 @@ let activeChatNumber = Number(activeChat.getAttribute("data-group-id"));
 
 const userId = parseInt(getCookie("id"));
 
+// Context Menu Variables
 const contextMenu = document.querySelector('.context-menu-message');
 const contextMenuCopyText = document.getElementById("context-menu-copy-text");
 const contextMenuCopyId = document.getElementById("context-menu-copy-id");
@@ -27,6 +25,10 @@ const contextMenuReply = document.getElementById("context-menu-reply");
 const contextMenuReport = document.getElementById("context-menu-report");
 const contextMenuDelete = document.getElementById("context-menu-delete");
 
+// Upload Menu Variables
+const uploadMediaButton = document.getElementById("send-media-button-container");
+const sendMediaSection = document.getElementById("send-media-section");
+const sendMediaGifs = document.getElementById("send-media-gifs");
 
 const userTimezoneOffset = new Date().getTimezoneOffset() * 60;
 const date = new Date()
@@ -42,29 +44,29 @@ if (date.getHours() < 13) {
 };
 
 function formatTime(time) {
-    const convertedTime = new Date(time * 1000);
-    const currentDate = new Date();
+	const convertedTime = new Date(time * 1000);
+	const currentDate = new Date();
 
-    const hours = convertedTime.getHours();
-    const minutes = convertedTime.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+	const hours = convertedTime.getHours();
+	const minutes = convertedTime.getMinutes();
+	const ampm = hours >= 12 ? 'PM' : 'AM';
+	const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
 
-    if (
-        convertedTime.getDate() === currentDate.getDate() &&
-        convertedTime.getMonth() === currentDate.getMonth() &&
-        convertedTime.getFullYear() === currentDate.getFullYear()
-    ) {
-        return `Today at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
-    } else if (
-        convertedTime.getDate() === currentDate.getDate() - 1 &&
-        convertedTime.getMonth() === currentDate.getMonth() &&
-        convertedTime.getFullYear() === currentDate.getFullYear()
-    ) {
-        return `Yesterday at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
-    } else {
-        return `${convertedTime.getDate()} at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
-    }
+	if (
+		convertedTime.getDate() === currentDate.getDate() &&
+		convertedTime.getMonth() === currentDate.getMonth() &&
+		convertedTime.getFullYear() === currentDate.getFullYear()
+	) {
+		return `Today at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+	} else if (
+		convertedTime.getDate() === currentDate.getDate() - 1 &&
+		convertedTime.getMonth() === currentDate.getMonth() &&
+		convertedTime.getFullYear() === currentDate.getFullYear()
+	) {
+		return `Yesterday at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+	} else {
+		return `${convertedTime.getDate()} at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+	}
 }
 
 /* Load necessary details
@@ -79,8 +81,17 @@ socket.on("message", message => {
 	if (message.fields.group_id != activeChatNumber)
 		return;
 
+	// const messageElement = inboundMessage.cloneNode(true);
+	// messageElement.childNodes[3].childNodes[1].textContent = message.fields.message;
+	// messagesContainer.appendChild(messageElement);
+
 	const messageElement = inboundMessage.cloneNode(true);
-	messageElement.childNodes[3].childNodes[1].textContent = message.fields.message;
+	messageElement.childNodes[1].childNodes[3].childNodes[1].textContent = message.fields.message;
+	messageElement.childNodes[3].textContent = `${formatTime(message.fields.time)}`;
+	messageElement.dataset.messageId = message.fields.message_id;
+	messageElement.dataset.messageGroupId = message.fields.group_id;
+	messageElement.dataset.messageUserId = message.fields.user_id;
+	messageElement.dataset.messageContent = message.fields.message;
 	messagesContainer.appendChild(messageElement);
 });
 
@@ -185,19 +196,24 @@ uploadMediaButton.addEventListener("mouseup", () => {
 
 	if (image.getAttribute("src") == "./assets/images/icons/upload.svg") {
 		image.setAttribute("src", "./assets/images/icons/upload_selected.svg");
+		sendMediaSection.classList.add("active-menu");
+		sendMediaSection.classList.remove("hidden-menu");
 	} else {
 		image.setAttribute("src", "./assets/images/icons/upload.svg");
+		sendMediaSection.classList.add("hidden-menu");
+		sendMediaSection.classList.remove("active-menu");
 	};
-
-	sendMediaSection.classList.toggle("hidden-send-media");
 });
+
+
 
 let contextMenuOpened = false;
 function onMessageLoad() {
 	[...message].forEach(element => {
 		element.addEventListener("contextmenu", event => {
 			event.preventDefault();
-			contextMenu.classList.remove("hidden-context-menu");
+			contextMenu.classList.remove("hidden-menu");
+			contextMenu.classList.add("active-menu");
 
 			let x = event.clientX, y = event.clientY;
 			let width = contextMenu.offsetWidth, height = contextMenu.offsetHeight;
@@ -212,8 +228,12 @@ function onMessageLoad() {
 			contextMenu.style.top = `${y}px`;
 
 			const elementDataSet = element.parentElement.parentElement;
-			messageContextMenuHandler(elementDataSet.dataset.messageId, elementDataSet.dataset.messageGroupId, elementDataSet.dataset.messageUserId,
-				elementDataSet.dataset.messageContent);
+			messageContextMenuHandler(
+				elementDataSet.dataset.messageId,
+				elementDataSet.dataset.messageGroupId,
+				elementDataSet.dataset.messageUserId,
+				elementDataSet.dataset.messageContent
+			);
 		});
 	});
 };
@@ -223,11 +243,19 @@ document.addEventListener("contextmenu", event => {
 	contextMenuOpened = true;
 });
 
-document.addEventListener("click", () => contextMenu.classList.add("hidden-context-menu"));
+window.addEventListener("mousedown", () => {
+	const image = uploadMediaButton.childNodes[1];
+
+	document.querySelectorAll(".active-menu").forEach(element => {
+		element.classList.add("hidden-menu");
+		element.classList.remove("active-menu");
+		image.setAttribute("src", "./assets/images/icons/upload.svg");
+	});
+});
 
 async function messageContextMenuHandler(messageId, messageGroupId, messageUserId, messageContent) {
-	contextMenuReport.classList.add(messageUserId == userId ? "hidden-context-menu-item" : "a");
-	contextMenuDelete.classList.add(messageUserId != userId ? "hidden-context-menu-item" : "a");
+	contextMenuReport.classList.add(messageUserId == userId ? "hidden" : "active");
+	contextMenuDelete.classList.add(messageUserId != userId ? "hidden" : "active");
 
 	contextMenuCopyText.addEventListener("mouseup", () => {
 		navigator.clipboard.writeText(messageContent);
@@ -279,11 +307,16 @@ async function contextMenuDeleteRecord(messageId) {
 
 async function contextMenuReportMessage() {
 
-}
+};
 
-document.querySelectorAll("*").forEach(element => {
-	element.addEventListener("mouseup", () => {
-		contextMenuReport.classList.remove("hidden-context-menu-item");
-		contextMenuDelete.classList.remove("hidden-context-menu-item");
-	});
+document.addEventListener("keydown", key => {
+	if (key.key === "Escape") {
+		const image = uploadMediaButton.childNodes[1];
+
+		document.querySelectorAll(".active-menu").forEach(element => {
+			element.classList.add("hidden-menu");
+			element.classList.remove("active-menu");
+			image.setAttribute("src", "./assets/images/icons/upload.svg");
+		});
+	};
 });

@@ -69,3 +69,19 @@ a {
 .allow-user-select {
     user-select: all;
 }
+
+.hidden-menu {
+    display: none;
+}
+
+.active-menu {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
