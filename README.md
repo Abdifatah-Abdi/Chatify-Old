@@ -12,7 +12,7 @@ I, Abdifatah-Abdi, am in charge of the backend of Chatify. This includes monitor
 
 ClounZ is in charge of the little things, although I made the basic functionality of the site, ClounZ extended it further.
 
-Advay-c (he's new we'll see).
+Advay-c - incharge of code optimization and bug fixes along with prioritizing Git & GitHub utilization 
 
 ## How to contribute
 You can contribute to Chatify by forking the project, creating a new issue when a bug has arised, or by donating to us via [Patreon](https://patreon.com).
