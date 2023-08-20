@@ -108,6 +108,7 @@ async function ValidateEmail(input) {
         });
         const dataa = await a.json();
         socket.send(dataa);
+        window.location.href = 'main.html'; // send user to main page
         return;
     };
 });
