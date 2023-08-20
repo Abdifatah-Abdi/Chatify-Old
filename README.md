@@ -6,13 +6,13 @@ That aside, we aren't expecting people to use Chatify over any other application
 You may also see us using professional language on Chatify. This is intended. Although it isn't ideal to use Chatify, we still want to make a site that looks like it is.
 
 ## Authors of Chatify
-Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [ClounZ](https://github.com/ClounZ), and [Advay-c](https://github.com/advay-c).
+Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
 
 I, Abdifatah-Abdi, am in charge of the backend of Chatify. This includes monitoring and using the DataBase, sockets, and basically the backend.
 
 ClounZ is in charge of the little things, although I made the basic functionality of the site, ClounZ extended it further.
 
-Advay-c (he's new we'll see).
+Advay-c - incharge of code optimization and bug fixes along with prioritizing Git & GitHub utilization 
 
 ## How to contribute
 You can contribute to Chatify by forking the project, creating a new issue when a bug has arised, or by donating to us via [Patreon](https://patreon.com).
