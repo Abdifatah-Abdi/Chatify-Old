@@ -29,6 +29,18 @@
     border-radius: 0.5em 0.5em 0em 0em;
 }
 
+#welcome {
+    height: 10%;
+    width: 100%;
+    background-color: whitesmoke;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 #container-2 {
     height: 60%;
     width: 100%;
