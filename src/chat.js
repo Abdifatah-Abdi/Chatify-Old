@@ -1,4 +1,6 @@
+// import { File } from 'https://cdn.skypack.dev/megajs@1'
 import { getCookie } from "./methods.js";
+// import { storage } from './env.js';
 
 const message = document.getElementsByClassName("message");
 
@@ -29,6 +31,36 @@ const contextMenuDelete = document.getElementById("context-menu-delete");
 const uploadMediaButton = document.getElementById("send-media-button-container");
 const sendMediaSection = document.getElementById("send-media-section");
 const sendMediaGifs = document.getElementById("send-media-gifs");
+const sendMediaPicture = document.getElementById("send-media-picture");
+const sendMediaAudio = document.getElementById("send-media-audio");
+const sendMediaFile = document.getElementById("send-media-file");
+const sendMediaFileInput = document.getElementById("send-media-file-input");
+
+sendMediaHandler();
+function sendMediaHandler() {
+	sendMediaGifs.addEventListener("mouseup", () => {
+
+	});
+
+	sendMediaAudio.addEventListener("mouseup", () => {
+		console.log("hi");
+	});
+
+	sendMediaFileInput.addEventListener("change", async () => {
+		const endpoint = "upload_file.php";
+		const formData = new FormData();
+
+		console.log(sendMediaFileInput.files[0]);
+		formData.append("inpFile", sendMediaFileInput.files[0]);
+
+		fetch(endpoint, {
+			method: "post",
+			body: formData,
+		}).catch(console.error);
+	});
+};
+
+
 
 const userTimezoneOffset = new Date().getTimezoneOffset() * 60;
 const date = new Date()
@@ -81,10 +113,6 @@ socket.on("message", message => {
 	if (message.fields.group_id != activeChatNumber)
 		return;
 
-	// const messageElement = inboundMessage.cloneNode(true);
-	// messageElement.childNodes[3].childNodes[1].textContent = message.fields.message;
-	// messagesContainer.appendChild(messageElement);
-
 	const messageElement = inboundMessage.cloneNode(true);
 	messageElement.childNodes[1].childNodes[3].childNodes[1].textContent = message.fields.message;
 	messageElement.childNodes[3].textContent = `${formatTime(message.fields.time)}`;
@@ -101,7 +129,7 @@ window.addEventListener("load", async () => {
 	const groupsResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Groups", {
 		method: "GET",
 		headers: {
-			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			"Authorization": authorization,
 		},
 	});
 	const groupsData = await groupsResponse.json();
@@ -119,7 +147,7 @@ window.addEventListener("load", async () => {
 	const messageResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
 		method: "GET",
 		headers: {
-			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			"Authorization": authorization,
 		},
 	});
 	const messageData = await messageResponse.json();
@@ -158,7 +186,7 @@ sendMessageButton?.addEventListener("mouseup", async () => {
 	const response = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
 		method: "GET",
 		headers: {
-			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			"Authorization": authorization,
 		},
 	});
 	const data = await response.json();
@@ -174,7 +202,7 @@ sendMessageButton?.addEventListener("mouseup", async () => {
 	const a = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
 		method: "POST",
 		headers: {
-			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			"Authorization": authorization,
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
@@ -198,15 +226,21 @@ uploadMediaButton.addEventListener("mouseup", () => {
 		image.setAttribute("src", "./assets/images/icons/upload_selected.svg");
 		sendMediaSection.classList.add("active-menu");
 		sendMediaSection.classList.remove("hidden-menu");
+		console.log("1");
 	} else {
 		image.setAttribute("src", "./assets/images/icons/upload.svg");
 		sendMediaSection.classList.add("hidden-menu");
 		sendMediaSection.classList.remove("active-menu");
+		console.log("2");
 	};
 });
 
-
-
+// const uploadMediaButton = document.getElementById("send-media-button-container");
+// const sendMediaSection = document.getElementById("send-media-section");
+// const sendMediaGifs = document.getElementById("send-media-gifs");
+// const sendMediaPicture = document.getElementById("send-media-picture");
+// const sendMediaAudio = document.getElementById("send-media-picture");
+// const sendMediaFile = document.getElementById("send-media-file");
 let contextMenuOpened = false;
 function onMessageLoad() {
 	[...message].forEach(element => {
@@ -243,21 +277,22 @@ document.addEventListener("contextmenu", event => {
 	contextMenuOpened = true;
 });
 
-window.addEventListener("mousedown", () => {
-	const image = uploadMediaButton.childNodes[1];
+// window.addEventListener("mousedown", () => {
+// 	const image = uploadMediaButton.childNodes[1];
 
-	document.querySelectorAll(".active-menu").forEach(element => {
-		element.classList.add("hidden-menu");
-		element.classList.remove("active-menu");
-		image.setAttribute("src", "./assets/images/icons/upload.svg");
-	});
-});
+// 	document.querySelectorAll(".active-menu").forEach(element => {
+// 		element.classList.add("hidden-menu");
+// 		element.classList.remove("active-menu");
+// 		image.setAttribute("src", "./assets/images/icons/upload.svg");
+// 	});
+// });
 
 async function messageContextMenuHandler(messageId, messageGroupId, messageUserId, messageContent) {
 	contextMenuReport.classList.add(messageUserId == userId ? "hidden" : "active");
 	contextMenuDelete.classList.add(messageUserId != userId ? "hidden" : "active");
 
 	contextMenuCopyText.addEventListener("mouseup", () => {
+		console.log("hi");
 		navigator.clipboard.writeText(messageContent);
 	});
 
@@ -282,7 +317,7 @@ async function contextMenuDeleteRecord(messageId) {
 	const messageResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
 		method: "GET",
 		headers: {
-			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			"Authorization": authorization,
 		},
 	});
 	const data = await messageResponse.json();
@@ -297,7 +332,7 @@ async function contextMenuDeleteRecord(messageId) {
 		await fetch(`https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages/${recordId}`, {
 			method: "DELETE",
 			headers: {
-				"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+				"Authorization": authorization,
 			},
 		});
 	};
