@@ -18,3 +18,7 @@ if (navigator.userAgent.indexOf("Windows") != -1) {
 } else {
     downloadPlatformSpan.textContent = `Huh?`;
 };
+
+document.addEventListener('login', function() {
+	console.log("Logged in!");
+})
