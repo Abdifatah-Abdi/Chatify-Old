@@ -377,6 +377,11 @@ nav {
     display: inline;
 }
 
+.label-for-send-media-file {
+    width: 100%;
+    height: 100%;
+}
+
 .context-menu-message {
     position: absolute;
     left: 50%;
