@@ -69,11 +69,13 @@
 #remember-box {
     position: absolute;
     border-radius: 75px;
-    font-size: 17px;
-    top: 349px; 
-    left: 320px; 
-    padding: 0 1em; 
+    font-size: 18px;
+    padding: 0 1em;
+    left: 50%;
+    top: 54.5%;
+    transform: translate(-50%, -50%);
 }
+
 
 
 .email,
