@@ -8,7 +8,7 @@ You may also see us using professional language on Chatify. This is intended. Al
 ## EOL of Chatify
 ### Well I guess you can't call it EOL but...
 The site, Chatify, at first seemed like a great way to build skills for us with web development. However, not all things come free, like servers.\
-The #1 thing that prevented us from finishing this project was servers. Every single server provider we tried to find was, either paid or free... but you've gotta give them your billing info. This, obviously wasn't ideal, especially for high schoolers like us. Now, we could scour the internet for a free server provider (and trust us, we did), but they never were the right fit. Maybe, when we grow up, we'd complete this project, but for now, we gotta put this project down.
+The #1 thing that prevented us from finishing this project was servers. Every single server provider we tried to find was, either paid or free... but you've gotta give them your billing info. This, obviously wasn't ideal, especially for high schoolers like us. Now, we could scour the internet for a free server provider (and trust us, we did), but they never were the right fit. 
 
 ## Authors of Chatify
 Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
