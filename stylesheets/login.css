@@ -2,27 +2,25 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; /* Set a background color for the body */
 }
 
 .login-container {
     width: 53vw;
-    padding: 1em;
+    padding-top: 2em;
     background-color: #252b33;
     border-radius: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center the content horizontally */
+    align-items: center;
 }
 
 #container-1 {
     height: 10%;
     width: 100%;
     color: white;
-    text-shadow: 0px 0px 4px black;;
+    text-shadow: 0px 0px 4px black;
     text-align: center;
     font-size: 4em;
     font-weight: bold;
@@ -31,7 +29,7 @@ body {
 }
 
 #continue {
-    margin: 0px, 1px, 1px, 0px;
+    margin: 0px 1px 1px 0px;
     height: 10%;
     width: 100%;
     color: #8b8e92;
@@ -45,17 +43,17 @@ body {
     height: 60%;
     width: 60%;
     margin: auto;
-    margin-bottom: 170px;
+    margin-bottom: 20px; 
     display: flex;
-    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-#container-2>input,
-#container-2>div {
+
+#container-2 > input,
+#container-2 > div {
     display: flex;
     max-width: 350px;
     align-items: center;
@@ -70,20 +68,10 @@ body {
     background-color: #2d3641;
 }
 
-#container-2>input[type='button']:hover {
+#container-2 > input[type='button']:hover {
     cursor: pointer;
-    color: white; 
+    color: white;
     border: 1px solid black;
-}
-
-#remember-box {
-    position: absolute;
-    border-radius: 75px;
-    font-size: 18px;
-    padding: 0 1em;
-    left: 50%;
-    top: 54.5%;
-    transform: translate(-50%, -50%);
 }
 
 .email,
@@ -101,10 +89,7 @@ body {
 #sign-in {
     height: 54px;
     width: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 auto;
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 75px;
@@ -112,17 +97,16 @@ body {
     font-weight: bold;
     color: white;
     font-size: 17px;
-    background-color: #2d3641;
-    margin-top: 90px;
+    background-color: #384454;
+    margin-top: 20px; 
 }
 
-
 #container-3 {
+    margin-top: 1.3em;
     height: 30%;
     width: 100%;
     padding: 0.5em;
     border-radius: 0em 0em 0.5em 0.5em;
-
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -139,35 +123,32 @@ body {
     text-align: center;
 }
 
-#login-with-container>p {
+#login-with-container > p {
+    font-family: Valera;
+    font-weight: bold;
+    font-size: 1.1em;
     height: 30%;
     width: 100%;
-    font-size: 1em;
     display: inline-block;
     padding-bottom: 10px;
     overflow: hidden;
-    position: relative;
-    color: black;
+    margin-bottom: 0.7em;
 }
 
-#login-with-container>p::before {
+#login-with-container > p::before {
     content: "";
-    position: absolute;
-    bottom: 0;
-    left: 25%;
-    width: 50%;
+    width: 100%;
     height: 2px;
     background-color: orangered;
-    /*the incomplete border*/
 }
 
-#login-with-container>div {
+#login-with-container > div {
     height: 60%;
     width: 100%;
     display: flex;
 }
 
-#login-with-container>div>a {
+#login-with-container > div > a {
     width: 50%;
     height: 100%;
     display: flex;
@@ -180,24 +161,31 @@ body {
     width: 43px;
 }
 
-#login-with-container>div>a:hover {
+
+#login-with-container > div > a:hover {
     cursor: pointer;
 }
 
-#login-with-container>div>a>img {
+#login-with-container > div > a > img {
     height: 2em;
     aspect-ratio: 1 / 1;
     margin-right: 5%;
 }
 
 .footer-text {
-    color: black;
-    margin-top: auto;
-    margin-bottom: 0.2em;
-    font-size: 0.8em;
+    font-family: Valera;
+    color: white;
+    margin-top: 2em;
+    font-size: 1em;
+    text-decoration: underline;
+    display: inline-block;
 }
 
-.footer-text>a {
-    color: black;
+.password {
+    font-family: Valera;
+    color: white;
+    margin-bottom: 2em;
+    font-size: 1em;
     text-decoration: underline;
+    display: inline-block;
 }
