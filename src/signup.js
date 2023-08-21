@@ -7,6 +7,7 @@ const confirm_password = document.getElementById('confirm-password');
 const signup_button = document.getElementById('signup-button');
 const input_forms = document.getElementsByTagName('input');
 const top_text = document.getElementById("top-text");
+const login_event = document.createElement("login");
 
 const socket = io("http://localhost:8080");
 
@@ -112,3 +113,7 @@ async function ValidateEmail(input) {
         return;
     };
 });
+
+document.addEventListener("login", function() {
+  console.log("hi");
+})
