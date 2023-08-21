@@ -44,19 +44,23 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
 }
 
 #container-2>input,
 #container-2>div {
-    height: 15%;
-    width: 80%;
-    margin-top: 2%;
-    margin-left: auto;
-    margin-right: auto;
-    color: black;
-    padding-left: 1em;
-    padding-right: 1em;
+  display: flex;
+  max-width: 350px;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  width: 350px;
+  margin-top: 1.3%;
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 75px;
+  border: none;
+  background-color: #2d3641;
 }
 
 #container-2>input[type='button']:hover {
