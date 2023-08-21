@@ -42,6 +42,7 @@
     margin: auto;
     margin-bottom: 170px;
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -50,6 +51,9 @@
 
 #container-2>input,
 #container-2>div {
+    display: flex;
+    max-width: 350px;
+    align-items: center;
     height: 54px;
     width: 350px;
     margin-top: 2%;
@@ -75,8 +79,6 @@
     top: 54.5%;
     transform: translate(-50%, -50%);
 }
-
-
 
 .email,
 .pass {
