@@ -79,7 +79,12 @@ a {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+.hidden-login-container {
+    display: none !important;
+    opacity: 0;
 }
 
 .active {

@@ -14,40 +14,96 @@
     <link rel="stylesheet" href="/stylesheets/defined-styles.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/font-faces.css">
-
-    <!-- External Stylesheets -->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="login-container">
-        <div id="container-1">Sign In</div>
-        <div id="continue">To continue to Chatify</div>
-
-        <div id="container-2">
-            <input type="email" name="" class="email" placeholder="Email">
-            <input type="password" name="" class="pass" placeholder="Password">
-        </div>
-        <div id="remember-box">
-            <input type="checkbox" name="remember-box">
-            Remember me
-        </div>
-        <div><input id="sign-in" type="button" value="Sign in"></div>
-        <div id="container-3">
-            <div id="login-with-container">
-                <p>OR Sign in with</p>
-                <div id="logos">
-                    <a href="https://google.com/" target="none"><img src="/assets/images/social_media_logos/google.svg"
-                            alt="Google"></a>
-                    <a href="https://facebook.com/" target="none"><img src="/assets/images/social_media_logos/facebook.svg"
-                            alt="Facebook"></a>
-                    <a href="https://github.com/" target="none"><img src="/assets/images/social_media_logos/github-black.png"
-                            alt="Github"></a>
-                </div>
+    <div class="container">
+        <div class="sign-in-sign-up">
+            <div class="start active-selector" id="sign-in-selector">
+                <p>Sign in</p>
             </div>
-            <div>
-              <a class="footer-text" href="/signup.html">Don't have an account? &centerdot;</a>
-              <a class="password" href=""> Forgot Email/password?</a>
+            <div class="end" id="sign-up-selector">
+                <p>Sign up</p>
+            </div>
+        </div>
+        <div class="login-containers">
+            <div id="sign-in-container">
+                <h1>Sign In</h1>
+                <h2>To continue to Chatify</h2>
+                <div class="email-and-password">
+                    <input type="email" name="email-input" class="email" placeholder="Email or Username">
+                    <input type="password" name="password-input" class="password" placeholder="Password">
+                </div>
+                <div id="remember-box">
+                    <input id="remember-me" type="checkbox" name="remember-box">
+                    <label for="remember-me">Remember me</label>
+                </div>
+                <div>
+                    <input class="sign-button" type="button" value="Sign In">
+                </div>
+                <div class="continue-with-container">
+                    <p>OR Sign in with</p>
+                    <div id="logos">
+                        <a href="https://google.com/" class="social-media-container" target="none">
+                            <img src="/assets/images/social_media_logos/google.svg" class="social-media-image"
+                                alt="Google">
+                            <p>Google</p>
+                        </a>
+                        <a href="https://facebook.com/" class="social-media-container" target="none">
+                            <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image"
+                                alt="Facebook">
+                            <p>Facebook</p>
+                        </a>
+                        <a href="https://github.com/" class="social-media-container end" target="none" class="end">
+                            <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
+                                alt="GitHub">
+                            <p>GitHub</p>
+                        </a>
+                    </div>
+                </div>
+                <footer>
+                    <a class="footer-text animated-underline" href="/signup.html">
+                        <p>Don't have an account?</p>
+                    </a>
+                    &centerdot;
+                    <a class="forgot-password animated-underline" href="">
+                        <p>Forgot Email/password?</p>
+                    </a>
+                </footer>
+            </div>
+            <div id="sign-up-container" class="hidden-login-container">
+                <h1>Sign Up</h1>
+                <h2>Create a free account to use Chatify's services!</h2>
+                <div class="email-and-password">
+                    <input type="text" name="create-username-input" class="email" placeholder="Username">
+                    <input type="email" name="create-email-input" class="email" placeholder="Email">
+                    <input type="password" name="create-password-input" class="password" placeholder="Password">
+                    <input type="password" name="create-confirm-password-input" class="password"
+                        placeholder="Confirm Password">
+                </div>
+                <div>
+                    <input class="sign-button" type="button" value="Sign Up">
+                </div>
+                <div class="continue-with-container">
+                    <p>OR Sign up with</p>
+                    <div id="logos">
+                        <a href="https://google.com/" class="social-media-container" target="none">
+                            <img src="/assets/images/social_media_logos/google.svg" class="social-media-image"
+                                alt="Google">
+                            <p>Google</p>
+                        </a>
+                        <a href="https://facebook.com/" class="social-media-container" target="none">
+                            <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image"
+                                alt="Facebook">
+                            <p>Facebook</p>
+                        </a>
+                        <a href="https://github.com/" class="social-media-container end" target="none" class="end">
+                            <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
+                                alt="GitHub">
+                            <p>GitHub</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -3,183 +3,242 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+
+    overflow: visible;
 }
 
-.login-container {
-    width: 53vw;
-    height: 42.5vw;
-    padding-top: 2em;
-    background-color: #252b33;
-    border-radius: 1em;
+.container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    border-radius: 1em;
+    width: 50%;
+    height: 90%;
+
+    background-color: #252b33;
 }
 
-#container-1 {
-    height: 10%;
-    width: 100%;
-    color: white;
-    text-shadow: 0px 0px 4px black;
+#sign-in-container,
+#sign-up-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sign-in-sign-up {
+    display: flex;
+    flex-direction: row;
+
+    width: 40%;
+    margin-bottom: 2em;
+    border-radius: 5em;
+    height: 2.5em;
+}
+
+.sign-in-sign-up div {
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    margin-right: 1em;
+    padding: 0 2em 0 2em;
+    border-radius: 5em;
+
+    font-size: 0.95em;
+}
+
+.sign-in-sign-up div p {
     text-align: center;
+    width: 100%;
+}
+
+.sign-in-sign-up>.active-selector {
+    background-color: #304257;
+    transition: background-color 250ms;
+}
+
+.sign-in-sign-up>.active-selector:hover {
+    background-color: #374d66;
+}
+
+.sign-in-sign-up div:not(.active-selector) {
+    background-color: #2d3641;
+    transition: background-color 250ms;
+}
+
+.sign-in-sign-up div:not(.active-selector):hover {
+    background-color: #3d4958;
+}
+
+.login-containers {
+    width: 100%;
+    height: 80%;
+}
+
+#sign-in-container,
+#sign-up-container {
+    transition: opacity 250ms;
+}
+
+h1 {
     font-size: 4em;
     font-weight: bold;
-    margin-bottom: 11px;
-    margin-top: 60px;
+
+    /* margin-bottom: 0.25em; */
 }
 
-#continue {
-    margin: 0px 1px 1px 0px;
-    height: 10%;
-    width: 100%;
-    color: #8b8e92;
-    text-align: center;
+h2 {
     font-size: 1.1em;
-    font-weight: bold;
-    margin-bottom: 0px;
+    font-weight: 500;
+
+    opacity: 0.6;
 }
 
-#container-2 {
-    height: 60%;
-    width: 60%;
-    margin: auto;
-    margin-bottom: 20px; 
+.email-and-password {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+
+    margin-bottom: 1em;
 }
 
 
-#container-2 > input,
-#container-2 > div {
+.email-and-password>input,
+.email-and-password>div {
     display: flex;
-    max-width: 350px;
     align-items: center;
     justify-content: center;
-    height: 54px;
-    width: 350px;
-    margin-top: 2%;
-    padding-left: 1em;
-    padding-right: 1em;
-    border-radius: 75px;
+
+    width: 20em;
+    height: 3.5em;
+
+    margin-top: 0.5em;
+    padding: 1em;
+
+    font-weight: 400;
+    border-radius: 5em;
     border: none;
+
     background-color: #2d3641;
 }
 
-#container-2 > input[type='button']:hover {
+.email-and-password>input[type='button']:hover {
     cursor: pointer;
     color: white;
     border: 1px solid black;
 }
 
 .email,
-.pass {
+.password {
     color: white;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 1.05em;
 }
 
 .email::placeholder,
-.pass::placeholder {
+.password::placeholder {
     color: white;
+    text-decoration: none;
 }
 
-#sign-in {
-    height: 54px;
-    width: 300px;
-    margin: 0 auto;
-    padding-left: 1em;
-    padding-right: 1em;
-    border-radius: 75px;
+.sign-button {
+    cursor: pointer;
+
+    height: 3.5em;
+    width: 20em;
+    margin-top: 1em;
+
+    border-radius: 5em;
     border: none;
-    font-weight: bold;
-    color: white;
-    font-size: 17px;
-    background-color: #384454;
-    margin-top: 20px; 
+
+    font-weight: 500;
+    font-size: 1.05em;
+
+    background-color: #304257;
+    transition: background-color 250ms;
 }
 
-#container-3 {
-    margin-top: 1.3em;
-    height: 30%;
-    width: 100%;
-    padding: 0.5em;
-    border-radius: 0em 0em 0.5em 0.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+.sign-button:hover {
+    background-color: #374d66;
 }
 
-#login-with-container {
+#logos {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 60%;
-    width: 100%;
+}
+
+.continue-with-container {
+    font-weight: 500;
+    font-size: 1.1em;
+
+    margin-top: 1em;
+    margin-bottom: 0.7em;
     text-align: center;
 }
 
-#login-with-container > p {
-    font-family: Valera;
-    font-weight: bold;
-    font-size: 1.1em;
-    height: 30%;
-    width: 100%;
-    display: inline-block;
-    padding-bottom: 10px;
-    overflow: hidden;
+.continue-with-container p {
     margin-bottom: 0.7em;
 }
 
-#login-with-container > div {
-    height: 100%;
-    width: 23%;
-    display: flex;
-}
-
-#login-with-container > div > a {
-    width: 50%;
+#logos {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    flex-direction: row;
+
+    height: 100%;
 }
 
-
-#login-with-container > div > a:hover {
+.social-media-container {
     cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-right: 0.75em;
+    border-radius: 0.5em;
+}
+
+.social-media-container:hover {
     background-color: #2d3641;
-    border-radius: 0.5em;
 }
 
-#login-with-container > div > a > img {
+.social-media-image {
+    padding: 0.95em;
+
+    height: 3.5em;
+
     filter: invert(100%);
-    height: 3em;
-    border-style: solid;
+
+    border: 0;
     border-color: #d0ccbc;
-    border-radius: 0.5em;
     background-color: #d0ccbc;
+
+    border-radius: 0.5em;
 }
 
-.footer-text {
-    font-family: Valera;
-    color: white;
-    margin-top: 2em;
-    font-size: 1em;
-    text-decoration: underline;
-    display: inline-block;
+.social-media-container p {
+    margin-top: 0.3em;
+    font-size: 0.75em;
 }
 
-.password {
-    font-family: Valera;
-    color: white;
-    margin-bottom: 2em;
+footer {
+    margin-top: 1em;
+}
+
+.footer-text,
+.forgot-password {
     font-size: 1em;
-    text-decoration: underline;
     display: inline-block;
 }

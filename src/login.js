@@ -1,14 +1,21 @@
-const idOne = document.getElementById("id-1");
-const idTwo = document.getElementById("id-2");
+const signInContainer = document.getElementById("sign-in-container");
+const signUpContainer = document.getElementById("sign-up-container");
 
-idOne.addEventListener("mouseup", () => {
-    document.cookie = "id=1; expires=Tue, 19 Jan 2038 03:14:07 UTC; path=/";
-    console.log(document.cookie);
+const signInSelector = document.getElementById("sign-in-selector");
+const signUpSelector = document.getElementById("sign-up-selector");
+
+signInSelector.addEventListener("mouseup", () => {
+    signInSelector.classList.add("active-selector");
+    signUpSelector.classList.remove("active-selector");
+
+    signInContainer.classList.remove("hidden-login-container");
+    signUpContainer.classList.add("hidden-login-container");
 });
 
-idTwo.addEventListener("mouseup", () => {
-    document.cookie = "id=2; expires=Tue, 19 Jan 2038 03:14:07 UTC; path=/";
-    console.log(document.cookie);
-});
+signUpSelector.addEventListener("mouseup", () => {
+    signInSelector.classList.remove("active-selector");
+    signUpSelector.classList.add("active-selector");
 
-console.log(document.cookie, "\n Abdi Agent");
+    signInContainer.classList.add("hidden-login-container");
+    signUpContainer.classList.remove("hidden-login-container");
+});
