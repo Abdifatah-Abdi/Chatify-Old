@@ -33,8 +33,7 @@ body {
     flex-direction: row;
 
     width: 40%;
-    margin-bottom: 2em;
-    border-radius: 5em;
+    margin-bottom: 1em;
     height: 2.5em;
 }
 
@@ -46,9 +45,7 @@ body {
     align-items: center;
 
     width: 50%;
-    margin-right: 1em;
     padding: 0 2em 0 2em;
-    border-radius: 5em;
 
     font-size: 0.95em;
 }
@@ -79,22 +76,25 @@ body {
 .login-containers {
     width: 100%;
     height: 80%;
+}   
+
+#sign-in-selector {
+    border-radius: 1em 0em 0em 1em;
 }
 
-#sign-in-container,
-#sign-up-container {
-    transition: opacity 250ms;
+#sign-up-selector {
+    border-radius: 0em 1em 1em 0em;
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 2.5em;
     font-weight: bold;
 
     /* margin-bottom: 0.25em; */
 }
 
 h2 {
-    font-size: 1.1em;
+    font-size: 0.8em;
     font-weight: 500;
 
     opacity: 0.6;
@@ -117,13 +117,13 @@ h2 {
     justify-content: center;
 
     width: 20em;
-    height: 3.5em;
+    height: 2.7em;
 
     margin-top: 0.5em;
     padding: 1em;
 
     font-weight: 400;
-    border-radius: 5em;
+    border-radius: 0.5em;
     border: none;
 
     background-color: #2d3641;
@@ -139,7 +139,7 @@ h2 {
 .password {
     color: white;
     font-weight: bold;
-    font-size: 1.05em;
+    font-size: 1em;
 }
 
 .email::placeholder,
@@ -151,15 +151,15 @@ h2 {
 .sign-button {
     cursor: pointer;
 
-    height: 3.5em;
+    height: 2.5em;
     width: 20em;
     margin-top: 1em;
 
-    border-radius: 5em;
+    border-radius: 0.5em;
     border: none;
 
     font-weight: 500;
-    font-size: 1.05em;
+    font-size: 1em;
 
     background-color: #304257;
     transition: background-color 250ms;
@@ -178,7 +178,7 @@ h2 {
 
 .continue-with-container {
     font-weight: 500;
-    font-size: 1.1em;
+    font-size: 1em;
 
     margin-top: 1em;
     margin-bottom: 0.7em;
@@ -186,7 +186,7 @@ h2 {
 }
 
 .continue-with-container p {
-    margin-bottom: 0.7em;
+    margin-bottom: 0.5em;
 }
 
 #logos {
