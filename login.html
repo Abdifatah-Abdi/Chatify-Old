@@ -7,6 +7,7 @@
     <title>Chatify - Login</title>
 
     <!-- Scripts -->
+    <script src="./src/media/env/env.js" type="text/javascript"></script>
     <script src="./src/login.js" defer></script>
 
     <!-- Stylesheets -->
@@ -39,7 +40,7 @@
                     <label for="remember-me">Remember me</label>
                 </div>
                 <div>
-                    <input class="sign-button" type="button" value="Sign In">
+                    <input class="sign-button" id="sign-in-button" type="button" value="Sign In">
                 </div>
                 <div class="continue-with-container">
                     <p>OR Sign in with</p>
@@ -75,14 +76,18 @@
                 <h1>Sign Up</h1>
                 <h2>Create a free account to use Chatify's services!</h2>
                 <div class="email-and-password">
-                    <input type="text" name="create-username-input" class="email" placeholder="Username">
-                    <input type="email" name="create-email-input" class="email" placeholder="Email">
-                    <input type="password" name="create-password-input" class="password" placeholder="Password">
-                    <input type="password" name="create-confirm-password-input" class="password"
-                        placeholder="Confirm Password">
+                    <input type="text" name="create-username-input" class="email" id="create-username-input"
+                        placeholder="Username">
+                    <input type="text" name="create-email-input" class="email" id="create-email-input"
+                        placeholder="Email"> <!-- TODO: Replace the type "text" to "email" -->
+                    <input type="text" name="create-password-input" class="password" id="create-password-input"
+                        placeholder="Password"> <!-- TODO: Replace the type "text" to "password" -->
+                    <input type="text" name="create-confirm-password-input" class="password"
+                        id="create-confirm-password-input" placeholder="Confirm Password">
+                    <!-- TODO: Replace the type "text" to "password" -->
                 </div>
                 <div>
-                    <input class="sign-button" type="button" value="Sign Up">
+                    <input class="sign-button" id="sign-up-button" type="button" value="Sign Up">
                 </div>
                 <div class="continue-with-container">
                     <p>OR Sign up with</p>

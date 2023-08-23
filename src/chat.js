@@ -1,6 +1,5 @@
 // import { File } from 'https://cdn.skypack.dev/megajs@1'
 import { getCookie } from "./methods.js";
-// import { storage } from './env.js';
 
 const message = document.getElementsByClassName("message");
 
