@@ -23,6 +23,7 @@ const subText = document.getElementsByTagName('h2') // [0] is sign in h2, [1] is
 async function ErrorEffect(inputForm, errorText) {
     subText[1].style.color = '#ff5f36';
     subText[1].textContent = '*' + errorText;
+    subText[1].style.opacity = 1;
 
     if (inputForm) {
         inputForm.classList.add('error');
@@ -58,6 +59,7 @@ signUpSelector.addEventListener("mouseup", () => {
 
     subText[1].style.color = 'white';
     subText[1].textContent = "Create a free account to use Chatify's services!";
+    subText[1].style.opacity = 0.6;
 });
 
 signUpButton.addEventListener("click", async () => {
@@ -120,7 +122,11 @@ signUpButton.addEventListener("click", async () => {
     });
     const parsedResponse = await response.json();
 
-    alert(`User created. Username: ${usernameInput.value}. Password: ${passwordInput.value}. User Id: ${maxUserId}.`);
+    subText[1].style.color = 'lime';
+    subText[1].textContent = 'Account created!';
+    subText[1].style.opacity = 1;
+    await delay(1000);
+    window.location.href = 'main.html';
 });
 
 // Sign in section
@@ -133,15 +139,16 @@ async function getMaxUserId() {
         }
     });
     const parsedData = await data.json();
+    const records = parsedData.records;
 
     let max = 0;
-    for (let index = 0; index < parsedData.records.length; index++) {
-        const record = parsedData.records[index];
+    for (const record of records) {
+        const user_id = record.fields.user_id;
 
-        if (max < record.fields.message_id)
-            max = record.fields.message_id;
-    };
+        if (user_id > max) {
+            max = user_id;
+        }
+    }
 
-    // console.log(max++);
-    return max++;
+    return ++max;
 };
