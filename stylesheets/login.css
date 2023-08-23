@@ -242,3 +242,23 @@ footer {
     font-size: 1em;
     display: inline-block;
 }
+
+@keyframes shake {
+    0% {
+      margin-left: auto;
+    }
+    25% {
+      margin-left: 5%;
+    }
+    75% {
+      margin-left: -5%;
+    }
+    100% {
+      margin-left: auto;
+    }
+  }
+
+  .error {
+    border: 0.1em solid red !important;
+    animation: shake 0.2s ease-in-out;
+  }
