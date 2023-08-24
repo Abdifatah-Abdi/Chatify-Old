@@ -16,9 +16,6 @@ const activeChat = document.getElementById("active-chat");
 let activeChatNumber = Number(activeChat.getAttribute("data-group-id"));
 
 const userId = parseInt(getCookie("id"));
-if (!getCookie('lol')) {
-	console.log("doesn't exist");
-}
 
 // Context Menu Variables
 const contextMenu = document.querySelector('.context-menu-message');
