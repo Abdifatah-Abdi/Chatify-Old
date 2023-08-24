@@ -14,6 +14,11 @@ export function getCookie(cookie_name) {
 	return "";
 };
 
+export function deleteCookie(cookie_name) {
+	document.cookie = `${cookie_name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+	location.reload();
+}
+
 export const delay = (ms) => {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }

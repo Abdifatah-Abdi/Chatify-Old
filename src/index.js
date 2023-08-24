@@ -1,5 +1,8 @@
+import { deleteCookie, getCookie } from "./methods.js";
+
 const downloadPlatformSpan = document.getElementById("download-platform");
 const toTopButton = document.getElementById("to-top-button");
+const signButton = document.getElementById('login-button');
 
 toTopButton.addEventListener("mouseup", () => {
     window.scrollTo({ top: 0, behavior: 'smooth', })
@@ -19,6 +22,12 @@ if (navigator.userAgent.indexOf("Windows") != -1) {
     downloadPlatformSpan.textContent = `Huh?`;
 };
 
-document.addEventListener('login', function() {
-	console.log("Logged in!");
+console.log('Cookie: ', getCookie('id'));
+if (getCookie('id')) {
+    signButton.querySelector('p').textContent = 'Sign Out'
+    signButton.setAttribute('href', '#')
+}
+
+signButton.addEventListener('mouseup', e => {
+    deleteCookie('id');
 })
