@@ -245,20 +245,33 @@ footer {
 
 @keyframes shake {
     0% {
-      margin-left: auto;
+        position: relative;
+        left: 7px;
     }
-    25% {
-      margin-left: 5%;
-    }
-    75% {
-      margin-left: -5%;
-    }
-    100% {
-      margin-left: auto;
-    }
-  }
 
-  .error {
+    25% {
+        left: 3.5px;
+    }
+
+    50% {
+        left: -7px;
+    }
+
+    75% {
+        left: -3.5px;
+    }
+
+    100% {
+        position: static;
+    }
+}
+
+
+.error {
     border: 0.1em solid red !important;
-    animation: shake 0.2s ease-in-out;
-  }
+
+    animation-name: shake;
+    animation-duration: 125ms;
+    animation-iteration-count: 2;
+    animation-timing-function: ease-in-out;
+}

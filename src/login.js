@@ -25,16 +25,13 @@ async function ErrorEffect(inputForm, errorText) {
     subText[1].textContent = '*' + errorText;
     subText[1].style.opacity = 1;
 
-    if (inputForm) {
+    if (inputForm)
         inputForm.classList.add('error');
-        await delay(400)
-        inputForm.classList.remove('error');
-    }
-}
+};
 
 async function ValidateEmail(inputForm) {
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA   -Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  
+
     if (inputForm.value.match(validRegex)) return true;
     ErrorEffect(inputForm, "Invalid email format");
     return false;
@@ -76,18 +73,18 @@ signUpButton.addEventListener("click", async () => {
         const record = parsedData.records[index];
 
         if (!usernameInput.value || !emailInput.value || !passwordInput.value || !confirmPasswordInput.value) {
-            ErrorEffect(null, 'Bruh, you have to fill in all forms');
+            ErrorEffect(usernameInput, 'Bruh, you have to fill in all forms');
             return;
-        }            
+        }
 
         //check if username already exists
         if (record.fields.username == usernameInput.value) {
             ErrorEffect(usernameInput, "Nahh bruhh you ain't original my boy 💀💀💀☠️☠️")
             return;
         }
-        
+
         //check if email format is accpeted (ex. email@gmail.com)
-        if (!ValidateEmail(emailInput)) {return;}
+        if (!ValidateEmail(emailInput)) { return; }
 
         //check if email already exists
         if (record.fields.email == emailInput.value) {
@@ -145,10 +142,9 @@ async function getMaxUserId() {
     for (const record of records) {
         const user_id = record.fields.user_id;
 
-        if (user_id > max) {
+        if (user_id > max)
             max = user_id;
-        }
-    }
+    };
 
     return ++max;
 };
