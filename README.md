@@ -26,7 +26,6 @@ Chatify is unique because, unlike other platforms, we don't collect and sell use
 Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CSS. Messages, Users, and Groups are stored in a database (for the time being, [Airtable](https://airtable.com)), and [Socket.io](https://socket.io/), used to send, and update messages in real-time.
 
 ## TODO List
-(almost all of them are impossible without a dedicated server)
 - For Chatting
     - [ ] Media Uploading
     - [ ] Pictures
