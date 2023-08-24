@@ -6,7 +6,6 @@ That aside, we aren't expecting people to use Chatify over any other application
 You may also see us using professional language on Chatify. This is intended. Although it isn't ideal to use Chatify, we still want to make a site that looks like it is.
 
 ## EOL of Chatify
-### Well I guess you can't call it EOL but...
 The site, Chatify, at first seemed like a great way to build skills for us with web development. However, not all things come free, like servers.\
 The #1 thing that prevented us from finishing this project was servers. Every single server provider we tried to find was, either paid or free... but you've gotta give them your billing info. This, obviously wasn't ideal, especially for high schoolers like us. Now, we could scour the internet for a free server provider (and trust us, we did), but they never were the right fit. 
 
