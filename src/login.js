@@ -32,12 +32,9 @@ async function ErrorEffect(inputForm, errorText, sub) {
     subText[sub].textContent = '*' + errorText;
     subText[sub].style.opacity = 1;
 
-    if (inputForm) {
+    if (inputForm)
         inputForm.classList.add('error');
-        await delay(400)
-        inputForm.classList.remove('error');
-    }
-}
+};
 
 /**
  * @param {form} inputForm - The input form you want to shake (optional).
@@ -52,7 +49,6 @@ async function SuccessEffect(SuccessText, sub) {
 
 async function ValidateEmail(inputForm) {
     var validRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
     if (inputForm.value.match(validRegex)) return true;
     return false;
 };
@@ -95,19 +91,21 @@ signUpButton.addEventListener("click", async () => {
         if (!usernameInput.value || !emailInput.value || !passwordInput.value || !confirmPasswordInput.value) {
             ErrorEffect(null, 'Bruh, you have to fill in all forms', 1);
             return;
-        }            
+        }
 
         //check if username already exists
         if (record.fields.username == usernameInput.value) {
             ErrorEffect(usernameInput, "Nahh bruhh you ain't original my boy 💀💀💀☠️☠️", 1)
             return;
         }
-        
+
         //check if email format is accpeted (ex. email@gmail.com)
         if (!(await ValidateEmail(emailInput))) {
             ErrorEffect(emailInput, "Invalid email format!", 1);
             return;
         }
+
+        if (!ValidateEmail(emailInput)) { return; }
 
         //check if email already exists
         if (record.fields.email == emailInput.value) {
@@ -166,10 +164,9 @@ async function getMaxUserId() {
     for (const record of records) {
         const user_id = record.fields.user_id;
 
-        if (user_id > max) {
+        if (user_id > max)
             max = user_id;
-        }
-    }
+    };
 
     return ++max;
 };
