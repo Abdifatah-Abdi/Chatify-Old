@@ -89,13 +89,13 @@ signUpButton.addEventListener("click", async () => {
         const record = parsedData.records[index];
 
         if (!usernameInput.value || !emailInput.value || !passwordInput.value || !confirmPasswordInput.value) {
-            ErrorEffect(null, 'Bruh, you have to fill in all forms', 1);
+            ErrorEffect(null, 'Fill in all the forms', 1);
             return;
         }
 
         //check if username already exists
         if (record.fields.username == usernameInput.value) {
-            ErrorEffect(usernameInput, "Nahh bruhh you ain't original my boy 💀💀💀☠️☠️", 1)
+            ErrorEffect(usernameInput, "This username is taken!", 1)
             return;
         }
 
