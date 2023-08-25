@@ -40,7 +40,7 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [ ] Username updating
     - [ ] Password updating
     - [ ] Profile pictures
-    - [ ] UI optimization
+    - [x] UI optimization
     - [ ] Increased responsiveness
     - [ ] Mobile support
     - [x] UI design changes
