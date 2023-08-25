@@ -38,6 +38,27 @@
     text-decoration: none;
     color: white;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+#profile-menu {
+    height: 10em;
+    width: 6em;
+    background-color: white;
+    border: 0.2em solid greenyellow;
+    position: absolute;
+    top: 4rem; 
+    right: 1em;
+    z-index: 3;
+}
+
+.navigation-bar-link > img {
+    height: 2.5em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    display: none;
+    margin-left: 0.5em;
 }
 
 .navigation-bar-link:not(#login-button) {
