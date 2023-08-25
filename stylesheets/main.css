@@ -240,6 +240,7 @@ footer {
 
 .github {
     object-fit: cover;
+    filter: invert(100%);
     width: 1.80em;
     margin-left: 0.75em;
     transition: filter 250ms;
