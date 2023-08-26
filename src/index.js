@@ -1,13 +1,17 @@
-import { deleteCookie, getCookie } from "./methods.js";
+import { deleteCookie, getCookie, authorization } from "./methods.js";
 
 const downloadPlatformSpan = document.getElementById("download-platform");
 const toTopButton = document.getElementById("to-top-button");
 const signButton = document.getElementById('login-button');
 const pfpIcon = document.getElementById("login-button").querySelector('img');
+const email_item = document.getElementById("email-item");
+const profile_menu = document.getElementById("profile-menu");
+
 
 const userInfo = {
     username: '',
     pfp: '',
+    email: '',
 };
 
 toTopButton.addEventListener("mouseup", () => {
@@ -34,7 +38,7 @@ if (getCookie('id')) {
     const userResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
 		method: "GET",
 		headers: {
-			"Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+			"Authorization": authorization,
 		},
 	});
 	const usersData = await userResponse.json();
@@ -45,16 +49,25 @@ if (getCookie('id')) {
 		if (record.fields.user_id == getCookie('id')) {
             userInfo.username = record.fields.username;
             userInfo.pfp = record.fields.pfp_link;
+            userInfo.email = record.fields.email;
         }
 	};
 
     signButton.querySelector('p').textContent = userInfo.username
     signButton.setAttribute('href', '#')
     pfpIcon.style.display = 'block'
-} else {
-    
+    email_item.textContent = userInfo.email;
 }
 
 signButton.addEventListener('mouseup', () => {
-    deleteCookie('id');
+    if (signButton.getAttribute('href') != '#') {
+        console.log(signButton.getAttribute('href'));
+    } else {
+        profile_menu.style.setProperty('display', profile_menu.style.display === 'none' ? 'block' : 'none');
+    }
 })
+
+console.log(profile_menu.lastElementChild);
+profile_menu.lastElementChild.addEventListener('mouseup', () => {
+    deleteCookie('id');
+});

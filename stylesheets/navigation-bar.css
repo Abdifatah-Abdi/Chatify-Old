@@ -43,14 +43,38 @@
 }
 
 #profile-menu {
-    height: 15em;
-    width: 10em;
-    background-color: white;
-    border: 0.2em solid greenyellow;
+    width: 12em;
+    aspect-ratio: 1 / 1.2;
+    background-color: #566576;
+    border: 0.2em solid #3d4752;
     position: absolute;
-    top: 4rem; 
+    top: 4em; 
     right: 1em;
     z-index: 3;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.profile-menu-item {
+    height: 2em;
+    width: 100%;
+    background-color: #566576;
+    padding: 1.2em;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5em;
+    font-size: 1em;
+}
+
+.profile-menu-item:not(#email-item):hover {
+    background-color: #3d4752;
+    cursor: pointer;
+}
+
+.profile-menu-item > img {
+    height: 1em;
+    aspect-ratio: 1 / 1;
+    margin-right: 0.2em;
 }
 
 .navigation-bar-link > img {
