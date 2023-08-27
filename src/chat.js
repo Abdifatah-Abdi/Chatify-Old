@@ -1,5 +1,5 @@
 // import { File } from 'https://cdn.skypack.dev/megajs@1'
-import { getCookie } from "./methods.js";
+import { getCookie, deleteCookie, authorization } from "./methods.js";
 
 const message = document.getElementsByClassName("message");
 
@@ -10,7 +10,8 @@ const inboundMessage = document.querySelector(".inbound-clone");
 const outboundMessage = document.querySelector(".outbound-clone");
 const messagesContainer = document.getElementById("messages-container");
 
-const username = document.getElementById("username");
+const username = document.getElementById("username").querySelectorAll('span');
+// [0] for username, [1] for id.
 
 const activeChat = document.getElementById("active-chat");
 let activeChatNumber = Number(activeChat.getAttribute("data-group-id"));
@@ -34,6 +35,17 @@ const sendMediaPicture = document.getElementById("send-media-picture");
 const sendMediaAudio = document.getElementById("send-media-audio");
 const sendMediaFile = document.getElementById("send-media-file");
 const sendMediaFileInput = document.getElementById("send-media-file-input");
+
+// signed up navbar
+const signButton = document.getElementById('login-button');
+const pfpIcon = document.getElementById("login-button").querySelector('img');
+const email_item = document.getElementById("email-item");
+const profile_menu = document.getElementById("profile-menu");
+const userInfo = {
+    username: '',
+    pfp: '',
+    email: '',
+};
 
 sendMediaHandler();
 function sendMediaHandler() {
@@ -121,7 +133,7 @@ socket.on("message", message => {
 });
 
 window.addEventListener("load", async () => {
-	username.textContent = `Id: ${userId}`;
+	username[1].textContent = `#${userId}`
 
 	const groupsResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Groups", {
 		method: "GET",
@@ -245,6 +257,7 @@ function onMessageLoad() {
 			event.preventDefault();
 			contextMenu.classList.remove("hidden-menu");
 			contextMenu.classList.add("active-menu");
+			
 
 			let x = event.clientX, y = event.clientY;
 			let width = contextMenu.offsetWidth, height = contextMenu.offsetHeight;
@@ -351,4 +364,47 @@ document.addEventListener("keydown", key => {
 			image.setAttribute("src", "./assets/images/icons/upload.svg");
 		});
 	};
+});
+
+if (getCookie('id')) {
+	sendMessageTextBox.disabled = false;
+
+    //get user information
+    const userResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
+		method: "GET",
+		headers: {
+			"Authorization": authorization,
+		},
+	});
+	const usersData = await userResponse.json();
+
+	for (let index = 0; index < usersData.records.length; index++) {
+		const record = usersData.records[index];
+
+		if (record.fields.user_id == getCookie('id')) {
+            userInfo.username = record.fields.username;
+            userInfo.pfp = record.fields.pfp_link;
+            userInfo.email = record.fields.email;
+        }
+	};
+
+    signButton.querySelector('p').textContent = userInfo.username
+    signButton.setAttribute('href', '#')
+    pfpIcon.style.display = 'block'
+    email_item.textContent = userInfo.email;
+
+	username[0].textContent = userInfo.username;
+} else {
+	sendMessageTextBox.disabled = true;
+	sendMessageTextBox.placeholder = "Sign in or create an account to access chatting!"
+}
+
+signButton.addEventListener('mouseup', () => {
+    if (signButton.getAttribute('href') == '#') {
+        profile_menu.style.setProperty('display', profile_menu.style.display === 'none' ? 'block' : 'none');
+	}
+});
+
+profile_menu.lastElementChild.addEventListener('mouseup', () => {
+    deleteCookie('id');
 });

@@ -450,3 +450,8 @@ nav {
 .hidden-context-menu-item {
     display: none;
 }
+
+#username span:last-child {
+    font-size: 1em;
+    color: lightgray;
+}

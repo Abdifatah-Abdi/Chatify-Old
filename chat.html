@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,6 +15,15 @@
     <title>Chatify - Chat</title>
 </head>
 <body>
+    <div id="profile-menu" style="display: none;">
+        <div class="profile-menu-item" id="email-item">email</div>
+        <hr>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">User Profile</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Inbox</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Site Settings</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Help</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Sign Out</div>
+    </div>
     <nav class="navigation-bar">
         <div>
             <a href="/main.html">
@@ -45,6 +53,7 @@
         </div>
         <a class="navigation-bar-link" id="login-button" href="./login.html">
             <p class="link-content">Sign in / Sign up</p>
+            <img src="assets\images\profiles\default_profile.png" alt="PFP">
         </a>
     </nav>
     <div id="container">
@@ -67,7 +76,7 @@
             <div class="bottom-left">
                 <div class="account-panel">
                     <img class="account-panel-pfp" src="./assets/images/profiles/default_profile.png" alt="pfp">
-                    <p id="username">Username 😀😀😀</p>
+                    <p id="username"><span>username</span> <span>id</span></p>
                 </div>
             </div>
             <div class="bottom-right">

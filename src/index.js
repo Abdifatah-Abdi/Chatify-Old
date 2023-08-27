@@ -67,7 +67,6 @@ signButton.addEventListener('mouseup', () => {
     }
 })
 
-console.log(profile_menu.lastElementChild);
 profile_menu.lastElementChild.addEventListener('mouseup', () => {
     deleteCookie('id');
 });

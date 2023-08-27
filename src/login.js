@@ -1,4 +1,4 @@
-import { delay, getCookie } from "./methods.js";
+import { delay, getCookie, authorization } from "./methods.js";
 
 // Elements in DOM
 const signInContainer = document.getElementById("sign-in-container");
@@ -79,7 +79,7 @@ signUpButton.addEventListener("click", async () => {
     const data = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "GET",
         headers: {
-            "Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+            "Authorization": authorization,
             "Content-Type": "application/json",
         }
     });
@@ -126,7 +126,7 @@ signUpButton.addEventListener("click", async () => {
     const response = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "POST",
         headers: {
-            "Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+            "Authorization": authorization,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -153,7 +153,7 @@ async function getMaxUserId() {
     const data = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "GET",
         headers: {
-            "Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+            "Authorization": authorization,
             "Content-Type": "application/json",
         }
     });
@@ -179,7 +179,7 @@ signInButton.addEventListener('mouseup', async () => {
     const data = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "GET",
         headers: {
-            "Authorization": 'Bearer pati5KVtX7oSWkWky.02a40e2acb77b3ec52bcfacbadc838a8501e129eea7a9c1ec0d61e7748074e41',
+            "Authorization": authorization,
             "Content-Type": "application/json",
         }
     });
