@@ -71,7 +71,6 @@ function sendMediaHandler() {
 	});
 };
 
-const userTimezoneOffset = new Date().getTimezoneOffset() * 60;
 const date = new Date()
 let minutes = date.getMinutes();
 let hours = '';
@@ -161,20 +160,24 @@ window.addEventListener("load", async () => {
 	});
 	const messageData = await messageResponse.json();
 
-	for (let index = 0; index < messageData.records.length; index++) {
-		const record = messageData.records[index];
-		const isFromUser = record.fields.user_id == userId;
-		let messageElement = isFromUser ?
-			outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
-		messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
-		messageElement.childNodes[3].textContent =
-			`${formatTime(record.fields.time)}`;
-		messageElement.dataset.messageId = record.fields.message_id;
-		messageElement.dataset.messageGroupId = record.fields.group_id;
-		messageElement.dataset.messageUserId = record.fields.user_id;
-		messageElement.dataset.messageContent = record.fields.message;
-		messagesContainer.appendChild(messageElement);
-	};
+	// Sort the records based on message_id
+const sortedRecords = messageData.records.sort((a, b) => a.fields.message_id - b.fields.message_id);
+
+for (const record of sortedRecords) {
+    const isFromUser = record.fields.user_id == userId;
+    let messageElement = isFromUser ?
+        outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
+    messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
+    messageElement.childNodes[3].textContent =
+        `${formatTime(record.fields.time)}`;
+    messageElement.dataset.messageId = record.fields.message_id;
+    messageElement.dataset.messageGroupId = record.fields.group_id;
+    messageElement.dataset.messageUserId = record.fields.user_id;
+    messageElement.dataset.messageContent = record.fields.message;
+    messagesContainer.appendChild(messageElement);
+}
+
+
 
 	onMessageLoad(); // This should be at the very end !!
 });
