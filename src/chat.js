@@ -236,14 +236,22 @@ uploadMediaButton.addEventListener("mouseup", () => {
 
 	if (image.getAttribute("src") == "./assets/images/icons/upload.svg") {
 		image.setAttribute("src", "./assets/images/icons/upload_selected.svg");
+		
+		//get button position
+		const buttonRect = uploadMediaButton.getBoundingClientRect();
+		const buttonXpercentage = (buttonRect.left / window.innerWidth) * 100;
+		const buttonYPercentage = (buttonRect.top / window.innerHeight) * 100;
+		
+		//move send media container to appropriate position
+		sendMediaSection.style.setProperty('--media-section-x', buttonXpercentage + '%');
+		sendMediaSection.style.setProperty('--media-section-y', buttonYPercentage * 0.85 + '%');
+
 		sendMediaSection.classList.add("active-menu");
 		sendMediaSection.classList.remove("hidden-menu");
-		console.log("1");
 	} else {
 		image.setAttribute("src", "./assets/images/icons/upload.svg");
 		sendMediaSection.classList.add("hidden-menu");
 		sendMediaSection.classList.remove("active-menu");
-		console.log("2");
 	};
 });
 

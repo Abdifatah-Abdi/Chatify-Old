@@ -1,3 +1,8 @@
+:root {
+    --media-section-y: 50%;
+    --media-section-x: 50%;
+}
+
 /* 
 Lighter Shade #2e3e4d
 Main Colour #263440
@@ -331,9 +336,9 @@ nav {
 
 #send-media-section {
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(95%, 120%);
+    top: var(--media-section-y);
+    left: var(--media-section-x);
+    transform: translate(calc(var(--media-section-x) * -1), calc(var(--media-section-y) * -1));
 
     padding: 0em;
 
@@ -347,13 +352,13 @@ nav {
 }
 
 .send-media-icon {
-    height: 2.75em;
+    height: 2em;
 }
 
 .send-media-title {
     height: 100%;
     margin-left: 0.5em;
-    font-size: 0.875em;
+    font-size: 0.8em;
 }
 
 .send-media-container {
@@ -365,12 +370,13 @@ nav {
     width: 100%;
     height: fit-content;
     padding: 1em;
+    border-radius: 0.5em;
 
     transition: background-color 250ms;
 }
 
 .send-media-container:hover {
-    background-color: #242a32;
+    background-color: #2d3641;
 }
 
 .send-media-icon,
