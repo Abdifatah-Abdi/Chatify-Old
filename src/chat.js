@@ -61,7 +61,7 @@ function sendMediaHandler() {
 		const endpoint = "upload_file.php";
 		const formData = new FormData();
 
-		console.log(sendMediaFileInput.files[0]);
+		console.log(URL.createObjectURL(sendMediaFileInput.files[0]));
 		formData.append("inpFile", sendMediaFileInput.files[0]);
 
 		fetch(endpoint, {
