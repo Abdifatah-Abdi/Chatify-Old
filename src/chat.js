@@ -34,7 +34,10 @@ const sendMediaGifs = document.getElementById("send-media-gifs");
 const sendMediaPicture = document.getElementById("send-media-picture");
 const sendMediaAudio = document.getElementById("send-media-audio");
 const sendMediaFile = document.getElementById("send-media-file");
+const sendMediaPictureInput = document.getElementById("send-media-picture-input");
 const sendMediaFileInput = document.getElementById("send-media-file-input");
+const fileNameText = document.getElementById('uploaded-file-text');
+let fileLink = '';
 
 // signed up navbar
 const signButton = document.getElementById('login-button');
@@ -49,6 +52,7 @@ const userInfo = {
 
 sendMediaHandler();
 function sendMediaHandler() {
+	const image = uploadMediaButton.childNodes[1];
 	sendMediaGifs.addEventListener("mouseup", () => {
 
 	});
@@ -56,6 +60,24 @@ function sendMediaHandler() {
 	sendMediaAudio.addEventListener("mouseup", () => {
 		console.log("hi");
 	});
+
+	sendMediaPictureInput.addEventListener("change", async () => {
+		const endpoint = "upload_file.php";
+		const formData = new FormData();
+
+		fileLink = URL.createObjectURL(sendMediaPictureInput.files[0]);
+		formData.append("inpFile", sendMediaPictureInput.files[0]);
+
+		image.setAttribute("src", "./assets/images/icons/upload.svg");
+		sendMediaSection.classList.add("hidden-menu");
+		sendMediaSection.classList.remove("active-menu");
+		fileNameText.textContent = `${sendMediaPictureInput.files[0].name}`;
+
+		fetch(endpoint, {
+			method: "post",
+			body: formData,
+		}).catch(console.error);
+	});	
 
 	sendMediaFileInput.addEventListener("change", async () => {
 		const endpoint = "upload_file.php";
@@ -191,6 +213,7 @@ sendMessageButton?.addEventListener("mouseup", async () => {
 	sendMessageTextBox.value = "";
 
 	const messageElement = outboundMessage?.cloneNode(true);
+	console.log(messageElement.childNodes);
 	messageElement.childNodes[1].childNodes[1].textContent = textMessage;
 	messageElement.childNodes[3].textContent = `${messageElement.childNodes[3].textContent} ${hours + ':' + minutes}`
 	messagesContainer.appendChild(messageElement);

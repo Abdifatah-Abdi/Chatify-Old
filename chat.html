@@ -86,10 +86,11 @@
                             <img src="./assets/images/icons/upload_gif.svg" alt="" class="send-media-icon">
                             <p class="send-media-title">Find GIFs</p>
                         </div>
-                        <div class="send-media-container" id="send-media-picture">
+                        <label for="send-media-picture-input" class="send-media-container end" id="send-media-picture">
+                            <input id="send-media-picture-input" style="display: none;" type="file">
                             <img src="./assets/images/icons/upload_picture.svg" alt="" class="send-media-icon">
-                            <p class="send-media-title">Upload Images</p>
-                        </div>
+                            <p class="send-media-title">Upload a Picture</p>
+                        </label>
                         <div class="send-media-container" id="send-media-audio">
                             <img src="./assets/images/icons/upload_audio.svg" alt="" class="send-media-icon">
                             <p class="send-media-title">Send an Audio Recording</p>
@@ -100,6 +101,7 @@
                             <p class="send-media-title">Upload a File</p>
                         </label>
                     </div>
+                    <p id="uploaded-file-text">file name here</p>
                     <div id="send-media-button-container" class="send-button-containers">
                         <img src="./assets/images/icons/upload.svg" alt="">
                     </div>
@@ -120,8 +122,8 @@
             <div class="message-holder">
                 <img src="./assets/images/profiles/default_profile.png" alt="" class="message-profile-picture">
                 <div class="message inbound-message">
-                    <img class="message-image" src="" alt="Couldn't load image">
                     <p class="message-text">Message</p>
+                    <img class="message-image" onerror="this.style.display='none'" src="assets\images\profiles\pfp-placeholder.png" alt="Couldn't load image">
                 </div>
             </div>
             <div class="time-sent">Today at</div>
@@ -131,6 +133,7 @@
             <div class="message-holder">
                 <div class="message outbound-message">
                     <p class="message-text">Message</p>
+                    <img class="message-image" onerror="this.style.display='none'" src="assets\images\profiles\pfp-placeholder.png" alt="Couldn't load image">
                 </div>
                 <img src="./assets/images/profiles/default_profile.png" alt="" class="message-profile-picture">
             </div>
