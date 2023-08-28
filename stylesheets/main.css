@@ -255,13 +255,16 @@ footer {
     transition: filter 250ms;
 }
 
-#github-t {
+#github-te {
     object-fit: cover;
     filter: invert(100%);
     width: 1.0em;
     margin-right: 0.35em;
     margin-left: 0.25em;
     transition: filter 250ms;
+}
+
+.github-t {
     display: inline-block;
     position: relative;
     color: white;
