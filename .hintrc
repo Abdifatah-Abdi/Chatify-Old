@@ -24,7 +24,9 @@
       {
         "ignore": [
           "width: fit-content",
-          "height: fit-content"
+          "height: fit-content",
+          "user-select",
+          "user-select: all"
         ]
       }
     ]
