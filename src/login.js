@@ -81,6 +81,12 @@ signUpButton.addEventListener("click", async () => {
         }
 
         // Username validation
+        const usernameRegex = /^[a-zA-Z0-9_]+$/; // Regular expression to match letters, numbers, and underscores
+        if (!usernameRegex.test(usernameInput.value)) {
+            ErrorEffect(usernameInput, "Username can only contain letters, numbers, and underscores", 1);
+            return;
+        }
+
         if (user.fields.username === usernameInput.value) {
             ErrorEffect(usernameInput, "This username is taken!", 1);
             return;
