@@ -28,9 +28,9 @@ async function ValidateEmail(input) {
       return false;
     }
   
-  }
+}
 
-  signup_button.addEventListener('mouseup', async e => {
+signup_button.addEventListener('mouseup', async e => {
     let error = false; // Use a flag variable
 
     for (const form of input_forms) {
@@ -47,6 +47,15 @@ async function ValidateEmail(input) {
 
     if (!(await ValidateEmail(email))) { return; } //check if the email is invalid (barely works)
     
+    if (password.value.length < 5) {
+        top_text.style.visibility = 'visible';
+        top_text.textContent = 'Your password must be longer than 5 characters';
+        password.classList.add('error');
+        await delay(400);
+        password.classList.remove('error');
+        return;
+    }
+
     if (password.value != confirm_password.value) {
       top_text.style.visibility = 'visible';
       top_text.textContent = 'Passwords do not match';
@@ -55,6 +64,7 @@ async function ValidateEmail(input) {
       confirm_password.classList.remove('error');
       return;
     }
+
     // Check if this email is already on Airtable
 
     const messageResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
@@ -69,7 +79,7 @@ async function ValidateEmail(input) {
       const record = messageData.records[index];
 
       //Existing information checks
-      if (record.fields.email === email.value) { //check if email is already registed
+      if (record.fields.email === email.value) { //check if email is already registered
           top_text.style.visibility = 'visible';
           top_text.textContent = '*Email already registered';
           return;
@@ -109,11 +119,11 @@ async function ValidateEmail(input) {
         });
         const dataa = await a.json();
         socket.send(dataa);
-        window.location.href = 'main.html'; // send user to main page
+        window.location.href = 'main.html'; // send user to the main page
         return;
     };
 });
 
 document.addEventListener("login", function() {
   console.log("hi");
-})
+});
