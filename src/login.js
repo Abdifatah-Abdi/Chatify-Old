@@ -80,13 +80,22 @@ signUpButton.addEventListener("click", async () => {
             return;
         }
 
+        // Username validation
         if (user.fields.username === usernameInput.value) {
             ErrorEffect(usernameInput, "This username is taken!", 1);
             return;
         }
 
+        // Password validation for length
         if (passwordInput.value.length < 5) {
             ErrorEffect(passwordInput, 'Your password must be longer than 5 characters', 1);
+            return;
+        }
+
+        // Password validation for uppercase letter and number
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
+        if (!passwordRegex.test(passwordInput.value)) {
+            ErrorEffect(passwordInput, 'Password must include an uppercase letter and a number', 1);
             return;
         }
 
@@ -134,6 +143,7 @@ signUpButton.addEventListener("click", async () => {
     await delay(1000);
     window.location.href = 'main.html';
 });
+
 
 // Get highest user id available
 async function getMaxUserId() {
