@@ -29,6 +29,12 @@
           "user-select: all"
         ]
       }
+    ],
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
     ]
   }
 }
