@@ -15,9 +15,41 @@
     <link rel="stylesheet" href="/stylesheets/defined-styles.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/font-faces.css">
+    <link rel="stylesheet" href="./stylesheets/navigation-bar.css">
 </head>
 
 <body>
+    <nav class="navigation-bar">
+        <div>
+            <a href="">
+                <img src="./assets/images/Logo160x.png" alt="Logo of site.">
+            </a>
+            <p>Chatify</p>
+        </div>
+        <div class="navigation-bar-middle">
+            <a class="navigation-bar-link animated-underline active" href="/main.html">
+                <p class="link-content">Home</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="/chat.html">
+                <p class="link-content">Chat</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="#">
+                <p class="link-content">Community</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="#">
+                <p class="link-content">Blog</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="/about.html">
+                <p class="link-content">About</p>
+            </a>
+            <a class="navigation-bar-link animated-underline" href="#">
+                <p class="link-content">Settings</p>
+            </a>
+        </div>
+        <a class="navigation-bar-link" id="login-button" href="./login.html">
+            <img src="assets\images\profiles\default_profile.png" alt="PFP">
+        </a>
+    </nav>
     <div class="container">
         <div class="sign-in-sign-up">
             <div class="start active-selector" id="sign-in-selector">
@@ -111,5 +143,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
 </html>
