@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./stylesheets/font-faces.css">
     <link rel="stylesheet" href="./stylesheets/styles.css">
     <link rel="stylesheet" href="./stylesheets/navigation-bar.css">
 
+    <!-- Scripts -->
+    <script src="./src/navbar.js" type="module"></script>
+
     <title>About Chatify</title>
 </head>
 <body>
+    <div id="profile-menu" style="display: none;">
+        <div class="profile-menu-item" id="email-item">email</div>
+        <hr>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">User Profile</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Inbox</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Site Settings</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Help</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Sign Out</div>
+    </div>
     <nav class="navigation-bar">
         <div>
             <a href="main.html">
