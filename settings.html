@@ -5,7 +5,7 @@
     <title>Chatify - User Settings</title>
 
     <!-- Scripts -->
-    <script src="./src/media/env/env.js" type="text/javascript"></script>
+    <script src="src\settings.js" defer type="text/javascript"></script>
     <script src="./src/navbar.js" defer type="module"></script>
     
     <!-- Stylesheets -->
@@ -50,9 +50,6 @@
             <a class="navigation-bar-link animated-underline" href="/about.html">
                 <p class="link-content">About</p>
             </a>
-            <a class="navigation-bar-link animated-underline" href="/settings.html">
-                <p class="link-content">Settings</p>
-            </a>
         </div>
         <a class="navigation-bar-link" id="login-button" href="./login.html">
             <p class="link-content">Sign in / Sign up</p>
@@ -62,20 +59,32 @@
 
     <div id="container">
         <div id="left">
-            <h1>Settings</h1>
+            <h4>Settings</h4>
             <div id="settings-menu">
-                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Profile</span></div>
-                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Theme</span></div>
-                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Nitro :troll:</span></div>
-                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Read this</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Account</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Privacy</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Notifications</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Appearance</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Help</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>6</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>7</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>8</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>9</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>10</span></div>
             </div>
         </div>
         <div id="right">
-            <p>Ok so I didn't finish the right side, but I have a nice plan. Basically, if you 
-                open the settings.html file you can see a div with the id #right. This is where
-                you can create a new div and set its id to match the name of the button on the menu
-                on the left side. Then it would be easy to make it so each button opens the corresponding section, thanks.
-            </p>
+            <h3>Account</h3>
+            <div class="section visible-section" style="display: none;" id="Account">change username and whatnot. Also account deletion goes here</div>
+            <div class="section" style="display: none;" id="Privacy">I don't usually open these so idk what goes in here</div>
+            <div class="section" style="display: none;" id="Notifications">uhh, no ping? idk aswell</div>
+            <div class="section" style="display: none;" id="Appearance">black or white🤨?</div>
+            <div class="section" style="display: none;" id="Help">yeah no</div>
+            <div class="section" style="display: none;" id="6">I ran out of ides.1</div>
+            <div class="section" style="display: none;" id="7">I ran out of ides.2</div>
+            <div class="section" style="display: none;" id="8">I ran out of ides.3</div>
+            <div class="section" style="display: none;" id="9">I ran out of ides.4</div>
+            <div class="section" style="display: none;" id="10">I ran out of ides.5</div>
         </div>
     </div>
 </body>
