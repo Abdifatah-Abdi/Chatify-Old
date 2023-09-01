@@ -73,10 +73,11 @@ nav {
 
 #right {
     flex: 80%;
-    background-color: #2d3641;
-    padding: 1em;
+    background-color: #18202b;
     display: flex;
     flex-direction: column;
+    padding: 1em;
+    padding-bottom: 0em;
 }
 
 #right > h3 {
@@ -97,4 +98,44 @@ nav {
     background-color: #304257;
     overflow: hidden;
     padding: 1em;
+}
+
+/* Sections */
+
+#pfp-container {
+    height: 30%;
+    width: 100%;
+    background-color: #42566b;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#pfp-container > img {
+    margin-left: 2em;
+    border-radius: 50%;
+    height: 60%;
+}
+
+#pfp-container > p {
+    margin-left: 1em;
+    font-size: 1em;
+}
+
+#pfp-container > label > input {
+    display: none;
+}
+
+#pfp-container > label {
+    padding: 1em;
+    background-color: #304257;
+    margin-left: auto;
+    margin-right: 2em;
+    border-radius: 1em;
+    cursor: pointer;
+    box-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#pfp-container > label:hover {
+    box-shadow: 0em 0em 0em black;
 }
