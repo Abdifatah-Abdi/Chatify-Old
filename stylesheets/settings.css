@@ -1,0 +1,100 @@
+nav {
+    height: 10vh !important;
+}
+
+#container {
+    height: 85vh;
+    width: 95vw;
+    background-color: #2d3641;
+    /* border just to see it, remove later */
+    border: 0.1em solid white;
+    margin: auto;
+    overflow: visible;
+
+    display: flex;
+}
+
+/*       ****LEFT SIDE****       */
+
+#left {
+    flex: 20%;
+    background-color: #304257;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#left > h4 {
+    width: 100%;
+    text-align: center;
+    background-color: #42566b;
+    border: 0.2em solid #4a5f74;
+    border-bottom: none;
+    text-shadow: 0em 0em 0.5em black;
+    padding: 0.2em;
+}
+
+#settings-menu {
+    width: 100%;
+    background-color: #2d3641;
+    border: 0.2em solid #4a5f74;
+    padding: 0.5em;
+}
+
+.settings-menu-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0.5em;
+    cursor: pointer;
+    transition: 100ms;
+}
+
+.selected-option {
+    background-color: #151b23;
+}
+
+.settings-menu-item:hover {
+    background-color: #304257;
+    border-right: 0.001em solid white;
+    border-left: 0.001em solid white;
+    margin-left: 1em;
+}
+
+.settings-menu-item > img {
+    height: 1em;
+    aspect-ratio: 1 / 1;
+    margin-right: 0.2em;
+}
+
+/*      ****RIGHT SIDE****       */
+
+#right {
+    flex: 80%;
+    background-color: #2d3641;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+#right > h3 {
+    width: fit-content;
+    padding: 0.3em 2em 0em 2em;
+    background-color: #304257;
+    border-bottom: none;
+    font-weight: lighter;
+}
+
+.visible-section {
+    display: block !important;
+}
+
+.section {
+    height: 100%;
+    width: 100%;
+    background-color: #304257;
+    overflow: hidden;
+    padding: 1em;
+}
