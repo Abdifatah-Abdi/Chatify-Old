@@ -109,12 +109,16 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
+    box-shadow: 0em 0.4em 0.5em black;
 }
 
-#pfp-container > img {
+#pfp-preview {
     margin-left: 2em;
     border-radius: 50%;
-    height: 60%;
+    height: 70%;
+    background-color: aliceblue;
+    aspect-ratio: 1 / 1;
+    border: 0.2em solid #304257;
 }
 
 #pfp-container > p {
@@ -133,9 +137,11 @@ nav {
     margin-right: 2em;
     border-radius: 1em;
     cursor: pointer;
-    box-shadow: 0.1em 0.1em 0.2em black;
+    box-shadow: 0em 0em 0em black;
+    transition: 100ms;
 }
 
 #pfp-container > label:hover {
-    box-shadow: 0em 0em 0em black;
+    box-shadow: 0em 0em 0.2em black;
+    background-color: #2d3641;
 }

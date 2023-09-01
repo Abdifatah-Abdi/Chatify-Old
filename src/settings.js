@@ -1,5 +1,7 @@
 const settingsMenu = document.getElementById('settings-menu');
 const right = document.getElementById('right');
+const uploadPFPInput = document.getElementById('pfp-upload');
+const pfpPreview = document.getElementById('pfp-preview');
 
 settingsMenu.querySelectorAll('div').forEach(option => {
     option.addEventListener("mouseup", function () {
@@ -10,3 +12,7 @@ settingsMenu.querySelectorAll('div').forEach(option => {
         right.querySelector('h3').textContent = option.textContent;
     });
 });
+
+uploadPFPInput.addEventListener("change", async () => {
+    pfpPreview.src = URL.createObjectURL(uploadPFPInput.files[0]);
+})
