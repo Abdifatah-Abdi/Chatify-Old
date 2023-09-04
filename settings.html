@@ -29,13 +29,13 @@
     </div>
     <nav class="navigation-bar">
         <div>
-            <a href="main.html">
+            <a href="index.html">
                 <img src="./assets/images/Logo160x.png" alt="Logo of site.">
             </a>
             <p>Chatify</p>
         </div>
         <div class="navigation-bar-middle">
-            <a class="navigation-bar-link animated-underline active" href="/main.html">
+            <a class="navigation-bar-link animated-underline active" href="/index.html">
                 <p class="link-content">Home</p>
             </a>
             <a class="navigation-bar-link animated-underline" href="/chat.html">
@@ -75,7 +75,15 @@
         </div>
         <div id="right">
             <h3>Account</h3>
-            <div class="section visible-section" style="display: none;" id="Account">change username and whatnot. Also account deletion goes here</div>
+            <div class="section visible-section" style="display: none;" id="Account">
+                <div id="pfp-container">
+                    <img id="pfp-preview" src="assets\images\profiles\default_profile.png" alt="Couldn't load pfp">
+                    <p>Upload a new profile picture</p>
+                    <label for="pfp-upload"> Upload
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" name="pfp-upload" id="pfp-upload">
+                    </label>
+                </div>
+            </div>
             <div class="section" style="display: none;" id="Privacy">I don't usually open these so idk what goes in here</div>
             <div class="section" style="display: none;" id="Notifications">uhh, no ping? idk aswell</div>
             <div class="section" style="display: none;" id="Appearance">black or white🤨?</div>

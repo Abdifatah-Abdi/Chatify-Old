@@ -147,7 +147,7 @@ signUpButton.addEventListener("click", async () => {
 
     SuccessEffect('Account created!', 1);
     await delay(1000);
-    window.location.href = 'main.html';
+    window.location.href = 'index.html';
 });
 
 
@@ -205,7 +205,7 @@ signInButton.addEventListener('mouseup', async () => {
             SuccessEffect("Found your account!", 0);
             document.cookie = `id=${foundUser.fields.user_id}${expires};`
             await delay(1000);
-            window.location.href = 'main.html';
+            window.location.href = 'index.html';
         } else {
             ErrorEffect(loginPasswordInput, "Password incorrect!", 0);
         }
