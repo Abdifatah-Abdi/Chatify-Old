@@ -1,5 +1,5 @@
 # Chatify
-[Chatify](https://small-months-swim.tunnelapp.dev/main.html)! A tool to communicate with family, friends, and communities online. Paired with great features like End-To-End encryption, customizability, a privacy-focused platform, and more.
+[Chatify](https://small-months-swim.tunnelapp.dev)! A tool to communicate with family, friends, and communities online. Paired with great features like End-To-End encryption, customizability, a privacy-focused platform, and more.
 
 That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills. From what it seems, we're doing pretty well.
 
