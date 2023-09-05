@@ -3,8 +3,6 @@
 
 That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills. From what it seems, we're doing pretty well.
 
-You may also see us using professional language on Chatify. This is intended. Although it isn't ideal to use Chatify, we still want to make a site that looks like it is.
-
 ## EOL of Chatify
 The site, Chatify, at first seemed like a great way to build skills for us with web development. However, not all things come free, like servers.\
 
