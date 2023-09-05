@@ -1,6 +1,7 @@
 const settingsMenu = document.getElementById('settings-menu');
 const right = document.getElementById('right');
 const uploadPFPInput = document.getElementById('pfp-upload');
+const uploadCPFPInput = document.getElementById('pfp-upload');
 const pfpPreview = document.getElementById('pfp-preview');
 const pfpIcon = document.getElementById('PFP');
 
@@ -14,6 +15,10 @@ settingsMenu.querySelectorAll('div').forEach(option => {
     });
 });
 
-uploadPFPInput.addEventListener("change", () => {
-    updateProfilePicture(uploadPFPInput.files[0]);
-});
+uploadPFPInput.addEventListener("change", async () => {
+    pfpPreview.src = URL.createObjectURL(uploadPFPInput.files[0]);
+})
+
+uploadCPFPInput.addEventListener("change", async () => {
+    pfpIcon.src = URL.createObjectURL(uploadPFPInput.files[0]);
+})
