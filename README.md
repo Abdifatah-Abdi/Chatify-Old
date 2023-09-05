@@ -9,11 +9,11 @@ The site, Chatify, at first seemed like a great way to build skills for us with 
 ## Authors of Chatify
 Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
 
-I, Abdifatah-Abdi, is in charge of the backend of Chatify. This includes monitoring and using the DataBase, sockets, and the backend.
+[Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), is in charge of the backend of Chatify. This includes monitoring and using the DataBase, sockets, and the backend.
 
-ClounZ is in charge of the little things, contributing to a mix of both frontend UI fixes and improvements, and added some backend functionality.
+[Omar](https://github.com/Elyossef-Omar) is in charge of the little things, contributing to a mix of both frontend UI fixes and improvements, and added some backend functionality.
 
-Advay-c is in charge of code optimization, bringing ui desings to life, bug fixes along with prioritizing Git & GitHub utilization.
+[Advay-c](https://github.com/advay-c) is in charge of code optimization, bringing ui desings to life, bug fixes along with prioritizing Git, GitHub and tunnel utilization.
 
 ## What makes Chatify unique?
 Chatify is unique because, unlike other platforms, we don't collect and sell user data (albeit, we don't know how to do that), we offer tons of customizability for our platform, including modifications, and a dedicated API (coming soon). Not to mention, Chatify is open source.
