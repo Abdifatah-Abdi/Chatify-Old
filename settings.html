@@ -5,28 +5,37 @@
     <title>Chatify - User Settings</title>
 
     <!-- Scripts -->
-    <script src="./src/media/env/env.js" type="text/javascript"></script>
-    <script src="./src/login.js" defer type="module"></script>
+    <script src="src\settings.js" defer type="text/javascript"></script>
+    <script src="./src/navbar.js" defer type="module"></script>
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="./stylesheets/login.css">
     <link rel="stylesheet" href="/stylesheets/defined-styles.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/font-faces.css">
     <link rel="stylesheet" href="/stylesheets/navigation-bar.css">
+    <link rel="stylesheet" href="/stylesheets/settings.css">
 
 </head>
 
 <body>
+    <div id="profile-menu" style="display: none;">
+        <div class="profile-menu-item" id="email-item">email</div>
+        <hr>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">User Profile</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Inbox</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Site Settings</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Help</div>
+        <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Sign Out</div>
+    </div>
     <nav class="navigation-bar">
         <div>
-            <a href="">
+            <a href="index.html">
                 <img src="./assets/images/Logo160x.png" alt="Logo of site.">
             </a>
             <p>Chatify</p>
         </div>
         <div class="navigation-bar-middle">
-            <a class="navigation-bar-link animated-underline active" href="/main.html">
+            <a class="navigation-bar-link animated-underline active" href="/index.html">
                 <p class="link-content">Home</p>
             </a>
             <a class="navigation-bar-link animated-underline" href="/chat.html">
@@ -41,14 +50,51 @@
             <a class="navigation-bar-link animated-underline" href="/about.html">
                 <p class="link-content">About</p>
             </a>
-            <a class="navigation-bar-link animated-underline" href="#">
-                <p class="link-content">Settings</p>
-            </a>
         </div>
         <a class="navigation-bar-link" id="login-button" href="./login.html">
-            <img src="assets\images\profiles\default_profile.png" alt="PFP">
+            <p class="link-content">Sign in / Sign up</p>
+            </label for="corner-pfp">
+            <img id="PFP" src="assets\images\profiles\default_profile.png" alt="Couldn't load pfp">
+            </label>
         </a>
     </nav>
 
-    <header>im working on this</header>
+    <div id="container">
+        <div id="left">
+            <h4>Settings</h4>
+            <div id="settings-menu">
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Account</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Privacy</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Notifications</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Appearance</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>Help</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>6</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>7</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>8</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>9</span></div>
+                <div class="settings-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt=""><span>10</span></div>
+            </div>
+        </div>
+        <div id="right">
+            <h3>Account</h3>
+            <div class="section visible-section" style="display: none;" id="Account">
+                <div id="pfp-container">
+                    <img id="pfp-preview" src="assets\images\profiles\default_profile.png" alt="Couldn't load pfp">
+                    <p>Upload a new profile picture</p>
+                    <label for="pfp-upload"> Upload
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" name="pfp-upload" id="pfp-upload">
+                    </label>
+                </div>
+            </div>
+            <div class="section" style="display: none;" id="Privacy">I don't usually open these so idk what goes in here</div>
+            <div class="section" style="display: none;" id="Notifications">uhh, no ping? idk aswell</div>
+            <div class="section" style="display: none;" id="Appearance">black or white🤨?</div>
+            <div class="section" style="display: none;" id="Help">yeah no</div>
+            <div class="section" style="display: none;" id="6">I ran out of ides.1</div>
+            <div class="section" style="display: none;" id="7">I ran out of ides.2</div>
+            <div class="section" style="display: none;" id="8">I ran out of ides.3</div>
+            <div class="section" style="display: none;" id="9">I ran out of ides.4</div>
+            <div class="section" style="display: none;" id="10">I ran out of ides.5</div>
+        </div>
+    </div>
 </body>

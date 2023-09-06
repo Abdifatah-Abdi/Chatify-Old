@@ -10,6 +10,7 @@
 
     <!-- Scripts -->
     <script src="./src/index.js" defer type="module"></script>
+    <script src="./src/navbar.js" defer type="module"></script>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./stylesheets/navigation-bar.css">
@@ -27,19 +28,21 @@
         <hr>
         <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">User Profile</div>
         <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Inbox</div>
+        <a href="settings.html">
         <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Site Settings</div>
+        </a>
         <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Help</div>
         <div class="profile-menu-item"><img src="assets\images\icons\send_message_icon.svg" alt="">Sign Out</div>
     </div>
     <nav class="navigation-bar">
         <div>
-            <a href="">
+            <a href="index.html">
                 <img src="./assets/images/Logo160x.png" alt="Logo of site.">
             </a>
             <p>Chatify</p>
         </div>
         <div class="navigation-bar-middle">
-            <a class="navigation-bar-link animated-underline active" href="#">
+            <a class="navigation-bar-link animated-underline active" href="/index.html">
                 <p class="link-content">Home</p>
             </a>
             <a class="navigation-bar-link animated-underline" href="/chat.html">
@@ -50,9 +53,6 @@
             </a>
             <a class="navigation-bar-link animated-underline" href="#">
                 <p class="link-content">Blog</p>
-            </a>
-            <a class="navigation-bar-link animated-underline" href="#">
-                <p class="link-content">Support</p>
             </a>
             <a class="navigation-bar-link animated-underline" href="/about.html">
                 <p class="link-content">About</p>
@@ -77,7 +77,9 @@
             </h2>
             <button class="download-buttons button" id="download-button" tabindex="1">Download for <span
                     id="download-platform"></span></button>
+            <a href="chat.html">
             <button class="download-buttons" id="web-portal-button" tabindex="2">Use web version</button>
+            </a>
         </div>
         <div class="right-side">
             <h1 class="site-title">

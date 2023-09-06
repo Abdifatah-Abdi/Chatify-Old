@@ -320,3 +320,25 @@ footer {
 
     color: white;
 }
+
+/* Scrollbar width*/
+body::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: none;
+    border-left: 0.001em solid grey;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: #566576;
+    border-left: 0.001em solid grey;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #3d4752;
+}

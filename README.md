@@ -1,9 +1,7 @@
 # Chatify
-Chatify! A tool to communicate with family, friends, and communities online. Paired with great features like End-To-End encryption, customizability, a privacy-focused platform, and more.
+[Chatify](https://small-months-swim.tunnelapp.dev)! A tool to communicate with family, friends, and communities online. Paired with great features like End-To-End encryption, customizability, a privacy-focused platform, and more.
 
 That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills. From what it seems, we're doing pretty well.
-
-You may also see us using professional language on Chatify. This is intended. Although it isn't ideal to use Chatify, we still want to make a site that looks like it is.
 
 ## EOL of Chatify
 The site, Chatify, at first seemed like a great way to build skills for us with web development. However, not all things come free, like servers.\
@@ -11,11 +9,11 @@ The site, Chatify, at first seemed like a great way to build skills for us with 
 ## Authors of Chatify
 Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
 
-I, Abdifatah-Abdi, is in charge of the backend of Chatify. This includes monitoring and using the DataBase, sockets, and the backend.
+[Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), is in charge of the backend of Chatify. This includes monitoring & using the DataBase, sockets, & the backend.
 
-ClounZ is in charge of the little things, contributing to a mix of both frontend UI fixes and improvements, and added some backend functionality.
+[Omar](https://github.com/Elyossef-Omar) is in charge of the little things, contributing to a mix of both frontend UI fixes & improvements, & added some backend functionality.
 
-Advay-c is in charge of code optimization, bringing ui desings to life, bug fixes along with prioritizing Git & GitHub utilization.
+[Advay-c](https://github.com/advay-c) is in charge of code optimization, bringing ui desings to life, bug fixes along with prioritizing Git, GitHub & tunnel utilization.
 
 ## What makes Chatify unique?
 Chatify is unique because, unlike other platforms, we don't collect and sell user data (albeit, we don't know how to do that), we offer tons of customizability for our platform, including modifications, and a dedicated API (coming soon). Not to mention, Chatify is open source.
