@@ -19,129 +19,167 @@
 </head>
 
 <body>
-    <nav class="navigation-bar">
-        <div>
-            <a href="index.html">
-                <img src="./assets/images/Logo160x.png" alt="Logo of site.">
-            </a>
-            <p>Chatify</p>
+    <div class="sign-in-sign-up">
+        <div class="start active-selector" id="sign-in-selector">
+            <p>Sign in</p>
         </div>
-        <div class="navigation-bar-middle">
-            <a class="navigation-bar-link animated-underline active" href="/index.html">
-                <p class="link-content">Home</p>
-            </a>
-            <a class="navigation-bar-link animated-underline" href="/chat.html">
-                <p class="link-content">Chat</p>
-            </a>
-            <a class="navigation-bar-link animated-underline" href="#">
-                <p class="link-content">Community</p>
-            </a>
-            <a class="navigation-bar-link animated-underline" href="#">
-                <p class="link-content">Blog</p>
-            </a>
-            <a class="navigation-bar-link animated-underline" href="/about.html">
-                <p class="link-content">About</p>
-            </a>
-        </div>
-        <a class="navigation-bar-link" id="login-button" href="./login.html">
-            <p class="link-content">Sign in / Sign up</p>
-            <img src="assets\images\profiles\default_profile.png" alt="PFP">
-        </a>
-    </nav>
-    <div class="container">
-        <div class="sign-in-sign-up">
-            <div class="start active-selector" id="sign-in-selector">
-                <p>Sign in</p>
-            </div>
-            <div class="end" id="sign-up-selector">
-                <p>Sign up</p>
-            </div>
-        </div>
-        <div class="login-containers">
-            <div id="sign-in-container">
-                <h1>Sign In</h1>
-                <h2>To continue to Chatify</h2>
-                <div class="email-and-password">
-                    <input type="text" name="email-input" class="email" placeholder="Email or Username" id="login-email-input">
-                    <input type="password" name="password-input" class="password" placeholder="Password" id="login-password-input">
-                </div>
-                <div id="remember-box">
-                    <input id="remember-me" type="checkbox" name="remember-box">
-                    <label for="remember-me">Remember me</label>
-                </div>
-                <div>
-                    <input class="sign-button" id="sign-in-button" type="button" value="Sign In">
-                </div>
-                <div class="continue-with-container">
-                    <p>Or Sign in with</p>
-                    <div id="logos">
-                        <a href="https://google.com/" class="social-media-container" target="none">
-                            <img src="/assets/images/social_media_logos/google.svg" class="social-media-image"
-                                alt="Google">
-                            <p>Google</p>
-                        </a>
-                        <a href="https://facebook.com/" class="social-media-container" target="none">
-                            <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image"
-                                alt="Facebook">
-                            <p>Facebook</p>
-                        </a>
-                        <a href="https://github.com/" class="social-media-container end" target="none" class="end">
-                            <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
-                                alt="GitHub">
-                            <p>GitHub</p>
-                        </a>
-                    </div>
-                </div>
-                <footer>
-                    <a class="footer-text animated-underline" href="#">
-                        <p>Don't have an account?</p>
-                    </a>
-                    &centerdot;
-                    <a class="forgot-password animated-underline" href="settings.html">
-                        <p>Forgot Email/password?</p>
-                    </a>
-                </footer>
-            </div>
-            <div id="sign-up-container" class="hidden-login-container">
-                <h1>Sign Up</h1>
-                <h2>Create a free account to use Chatify's services!</h2>
-                <div class="email-and-password">
-                    <input type="text" name="create-username-input" class="email" id="create-username-input"
-                        placeholder="Username">
-                    <input type="email" name="create-email-input" class="email" id="create-email-input"
-                        placeholder="Email">
-                    <input type="password" name="create-password-input" class="password" id="create-password-input"
-                        placeholder="Password"> 
-                    <input type="password" name="create-confirm-password-input" class="password"
-                        id="create-confirm-password-input" placeholder="Confirm Password">
-                </div>
-                <div>
-                    <input class="sign-button" id="sign-up-button" type="button" value="Sign Up">
-                </div>
-                <div class="continue-with-container">
-                    <p>Or Sign up with</p>
-                    <div id="logos">
-                        <a href="https://google.com/" class="social-media-container" target="none">
-                            <img src="/assets/images/social_media_logos/google.svg" class="social-media-image"
-                                alt="Google">
-                            <p>Google</p>
-                        </a>
-                        <a href="https://facebook.com/" class="social-media-container" target="none">
-                            <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image"
-                                alt="Facebook">
-                            <p>Facebook</p>
-                        </a>
-                        <a href="https://github.com/" class="social-media-container end" target="none" class="end">
-                            <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
-                                alt="GitHub">
-                            <p>GitHub</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="end" id="sign-up-selector">
+            <p>Sign up</p>
         </div>
     </div>
 
+    <div id="sign-in-container">
+        <h1>Sign In</h1>
+        <h2>To continue to Chatify</h2>
 
+        <div class="error-messages-holder">
+            <div class="hidden invalid" id="incorrect-credentials-error">
+                <div class="invalid-title">Incorrect email or password!</div>
+                <div class="invalid-description">
+                    <a class="animated-underline">
+                        <p>Forgot Email/password?</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hidden invalid" id="fill-in-all-credentials-error">
+                <div class="invalid-title">Please fill in all forms!</div>
+            </div>
+        </div>
+
+        <div class="email-and-password">
+            <input type="text" name="email-input" class="email" placeholder="Email or Username" id="login-email-input">
+            <input type="text" name="password-input" class="password" placeholder="Password" id="login-password-input">
+            <!-- TODO: Change the types to its respective types -->
+        </div>
+        <div id="remember-box">
+            <input id="remember-me" type="checkbox" name="remember-box">
+            <label for="remember-me">Remember me</label>
+        </div>
+        <div>
+            <input class="sign-button" id="sign-in-button" type="button" value="Sign In">
+        </div>
+        <div class="continue-with-container">
+            <p>Or Sign in with</p>
+            <div id="logos">
+                <a href="https://google.com/" class="social-media-container" target="none">
+                    <img src="/assets/images/social_media_logos/google.svg" class="social-media-image" alt="Google">
+                    <p>Google</p>
+                </a>
+                <a href="https://facebook.com/" class="social-media-container" target="none">
+                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image" alt="Facebook">
+                    <p>Facebook</p>
+                </a>
+                <a href="https://github.com/" class="social-media-container end" target="none" class="end">
+                    <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
+                        alt="GitHub">
+                    <p>GitHub</p>
+                </a>
+            </div>
+        </div>
+        <footer>
+            <a class="footer-text animated-underline" href="#">
+                <p>Don't have an account?</p>
+            </a>
+            &centerdot;
+            <a class="forgot-password animated-underline" href="settings.html">
+                <p>Forgot Email/password?</p>
+            </a>
+        </footer>
+    </div>
+    <div id="sign-up-container" class="hidden-login-container">
+        <h1>Sign Up</h1>
+        <h2>Create a free account to use Chatify's services!</h2>
+
+        <div class="error-messages-holder">
+            <div class="hidden invalid" id="taken-username-error">
+                <div class="invalid-title">Username already taken!</div>
+                <div class="invalid-description">Try another?</div>
+                <div class="usernames-container">
+                    <ul class="available-usernames-container">
+                        <li class="available-usernames">
+                            &bullet;
+                            <span class="animated-underline">
+                                <p class="available-username">Hi</p>
+                            </span>
+                        </li>
+                        <li class="available-usernames">
+                            &bullet;
+                            <span class="animated-underline">
+                                <p class="available-username">Hi</p>
+                            </span>
+                        </li>
+                    </ul>
+                    <ul class="available-usernames-container">
+                        <li class="available-usernames">
+                            &bullet;
+                            <span class="animated-underline">
+                                <p class="available-username">Hi</p>
+                            </span>
+                        </li>
+                        <li class="available-usernames">
+                            &bullet;
+                            <span class="animated-underline">
+                                <p class="available-username">Hi</p>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="hidden invalid" id="taken-email-error">
+                <div class="invalid-title">Email already taken!</div>
+                <div class="invalid-description">
+                    <a class="animated-underline">
+                        <p>Contact support?</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hidden invalid" id="non-matching-password-error">
+                <div class="invalid-title">Passwords don't match!</div>
+                <div class="invalid-description">
+                    Passwords are case-sensitive. <br>
+                    Check for capitalized letters, spaces, symbols, etc.
+                </div>
+            </div>
+
+            <div class="hidden invalid" id="fill-in-all-forms-error">
+                <div class="invalid-title">Please fill in all forms!</div>
+            </div>
+        </div>
+
+        <div class="email-and-password">
+            <input type="text" name="create-username-input" class="email" id="create-username-input"
+                placeholder="Username">
+            <input type="text" name="create-email-input" class="email" id="create-email-input" placeholder="Email">
+            <input type="text" name="create-password-input" class="password" id="create-password-input"
+                placeholder="Password">
+            <input type="text" name="create-confirm-password-input" class="password" id="create-confirm-password-input"
+                placeholder="Confirm Password">
+            <!-- TODO: Change all of the types to the respective types -->
+        </div>
+        <div>
+            <input class="sign-button" id="sign-up-button" type="button" value="Sign Up">
+        </div>
+        <div class="continue-with-container">
+            <p>Or Sign up with</p>
+            <div id="logos">
+                <a href="https://google.com/" class="social-media-container" target="none">
+                    <img src="/assets/images/social_media_logos/google.svg" class="social-media-image" alt="Google">
+                    <p>Google</p>
+                </a>
+                <a href="https://facebook.com/" class="social-media-container" target="none">
+                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image" alt="Facebook">
+                    <p>Facebook</p>
+                </a>
+                <a href="https://github.com/" class="social-media-container end" target="none" class="end">
+                    <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
+                        alt="GitHub">
+                    <p>GitHub</p>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,68 +1,53 @@
-import { delay, getCookie, authorization } from "./methods.js";
+import { authorization, random, setInfiniteCookie } from "./methods.js";
 
-// DOM Elements
+//#region Elements
+//#region Containers, Selectors, and Button elements
 const signInContainer = document.getElementById("sign-in-container");
 const signUpContainer = document.getElementById("sign-up-container");
 const signInSelector = document.getElementById("sign-in-selector");
 const signUpSelector = document.getElementById("sign-up-selector");
 const signInButton = document.getElementById("sign-in-button");
 const signUpButton = document.getElementById("sign-up-button");
-
-// Sign-up Elements
-const usernameInput = document.getElementById("create-username-input");
-const emailInput = document.getElementById("create-email-input");
-const passwordInput = document.getElementById("create-password-input");
+//#endregion
+//#region Sign-up Elements
+const createUsernameInput = document.getElementById("create-username-input");
+const createEmailInput = document.getElementById("create-email-input");
+const createPasswordInput = document.getElementById("create-password-input");
 const confirmPasswordInput = document.getElementById("create-confirm-password-input");
-const subText = document.getElementsByTagName('h2');
-
-// Sign-in Elements
+//#endregion
+//#region Sign-in Elements
 const loginEmailInput = document.getElementById("login-email-input");
 const loginPasswordInput = document.getElementById("login-password-input");
 const rememberBox = document.getElementById('remember-me');
+//#endregion
+//#region Error Elements
+const takenUsernameError = document.getElementById("taken-username-error");
+const availableUsername = document.querySelectorAll(".available-username");
+const takenEmailError = document.getElementById("taken-email-error");
+const nonMatchingPasswordError = document.getElementById("non-matching-password-error");
+const fillInFormsError = document.getElementById("fill-in-all-forms-error");
 
-// Error Effect
-async function ErrorEffect(inputForm, errorText, subIndex) {
-    subText[subIndex].style.color = '#ff5f36';
-    subText[subIndex].textContent = '*' + errorText;
-    subText[subIndex].style.opacity = 1;
+const incorrectCredentialsError = document.getElementById("incorrect-credentials-error");
+const fillInCredentialsError = document.getElementById("fill-in-all-credentials-error");
+//#endregion
+//#endregion
+//#region Event Listeners
+signInSelector.addEventListener("mouseup", signInSelectorClick);
+signUpSelector.addEventListener("mouseup", signUpSelectorClick);
+signUpButton.addEventListener("click", signUpButtonOnClick);
+signInButton.addEventListener('mouseup', signInButtonOnClick);
+createUsernameInput.addEventListener("focusout", createUsernameInputFocusOut);
+availableUsername.forEach(availableUsernameLoop);
+//#endregion
+//#region Functions
+async function signUpButtonOnClick() {
+    if (!createUsernameInput.value || !createEmailInput.value || !createPasswordInput.value || !confirmPasswordInput.value) {
+        fillInFormsError.classList.remove("hidden");
+        return;
+    } else {
+        fillInFormsError.classList.add("hidden");
+    };
 
-    if (inputForm) {
-        inputForm.classList.add('error');
-    }
-}
-
-// Success Effect
-async function SuccessEffect(successText, subIndex) {
-    subText[subIndex].style.color = 'lime';
-    subText[subIndex].textContent = successText;
-    subText[subIndex].style.opacity = 1;
-}
-
-// Validate Email
-async function ValidateEmail(emailForm) {
-    const validRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return validRegex.test(emailForm.value);
-}
-
-// Event Listeners
-signInSelector.addEventListener("mouseup", () => {
-    signInSelector.classList.add("active-selector");
-    signUpSelector.classList.remove("active-selector");
-    signInContainer.classList.remove("hidden-login-container");
-    signUpContainer.classList.add("hidden-login-container");
-});
-
-signUpSelector.addEventListener("mouseup", () => {
-    signInSelector.classList.remove("active-selector");
-    signUpSelector.classList.add("active-selector");
-    signInContainer.classList.add("hidden-login-container");
-    signUpContainer.classList.remove("hidden-login-container");
-    subText[1].style.color = 'white';
-    subText[1].textContent = "Create a free account to use Chatify's services!";
-    subText[1].style.opacity = 0.6;
-});
-
-signUpButton.addEventListener("click", async () => {
     const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "GET",
         headers: {
@@ -72,59 +57,48 @@ signUpButton.addEventListener("click", async () => {
     });
     const users = await userData.json();
 
-    for (let i = 0; i < users.records.length; i++) {
-        const user = users.records[i];
+    for (let index = 0; index < users.records.length; index++) {
+        const record = users.records[index];
 
-        if (!usernameInput.value || !emailInput.value || !passwordInput.value || !confirmPasswordInput.value) {
-            ErrorEffect(null, 'Fill in all the forms', 1);
+        if (record.fields.username === createUsernameInput.value) {
+            errorEffect(createUsernameInput);
+            takenUsernameError.classList.remove("hidden");
+
+            availableUsername.forEach(element => element.textContent = `${createUsernameInput.value}${random(20, 100)}`);
             return;
-        }
+        } else {
+            undoErrorEffect(createUsernameInput);
+            takenUsernameError.classList.add("hidden");
+        };
 
-        // Username validation
-        const usernameRegex = /^[a-zA-Z0-9_]+$/;
-        if (!usernameRegex.test(usernameInput.value)) {
-            ErrorEffect(usernameInput, "Username can only contain letters, numbers, and underscores", 1);
+        if (record.fields.email === createEmailInput.value) {
+            errorEffect(createEmailInput);
+            takenEmailError.classList.remove("hidden");
             return;
-        }
+        } else {
+            undoErrorEffect(createEmailInput);
+            takenEmailError.classList.add("hidden");
+        };
 
-        if (user.fields.username === usernameInput.value) {
-            ErrorEffect(usernameInput, "This username is taken!", 1);
+        if (createPasswordInput.value !== confirmPasswordInput.value) {
+            errorEffect(createPasswordInput);
+            errorEffect(confirmPasswordInput);
+
+            nonMatchingPasswordError.classList.remove("hidden");
+
+            createPasswordInput.value = "";
+            confirmPasswordInput.value = "";
             return;
-        }
+        } else {
+            undoErrorEffect(createPasswordInput);
+            undoErrorEffect(confirmPasswordInput);
 
-        // Password validation for length
-        if (passwordInput.value.length < 5) {
-            ErrorEffect(passwordInput, 'Your password must be longer than 5 characters', 1);
-            return;
-        }
-
-        // Password validation for uppercase letter and number
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).+$/;
-        if (!passwordRegex.test(passwordInput.value)) {
-            ErrorEffect(passwordInput, 'Password must include an uppercase letter and a number', 1);
-            return;
-        }
-
-        if (!ValidateEmail(emailInput)) {
-            ErrorEffect(emailInput, "Invalid email format!", 1);
-            return;
-        }
-
-        if (user.fields.email === emailInput.value) {
-            ErrorEffect(emailInput, "Unoriginal email", 1);
-            return;
-        }
-    }
-
-    if (passwordInput.value !== confirmPasswordInput.value) {
-        ErrorEffect(confirmPasswordInput, "Passwords do not match", 1);
-        passwordInput.value = "";
-        confirmPasswordInput.value = "";
-        return;
-    }
+            nonMatchingPasswordError.classList.add("hidden");
+        };
+    };
 
     const maxUserId = await getMaxUserId();
-    const response = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
+    await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "POST",
         headers: {
             "Authorization": authorization,
@@ -133,25 +107,95 @@ signUpButton.addEventListener("click", async () => {
         body: JSON.stringify({
             fields: {
                 user_id: maxUserId,
-                username: usernameInput.value,
+                username: createUsernameInput.value,
                 date_created: Date.now(),
-                email: emailInput.value,
-                password: passwordInput.value,
+                email: createEmailInput.value,
+                password: createPasswordInput.value,
             },
         }),
     });
-
-    const parsedResponse = await response.json();
     document.cookie = `id=${maxUserId};expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-    console.log(getCookie('id'));
+};
 
-    SuccessEffect('Account created!', 1);
-    await delay(1000);
-    window.location.href = 'index.html';
-});
+async function signInButtonOnClick() {
+    const expires = rememberBox.checked ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "";
 
+    const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
+        method: "GET",
+        headers: {
+            "Authorization": authorization,
+            "Content-Type": "application/json",
+        },
+    });
+    const parsedData = await userData.json();
 
-// Get highest user id available
+    if (!loginEmailInput.value || !loginPasswordInput.value) {
+        fillInCredentialsError.classList.remove('invalid');
+        errorEffect(loginEmailInput);
+        errorEffect(loginPasswordInput);
+        return;
+    };
+
+    for (let index = 0; index < parsedData.records.length; index++) {
+        const record = parsedData.records[index];
+
+        if (!(loginEmailInput.value === record.fields.email && loginPasswordInput.value === record.fields.password))
+            continue;
+
+        undoErrorEffect(loginEmailInput);
+        undoErrorEffect(loginPasswordInput);
+
+        setInfiniteCookie("id", record.fields.user_id);
+        return;
+    };
+
+    incorrectCredentialsError.classList.remove("hidden");
+    loginPasswordInput.value = "";
+
+    errorEffect(loginEmailInput);
+    errorEffect(loginPasswordInput);
+};
+
+async function createUsernameInputFocusOut() {
+    const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
+        method: "GET",
+        headers: {
+            "Authorization": authorization,
+            "Content-Type": "application/json",
+        },
+    });
+    const users = await userData.json();
+
+    for (let index = 0; index < users.records.length; index++) {
+        const record = users.records[index];
+
+        if (record.fields.username === createUsernameInput.value) {
+            errorEffect(createUsernameInput);
+            takenUsernameError.classList.remove("hidden");
+
+            availableUsername.forEach(element => element.textContent = `${createUsernameInput.value}${random(20, 100)}`);
+            return;
+        } else {
+            undoErrorEffect(createUsernameInput);
+            takenUsernameError.classList.add("hidden");
+        };
+    };
+};
+
+function signInSelectorClick() {
+    signInSelector.classList.add("active-selector");
+    signUpSelector.classList.remove("active-selector");
+    signInContainer.classList.remove("hidden-login-container");
+    signUpContainer.classList.add("hidden-login-container");
+};
+
+function signUpSelectorClick() {
+    signInSelector.classList.remove("active-selector");
+    signUpSelector.classList.add("active-selector");
+    signInContainer.classList.add("hidden-login-container");
+    signUpContainer.classList.remove("hidden-login-container");
+};
+
 async function getMaxUserId() {
     const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "GET",
@@ -166,50 +210,27 @@ async function getMaxUserId() {
     for (const user of users.records) {
         const user_id = user.fields.user_id;
 
-        if (user_id > max) {
+        if (user_id > max)
             max = user_id;
-        }
-    }
+    };
 
     return ++max;
-}
+};
 
-// Sign-in section
-signInButton.addEventListener('mouseup', async () => {
-    const expires = rememberBox.checked ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "";
+async function errorEffect(inputForm) {
+    inputForm.classList.add('error');
+};
 
-    const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
-        method: "GET",
-        headers: {
-            "Authorization": authorization,
-            "Content-Type": "application/json",
-        },
-    });
-    const users = await userData.json();
+async function undoErrorEffect(inputForm) {
+    inputForm.classList.remove('error');
+};
 
-    if (!loginEmailInput.value || !loginPasswordInput.value) {
-        ErrorEffect(null, "Please fill in all forms", 0);
-        return;
-    }
+function availableUsernameLoop(element) {
+    element.addEventListener("mouseup", availableUsernameElementClick.bind(null, element));
+};
 
-    let foundUser = null;
-
-    if (await ValidateEmail(loginEmailInput)) {
-        foundUser = users.records.find(user => user.fields.email === loginEmailInput.value);
-    } else {
-        foundUser = users.records.find(user => user.fields.username === loginEmailInput.value);
-    }
-
-    if (foundUser) {
-        if (foundUser.fields.password === loginPasswordInput.value) {
-            SuccessEffect("Found your account!", 0);
-            document.cookie = `id=${foundUser.fields.user_id}${expires};`
-            await delay(1000);
-            window.location.href = 'index.html';
-        } else {
-            ErrorEffect(loginPasswordInput, "Password incorrect!", 0);
-        }
-    } else {
-        ErrorEffect(loginEmailInput, "Couldn't find account", 0);
-    }
-});
+function availableUsernameElementClick(element) {
+    createUsernameInput.value = element.textContent;
+    undoErrorEffect(createUsernameInput);
+};
+//#endregion
