@@ -37,6 +37,7 @@ a {
 }
 
 .animated-underline {
+    cursor: pointer;
     color: white;
 }
 

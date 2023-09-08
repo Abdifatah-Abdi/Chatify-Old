@@ -2,43 +2,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
-    overflow: visible;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 
-    border-radius: 1em;
-    width: 50%;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    margin-top: 4.5em;
-
-    background-color: #252b33;
-}
-
-.navigation-bar {
-    position: fixed;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
-    height: 5rem;
-    padding: 0.75em;
-
-    color: white;
-    background-color: #22282f;
-
-    overflow: hidden;
-    user-select: none;
-
-    z-index: 2;
+    overflow: visible;
 }
 
 .navigation-bar div a img {
@@ -71,13 +37,21 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    border-radius: 1em;
+    background-color: #252b33;
+
+    width: 40%;
+    height: fit-content;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .sign-in-sign-up {
     display: flex;
     flex-direction: row;
 
-    width: 40%;
+    width: 20em;
     margin-bottom: 1em;
     height: 2.5em;
 }
@@ -118,11 +92,6 @@ body {
     background-color: #3d4958;
 }
 
-.login-containers {
-    width: 100%;
-    height: 80%;
-}
-
 #sign-in-selector {
     border-radius: 1em 0em 0em 1em;
 }
@@ -140,7 +109,55 @@ h2 {
     font-size: 0.8em;
     font-weight: 500;
 
+    margin-bottom: 1em;
+
     opacity: 0.6;
+}
+
+.error-messages-holder {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.invalid {
+    background-color: #181c21;
+
+    padding: 1em;
+    border-radius: 1em;
+
+    text-align: center;
+
+    margin-bottom: 1em;
+    margin-right: 1em;
+}
+
+.invalid-title {
+    font-size: 1.05em;
+    font-weight: bold;
+}
+
+.invalid-description {
+    opacity: 0.6;
+}
+
+.usernames-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.available-usernames-container {
+    display: inline-block;
+    width: fit-content;
+}
+
+.available-usernames {
+    list-style-type: none;
 }
 
 .email-and-password {
@@ -152,7 +169,6 @@ h2 {
     margin-bottom: 1em;
 }
 
-
 .email-and-password>input,
 .email-and-password>div {
     display: flex;
@@ -160,9 +176,9 @@ h2 {
     justify-content: center;
 
     width: 20em;
-    height: 2.7em;
+    height: 2.5em;
 
-    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     padding: 1em;
 
     font-weight: 400;
@@ -191,12 +207,15 @@ h2 {
     text-decoration: none;
 }
 
+#remember-box {
+    margin-bottom: 1em;
+}
+
 .sign-button {
     cursor: pointer;
 
     height: 2.5em;
     width: 20em;
-    margin-top: 1em;
 
     border-radius: 0.5em;
     border: none;
@@ -225,10 +244,6 @@ h2 {
 
     margin-top: 1em;
     text-align: center;
-}
-
-.continue-with-container p {
-    margin-bottom: 0.5em;
 }
 
 #logos {
