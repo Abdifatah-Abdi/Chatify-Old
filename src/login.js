@@ -130,6 +130,7 @@ async function signInButtonOnClick() {
     const parsedData = await userData.json();
 
     if (!loginEmailInput.value || !loginPasswordInput.value) {
+        fillInCredentialsError.classList.remove('invalid');
         errorEffect(loginEmailInput);
         errorEffect(loginPasswordInput);
         return;
