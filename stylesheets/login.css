@@ -5,6 +5,8 @@ body {
     flex-direction: column;
 
     overflow: visible;
+
+    text-align: center;
 }
 
 .navigation-bar div a img {
@@ -109,8 +111,6 @@ h2 {
     font-size: 0.8em;
     font-weight: 500;
 
-    margin-bottom: 1em;
-
     opacity: 0.6;
 }
 
@@ -122,6 +122,8 @@ h2 {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+
+    margin-top: 1em;
     margin-bottom: 1em;
 }
 
@@ -165,33 +167,28 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    margin-bottom: 1em;
 }
 
-.email-and-password>input,
-.email-and-password>div {
+.email-and-password>input {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 20em;
-    height: 2.5em;
+    width: 150%;
+    height: 20%;
 
     margin-bottom: 0.5em;
-    padding: 1em;
 
     font-weight: 400;
+    font-size: 1em;
+
     border-radius: 0.5em;
     border: none;
-
-    background-color: #2d3641;
 }
 
-.email-and-password>input[type='button']:hover {
-    cursor: pointer;
-    color: white;
-    border: 1px solid black;
+.email-and-password>input:not(.submit-input) {
+    padding: 1em;
+    background-color: #2d3641;
 }
 
 .email,
@@ -207,28 +204,19 @@ h2 {
     text-decoration: none;
 }
 
-#remember-box {
+#remember-me {
     margin-bottom: 1em;
 }
 
-.sign-button {
+.submit-input {
     cursor: pointer;
 
-    height: 2.5em;
-    width: 20em;
-
-    border-radius: 0.5em;
-    border: none;
-
-    font-weight: 500;
-    font-size: 1em;
-
-    background-color: #304257;
+    background-color: #374d66;
     transition: background-color 250ms;
 }
 
-.sign-button:hover {
-    background-color: #374d66;
+.submit-input:hover {
+    background-color: #3e5875;
 }
 
 #logos {
@@ -238,7 +226,7 @@ h2 {
     flex-direction: column;
 }
 
-.continue-with-container {
+.continue-with {
     font-weight: 500;
     font-size: 1em;
 
@@ -255,7 +243,7 @@ h2 {
     height: 100%;
 }
 
-.social-media-container {
+.socials {
     cursor: pointer;
 
     display: flex;
@@ -265,13 +253,11 @@ h2 {
 
     margin-right: 0.75em;
     border-radius: 0.5em;
+
+    transition: opacity 250ms;
 }
 
-.social-media-container:hover {
-    background-color: #2d3641;
-}
-
-.social-media-image {
+.social-icon {
     padding: 0.95em;
 
     height: 3.5em;
@@ -285,9 +271,13 @@ h2 {
     border-radius: 0.5em;
 }
 
-.social-media-container p {
+.socials:hover {
+    opacity: 0.6;
+}
+
+.socials p {
     margin-top: 0.3em;
-    font-size: 0.75em;
+    font-size: 0.9em;
 }
 
 footer {

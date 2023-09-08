@@ -34,12 +34,49 @@ const fillInCredentialsError = document.getElementById("fill-in-all-credentials-
 //#region Event Listeners
 signInSelector.addEventListener("mouseup", signInSelectorClick);
 signUpSelector.addEventListener("mouseup", signUpSelectorClick);
-signUpButton.addEventListener("click", signUpButtonOnClick);
 signInButton.addEventListener('mouseup', signInButtonOnClick);
+signUpButton.addEventListener("mouseup", signUpButtonOnClick);
 createUsernameInput.addEventListener("focusout", createUsernameInputFocusOut);
 availableUsername.forEach(availableUsernameLoop);
 //#endregion
 //#region Functions
+async function signInButtonOnClick() {
+    const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
+        method: "GET",
+        headers: {
+            "Authorization": authorization,
+            "Content-Type": "application/json",
+        },
+    });
+    const parsedData = await userData.json();
+
+    if (!loginEmailInput.value || !loginPasswordInput.value) {
+        fillInCredentialsError.classList.remove('hidden');
+        errorEffect(loginEmailInput);
+        errorEffect(loginPasswordInput);
+        return;
+    };
+
+    for (let index = 0; index < parsedData.records.length; index++) {
+        const record = parsedData.records[index];
+
+        if (!(loginEmailInput.value === record.fields.email && loginPasswordInput.value === record.fields.password))
+            continue;
+
+        undoErrorEffect(loginEmailInput);
+        undoErrorEffect(loginPasswordInput);
+
+        setInfiniteCookie("id", record.fields.user_id);
+        return;
+    };
+
+    incorrectCredentialsError.classList.remove("hidden");
+    loginPasswordInput.value = "";
+
+    errorEffect(loginEmailInput);
+    errorEffect(loginPasswordInput);
+};
+
 async function signUpButtonOnClick() {
     if (!createUsernameInput.value || !createEmailInput.value || !createPasswordInput.value || !confirmPasswordInput.value) {
         fillInFormsError.classList.remove("hidden");
@@ -117,45 +154,6 @@ async function signUpButtonOnClick() {
     document.cookie = `id=${maxUserId};expires=Fri, 31 Dec 9999 23:59:59 GMT`;
 };
 
-async function signInButtonOnClick() {
-    const expires = rememberBox.checked ? "; expires=Fri, 31 Dec 9999 23:59:59 GMT" : "";
-
-    const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
-        method: "GET",
-        headers: {
-            "Authorization": authorization,
-            "Content-Type": "application/json",
-        },
-    });
-    const parsedData = await userData.json();
-
-    if (!loginEmailInput.value || !loginPasswordInput.value) {
-        fillInCredentialsError.classList.remove('invalid');
-        errorEffect(loginEmailInput);
-        errorEffect(loginPasswordInput);
-        return;
-    };
-
-    for (let index = 0; index < parsedData.records.length; index++) {
-        const record = parsedData.records[index];
-
-        if (!(loginEmailInput.value === record.fields.email && loginPasswordInput.value === record.fields.password))
-            continue;
-
-        undoErrorEffect(loginEmailInput);
-        undoErrorEffect(loginPasswordInput);
-
-        setInfiniteCookie("id", record.fields.user_id);
-        return;
-    };
-
-    incorrectCredentialsError.classList.remove("hidden");
-    loginPasswordInput.value = "";
-
-    errorEffect(loginEmailInput);
-    errorEffect(loginPasswordInput);
-};
-
 async function createUsernameInputFocusOut() {
     const userData = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Users", {
         method: "GET",
@@ -224,7 +222,6 @@ async function errorEffect(inputForm) {
 
 async function undoErrorEffect(inputForm) {
     inputForm.classList.remove('error');
-    fillInFormsError.classList.add("hidden");
 };
 
 function availableUsernameLoop(element) {

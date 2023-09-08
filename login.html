@@ -48,31 +48,33 @@
         </div>
 
         <div class="email-and-password">
-            <input type="text" name="email-input" class="email" placeholder="Email or Username" id="login-email-input">
-            <input type="text" name="password-input" class="password" placeholder="Password" id="login-password-input">
-            <!-- TODO: Change the types to its respective types -->
+            <input type="email" name="email-input" class="email" autocomplete="off" autocapitalize="off"
+                placeholder="Email or Username" id="login-email-input">
+
+            <input type="password" name="password-input" class="password" autocomplete="off" autocapitalize="off"
+                placeholder="Password" id="login-password-input">
+
+            <div id="remember-box">
+                <input id="remember-me" type="checkbox" name="remember-box">
+                <label for="remember-me">Remember me</label>
+            </div>
+
+            <input class="submit-input" id="sign-in-button" type="button" value="Sign In">
         </div>
-        <div id="remember-box">
-            <input id="remember-me" type="checkbox" name="remember-box">
-            <label for="remember-me">Remember me</label>
-        </div>
-        <div>
-            <input class="sign-button" id="sign-in-button" type="button" value="Sign In">
-        </div>
-        <div class="continue-with-container">
+
+        <div class="continue-with">
             <p>Or Sign in with</p>
             <div id="logos">
-                <a href="https://google.com/" class="social-media-container" target="none">
-                    <img src="/assets/images/social_media_logos/google.svg" class="social-media-image" alt="Google">
+                <a href="https://google.com/" class="socials" target="none">
+                    <img src="/assets/images/social_media_logos/google.svg" class="social-icon" alt="Google">
                     <p>Google</p>
                 </a>
-                <a href="https://facebook.com/" class="social-media-container" target="none">
-                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image" alt="Facebook">
+                <a href="https://facebook.com/" class="socials" target="none">
+                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-icon" alt="Facebook">
                     <p>Facebook</p>
                 </a>
-                <a href="https://github.com/" class="social-media-container end" target="none" class="end">
-                    <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
-                        alt="GitHub">
+                <a href="https://github.com/" class="socials" target="none" class="end">
+                    <img src="/assets/images/social_media_logos/github-black.png" class="social-icon" alt="GitHub">
                     <p>GitHub</p>
                 </a>
             </div>
@@ -150,32 +152,35 @@
         </div>
 
         <div class="email-and-password">
-            <input type="text" name="create-username-input" class="email" id="create-username-input"
-                placeholder="Username">
-            <input type="text" name="create-email-input" class="email" id="create-email-input" placeholder="Email">
-            <input type="text" name="create-password-input" class="password" id="create-password-input"
-                placeholder="Password">
-            <input type="text" name="create-confirm-password-input" class="password" id="create-confirm-password-input"
+            <input type="text" name="create-username-input" class="email" id="create-username-input" autocomplete="off"
+                autocapitalize="off" placeholder="Username">
+
+            <input type="email" name="create-email-input" class="email" id="create-email-input" autocomplete="off"
+                autocapitalize="off" placeholder="Email">
+
+            <input type="password" name="create-password-input" class="password" id="create-password-input"
+                autocomplete="off" autocapitalize="off" placeholder="Password">
+
+            <input type="password" name="create-confirm-password-input" class="password"
+                id="create-confirm-password-input" autocomplete="off" autocapitalize="off"
                 placeholder="Confirm Password">
-            <!-- TODO: Change all of the types to the respective types -->
+
+            <input class="submit-input" id="sign-up-button" type="button" value="Sign Up">
         </div>
-        <div>
-            <input class="sign-button" id="sign-up-button" type="button" value="Sign Up">
-        </div>
-        <div class="continue-with-container">
+
+        <div class="continue-with">
             <p>Or Sign up with</p>
             <div id="logos">
-                <a href="https://google.com/" class="social-media-container" target="none">
-                    <img src="/assets/images/social_media_logos/google.svg" class="social-media-image" alt="Google">
+                <a href="https://google.com/" class="socials" target="none">
+                    <img src="/assets/images/social_media_logos/google.svg" class="social-icon" alt="Google">
                     <p>Google</p>
                 </a>
-                <a href="https://facebook.com/" class="social-media-container" target="none">
-                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-media-image" alt="Facebook">
+                <a href="https://facebook.com/" class="socials" target="none">
+                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-icon" alt="Facebook">
                     <p>Facebook</p>
                 </a>
-                <a href="https://github.com/" class="social-media-container end" target="none" class="end">
-                    <img src="/assets/images/social_media_logos/github-black.png" class="social-media-image"
-                        alt="GitHub">
+                <a href="https://github.com/" class="socials end" target="none" class="end">
+                    <img src="/assets/images/social_media_logos/github-black.png" class="social-icon" alt="GitHub">
                     <p>GitHub</p>
                 </a>
             </div>
