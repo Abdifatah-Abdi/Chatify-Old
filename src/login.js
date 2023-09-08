@@ -172,6 +172,7 @@ async function createUsernameInputFocusOut() {
         if (record.fields.username === createUsernameInput.value) {
             errorEffect(createUsernameInput);
             takenUsernameError.classList.remove("hidden");
+            fillInFormsError.classList.add("hidden");
 
             availableUsername.forEach(element => element.textContent = `${createUsernameInput.value}${random(20, 100)}`);
             return;
@@ -223,6 +224,7 @@ async function errorEffect(inputForm) {
 
 async function undoErrorEffect(inputForm) {
     inputForm.classList.remove('error');
+    fillInFormsError.classList.add("hidden");
 };
 
 function availableUsernameLoop(element) {
