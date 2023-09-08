@@ -313,6 +313,15 @@ footer {
     }
 }
 
+@media (max-width:850px) {
+    #login-email-input,
+    #login-password-input,
+    #sign-in-button,
+    #sign-in-selector,
+    #sign-up-selector {
+      width: 100%;
+    }
+  }
 
 .error {
     border: 0.1em solid red !important;
