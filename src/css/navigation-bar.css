@@ -8,7 +8,7 @@
     padding: 0.75em;
 
     color: white;
-    background-color: #22282f;
+    background-color: var(--sbc);
 
     overflow: hidden;
     user-select: none;
@@ -46,7 +46,7 @@
     background-color: #2b323b;
     border: 0.2em solid #3d4752;
     position: absolute;
-    top: 4em; 
+    top: 4em;
     right: 1em;
     z-index: 3;
     padding: 0.5em;
@@ -69,13 +69,13 @@
     cursor: pointer;
 }
 
-.profile-menu-item > img {
+.profile-menu-item>img {
     height: 1em;
     aspect-ratio: 1 / 1;
     margin-right: 0.2em;
 }
 
-.navigation-bar-link > img {
+.navigation-bar-link>img {
     height: 2.5em;
     aspect-ratio: 1 / 1;
     border-radius: 50%;

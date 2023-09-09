@@ -78,16 +78,16 @@ body {
 
 .sign-in-sign-up>.active-selector {
     background-color: #304257;
-    transition: background-color 250ms;
+    transition: background-color var(--adt);
 }
 
 .sign-in-sign-up>.active-selector:hover {
-    background-color: #374d66;
+    background-color: var(--pbc);
 }
 
 .sign-in-sign-up div:not(.active-selector) {
-    background-color: #2d3641;
-    transition: background-color 250ms;
+    background-color: var(--sbbc);
+    transition: background-color var(--adt);
 }
 
 .sign-in-sign-up div:not(.active-selector):hover {
@@ -128,7 +128,7 @@ h2 {
 }
 
 .invalid {
-    background-color: #181c21;
+    background-color: var(--bgc);
 
     padding: 1em;
     border-radius: 1em;
@@ -188,7 +188,7 @@ h2 {
 
 .email-and-password>input:not(.submit-input) {
     padding: 1em;
-    background-color: #2d3641;
+    background-color: var(--sbbc);
 }
 
 .email,
@@ -211,12 +211,12 @@ h2 {
 .submit-input {
     cursor: pointer;
 
-    background-color: #374d66;
-    transition: background-color 250ms;
+    background-color: var(--pbc);
+    transition: background-color var(--adt);
 }
 
 .submit-input:hover {
-    background-color: #3e5875;
+    background-color: var(--pbh);
 }
 
 #logos {
@@ -254,7 +254,7 @@ h2 {
     margin-right: 0.75em;
     border-radius: 0.5em;
 
-    transition: opacity 250ms;
+    transition: opacity var(--adt);
 }
 
 .social-icon {

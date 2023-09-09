@@ -13,7 +13,7 @@ body {
     width: 100%;
     height: 100%;
 
-    background-color: #181c21;
+    background-color: var(--bgc);
 }
 
 img {
@@ -59,7 +59,7 @@ a {
 
     background-color: white;
     transform-origin: bottom right;
-    transition: transform 250ms ease-in-out;
+    transition: transform var(--adt) ease-in-out;
 }
 
 .animated-underline p:hover::after {

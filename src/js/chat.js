@@ -57,7 +57,7 @@ function sendMediaHandler() {
 		fileLink = URL.createObjectURL(sendMediaPictureInput.files[0]);
 		formData.append("inpFile", sendMediaPictureInput.files[0]);
 
-		image.setAttribute("src", "./assets/images/icons/upload.svg");
+		image.setAttribute("src", "/assets/images/icons/upload.svg");
 		sendMediaSection.classList.add("hidden-menu");
 		sendMediaSection.classList.remove("active-menu");
 		fileNameText.textContent = `${sendMediaPictureInput.files[0].name}`;
@@ -66,7 +66,7 @@ function sendMediaHandler() {
 			method: "post",
 			body: formData,
 		}).catch(console.error);
-	});	
+	});
 
 	sendMediaFileInput.addEventListener("change", async () => {
 		const endpoint = "upload_file.php";
@@ -172,21 +172,21 @@ window.addEventListener("load", async () => {
 	const messageData = await messageResponse.json();
 
 	// Sort the records based on message_id
-const sortedRecords = messageData.records.sort((a, b) => a.fields.message_id - b.fields.message_id);
+	const sortedRecords = messageData.records.sort((a, b) => a.fields.message_id - b.fields.message_id);
 
-for (const record of sortedRecords) {
-    const isFromUser = record.fields.user_id == userId;
-    let messageElement = isFromUser ?
-        outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
-    messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
-    messageElement.childNodes[3].textContent =
-        `${formatTime(record.fields.time)}`;
-    messageElement.dataset.messageId = record.fields.message_id;
-    messageElement.dataset.messageGroupId = record.fields.group_id;
-    messageElement.dataset.messageUserId = record.fields.user_id;
-    messageElement.dataset.messageContent = record.fields.message;
-    messagesContainer.appendChild(messageElement);
-}
+	for (const record of sortedRecords) {
+		const isFromUser = record.fields.user_id == userId;
+		let messageElement = isFromUser ?
+			outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
+		messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
+		messageElement.childNodes[3].textContent =
+			`${formatTime(record.fields.time)}`;
+		messageElement.dataset.messageId = record.fields.message_id;
+		messageElement.dataset.messageGroupId = record.fields.group_id;
+		messageElement.dataset.messageUserId = record.fields.user_id;
+		messageElement.dataset.messageContent = record.fields.message;
+		messagesContainer.appendChild(messageElement);
+	}
 
 
 
@@ -246,14 +246,14 @@ sendMessageButton?.addEventListener("mouseup", async () => {
 uploadMediaButton.addEventListener("mouseup", () => {
 	const image = uploadMediaButton.childNodes[1];
 
-	if (image.getAttribute("src") == "./assets/images/icons/upload.svg") {
-		image.setAttribute("src", "./assets/images/icons/upload_selected.svg");
-		
+	if (image.getAttribute("src") == "/assets/images/icons/upload.svg") {
+		image.setAttribute("src", "/assets/images/icons/upload_selected.svg");
+
 		//get button position
 		const buttonRect = uploadMediaButton.getBoundingClientRect();
 		const buttonXpercentage = (buttonRect.left / window.innerWidth) * 100;
 		const buttonYPercentage = (buttonRect.top / window.innerHeight) * 100;
-		
+
 		//move send media container to appropriate position
 		sendMediaSection.style.setProperty('--media-section-x', buttonXpercentage + '%');
 		sendMediaSection.style.setProperty('--media-section-y', buttonYPercentage * 0.85 + '%');
@@ -261,7 +261,7 @@ uploadMediaButton.addEventListener("mouseup", () => {
 		sendMediaSection.classList.add("active-menu");
 		sendMediaSection.classList.remove("hidden-menu");
 	} else {
-		image.setAttribute("src", "./assets/images/icons/upload.svg");
+		image.setAttribute("src", "/assets/images/icons/upload.svg");
 		sendMediaSection.classList.add("hidden-menu");
 		sendMediaSection.classList.remove("active-menu");
 	};
@@ -280,7 +280,7 @@ function onMessageLoad() {
 			event.preventDefault();
 			contextMenu.classList.remove("hidden-menu");
 			contextMenu.classList.add("active-menu");
-			
+
 
 			let x = event.clientX, y = event.clientY;
 			let width = contextMenu.offsetWidth, height = contextMenu.offsetHeight;
@@ -309,16 +309,6 @@ document.addEventListener("contextmenu", event => {
 	event.preventDefault();
 	contextMenuOpened = true;
 });
-
-// window.addEventListener("mousedown", () => {
-// 	const image = uploadMediaButton.childNodes[1];
-
-// 	document.querySelectorAll(".active-menu").forEach(element => {
-// 		element.classList.add("hidden-menu");
-// 		element.classList.remove("active-menu");
-// 		image.setAttribute("src", "./assets/images/icons/upload.svg");
-// 	});
-// });
 
 async function messageContextMenuHandler(messageId, messageGroupId, messageUserId, messageContent) {
 	contextMenuReport.classList.add(messageUserId == userId ? "hidden" : "active");
@@ -384,7 +374,7 @@ document.addEventListener("keydown", key => {
 		document.querySelectorAll(".active-menu").forEach(element => {
 			element.classList.add("hidden-menu");
 			element.classList.remove("active-menu");
-			image.setAttribute("src", "./assets/images/icons/upload.svg");
+			image.setAttribute("src", "/assets/images/icons/upload.svg");
 		});
 	};
 });

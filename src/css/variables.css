@@ -1,0 +1,24 @@
+:root {
+    --background-color: #181c21;
+    --secondary-background-color: #22282f;
+
+    --primary-button-color: #374d66;
+    --primary-button-color-hover: #3e5875;
+
+    --secondary-button-color: #2d3641;
+    --secondary-button-color-hover: #3d4a59;
+
+    --animation-duration-time: 250ms;
+
+    /* Shorthand */
+    --bgc: #181c21;
+    --sbc: #22282f;
+
+    --pbc: #374d66;
+    --pbch: #3e5875;
+
+    --sbbc: #2d3641;
+    --sbch: #3d4a59;
+
+    --adt: 250ms;
+}

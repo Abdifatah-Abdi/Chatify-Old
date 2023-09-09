@@ -3,12 +3,6 @@
     --media-section-x: 50%;
 }
 
-/* 
-Lighter Shade #2e3e4d
-Main Colour #263440
-Darker Shade #1f2933
-*/
-
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +14,7 @@ Darker Shade #1f2933
 
 body,
 html {
-    background-color: #181c21;
+    background-color: var(--bgc);
     overflow-x: hidden;
 }
 
@@ -44,7 +38,7 @@ nav {
 
     padding: 2em;
 
-    background-color: #181c21;
+    background-color: var(--bgc);
 }
 
 .top {
@@ -98,14 +92,14 @@ nav {
 
     height: 4.5em;
 
-    background-color: #2d3641;
+    background-color: var(--sbbc);
     border-radius: 0.75em;
 
-    transition: background-color 250ms;
+    transition: background-color var(--adt);
 }
 
 .chat:not(#active-chat):hover {
-    background-color: #3d4a59;
+    background-color: var(--sbch);
 }
 
 #active-chat:hover {
@@ -132,7 +126,7 @@ nav {
     height: 100%;
     padding: 0.5em;
 
-    background-color: #2d3641;
+    background-color: var(--sbc);
     border-radius: 2em;
 }
 
@@ -245,15 +239,15 @@ nav {
     padding: 1.5em;
     height: fit-content;
 
-    transition: background-color 250ms;
+    transition: background-color var(--adt);
 }
 
-.inbound-message > img {
+.inbound-message>img {
     margin-left: 1%;
     margin-top: 3%;
 }
 
-.outbound-message > img {
+.outbound-message>img {
     margin-top: 3%;
     margin-right: 1%;
 }
@@ -264,12 +258,12 @@ nav {
 
 .inbound-message {
     margin-left: 0.5em;
-    background-color: #2d3641;
+    background-color: var(--sbbc);
     border-radius: 2em 4em 4em 2em;
 }
 
 .inbound-message:hover {
-    background-color: #3d4a59;
+    background-color: var(--sbch);
 }
 
 .outbound-message {
@@ -285,7 +279,7 @@ nav {
 .message-profile-picture {
     display: inline;
     border-radius: 2em;
-    background-color: #2d3641;
+    background-color: var(--sbbc);
 }
 
 #message-text-box {
@@ -296,7 +290,7 @@ nav {
     border-radius: 0 0 0 0;
 
     color: white;
-    background-color: #2d3641;
+    background-color: var(--sbbc);
 
     font-size: 1em;
     text-align: left;
@@ -313,7 +307,7 @@ nav {
     padding: 1em;
     background-color: #304257;
 
-    transition: background-color 250ms;
+    transition: background-color var(--adt);
 }
 
 #send-message-button-container {
@@ -349,7 +343,7 @@ nav {
     font-size: 0.8em;
     position: absolute;
     bottom: 16%;
-    background-color: #2d3641;
+    background-color: var(--sbbc);
     padding: 0.3em;
 }
 
@@ -367,7 +361,7 @@ nav {
     background-color: #1c2127;
 
     opacity: 1;
-    transition: opacity 250ms;
+    transition: opacity var(--adt);
 }
 
 .send-media-icon {
@@ -391,11 +385,11 @@ nav {
     padding: 1em;
     border-radius: 0.5em;
 
-    transition: background-color 250ms;
+    transition: background-color var(--adt);
 }
 
 .send-media-container:hover {
-    background-color: #2d3641;
+    background-color: var(--sbbc);
 }
 
 .send-media-icon,
@@ -417,7 +411,7 @@ nav {
     padding: 0.5em;
     width: fit-content;
 
-    background-color: #181c21;
+    background-color: var(--bgc);
     border: 1px solid rgb(64, 64, 64);
     border-radius: 0.25em;
 }
@@ -432,10 +426,8 @@ nav {
 
     border-radius: 0.25em;
     margin-bottom: 0.5em;
-    /* background-color: #1c2127; */
-    /* background-color: red; */
 
-    transition: background-color 250ms;
+    transition: background-color var(--adt);
 }
 
 .menu-message-item:hover {

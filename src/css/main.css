@@ -5,7 +5,7 @@
 
     padding: 2%;
 
-    background-color: #181c21;
+    background-color: var(--bgc);
 }
 
 .main-information * {
@@ -133,7 +133,7 @@
 
 footer {
     text-align: left;
-    background-color: #22282f;
+    background-color: var(--sbc);
 
     padding: 2rem;
 }
@@ -190,7 +190,7 @@ footer {
 }
 
 #language-dropdown option {
-    background-color: #22282f;
+    background-color: var(--sbc);
 }
 
 #subscribe-input {
@@ -204,7 +204,7 @@ footer {
 
     background-color: transparent;
 
-    transition: border 250ms ease-in-out;
+    transition: border var(--adt) ease-in-out;
 }
 
 #subscribe-input:focus {
@@ -245,7 +245,7 @@ footer {
 
     margin-left: 0.75em;
 
-    transition: filter 250ms;
+    transition: filter var(--adt);
 }
 
 .github {
@@ -253,7 +253,7 @@ footer {
     filter: invert(100%);
     width: 1.80em;
     margin-left: 0.75em;
-    transition: filter 250ms;
+    transition: filter var(--adt);
 }
 
 #github-te {
@@ -262,7 +262,7 @@ footer {
     width: 1.0em;
     margin-right: 0.35em;
     margin-left: 0.25em;
-    transition: filter 250ms;
+    transition: filter var(--adt);
 }
 
 .github-t {
@@ -288,7 +288,7 @@ footer {
 
     background-color: white;
     transform-origin: bottom right;
-    transition: transform 250ms ease-in-out;
+    transition: transform var(--adt) ease-in-out;
 }
 
 .github-t:hover::after {
