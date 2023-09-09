@@ -33,11 +33,11 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [ ] Account Control Panels
     - [ ] Username updating
     - [ ] Password updating
-    - [x] Profile pictures
-    - [x] UI optimization
+    - [ ] Profile pictures
+    - [ ] UI optimization
     - [ ] Increased responsiveness
     - [ ] Mobile support
-    - [x] UI design changes
+    - [ ] UI design changes
     - [ ] End-To-End encryptions
 
 - For logging in
