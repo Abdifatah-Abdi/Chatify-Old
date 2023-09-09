@@ -36,7 +36,7 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [ ] Account Control Panels
     - [ ] Username updating
     - [ ] Password updating
-    - [ ] Profile pictures
+    - [x] Profile pictures
     - [x] UI optimization
     - [ ] Increased responsiveness
     - [ ] Mobile support
@@ -44,10 +44,10 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [ ] End-To-End encryptions
 
 - For logging in
-    - [ ] Creating new accounts
-    - [ ] Storing accounts in a DataBase
+    - [x] Creating new accounts
+    - [x] Storing accounts in a DataBase
     - [ ] Hashing and salting passwords in the database
-    - [ ] Logging into accounts
+    - [x] Logging into accounts
     - [ ] Store IDs in cookies
 
 - For Chatify itself
