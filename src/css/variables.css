@@ -16,9 +16,13 @@
 
     --pbc: #374d66;
     --pbch: #3e5875;
+    /* Alternate */
+    --pbh: #3e5875;
 
     --sbbc: #2d3641;
     --sbch: #3d4a59;
+    /* Alternate */
+    --sbh: #3e5875;
 
     --adt: 250ms;
 }

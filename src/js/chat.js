@@ -39,6 +39,12 @@ const sendMediaFileInput = document.getElementById("send-media-file-input");
 const fileNameText = document.getElementById('uploaded-file-text');
 let fileLink = '';
 
+if (getCookie("id")) {
+	sendMessageTextBox.disabled = false;
+} else {
+	window.location.href = "./login.html";
+}
+
 sendMediaHandler();
 function sendMediaHandler() {
 	const image = uploadMediaButton.childNodes[1];
@@ -378,10 +384,3 @@ document.addEventListener("keydown", key => {
 		});
 	};
 });
-
-if (getCookie('id')) {
-	sendMessageTextBox.disabled = false;
-} else {
-	sendMessageTextBox.disabled = true;
-	sendMessageTextBox.placeholder = "Sign in or create an account to access chatting!"
-}
