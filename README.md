@@ -6,17 +6,17 @@ That aside, we aren't expecting people to use Chatify over any other application
 ## Authors of Chatify
 Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
 
-[Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), is in charge of the backend of Chatify. This includes monitoring & using the DataBase, sockets, & the backend.
+[Abdifatah-Abdi](https://github.com/Abdifatah-Abdi) is in charge of the backend of Chatify. This includes monitoring & using the DataBase, sockets, & the backend.
 
 [Omar](https://github.com/Elyossef-Omar) is in charge of the little things, contributing to a mix of both frontend UI fixes & improvements, & added some backend functionality.
 
-[Advay-c](https://github.com/advay-c) is in charge of code optimization, bringing ui desings to life, bug fixes along with prioritizing Git, GitHub & tunnel utilization.
+[Advay-c](https://github.com/advay-c) is in charge of code optimization, bringing ui designs to life, bug fixes, and prioritizing Git, GitHub & tunnel utilization.
 
 ## What makes Chatify unique?
-Chatify is unique because, unlike other platforms, we don't collect and sell user data (albeit, we don't know how to do that), we offer tons of customizability for our platform, including modifications, and a dedicated API (coming soon). Not to mention, Chatify is open source.
+Chatify is unique because, unlike other platforms, we don't collect and sell user data (albeit, we don't know how to do that), We offer tons of customizability for our platform, including modifications, and a dedicated API (coming soon). Not to mention, Chatify is open source.
 
 ## What is Chatify built on?
-Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CSS. Messages, Users, and Groups are stored in a database (for the time being, [Airtable](https://airtable.com)), and [Socket.io](https://socket.io/), used to send, and update messages in real-time.
+Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CSS. Messages, Users, and Groups are stored in a database (for the time being, [Airtable](https://airtable.com)), [Socket.io](https://socket.io/), used to send, and update messages in real-time, and [Tunnel.dev](tunnel.dev), a free site to bring localhost to the world wide web (check it out, it's incredible).
 
 ## TODO List
 - For Chatting
@@ -38,7 +38,7 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [ ] Increased responsiveness
     - [ ] Mobile support
     - [ ] UI design changes
-    - [ ] End-To-End encryptions
+    - [ ] End-to-end encryptions
 
 - For logging in
     - [x] Creating new accounts
