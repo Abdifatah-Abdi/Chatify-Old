@@ -91,3 +91,11 @@ a {
 .active {
     display: block;
 }
+
+.first {
+    margin: 0 !important;
+}
+
+.end {
+    margin: 0 !important;
+}
