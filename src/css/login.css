@@ -326,7 +326,6 @@ footer {
 
 .error {
     border: 0.1em solid red !important;
-
     animation-name: shake;
     animation-duration: 125ms;
     animation-iteration-count: 2;
