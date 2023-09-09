@@ -14,7 +14,6 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@tunnel/cli": "^0.3.0-staging.5",
     "express": "^4.18.2",
     "nodemon": "^3.0.1",
     "snowpack": "^3.2.2",
