@@ -3,9 +3,6 @@
 
 That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills. From what it seems, we're doing pretty well.
 
-## EOL of Chatify
-The site, Chatify, at first seemed like a great way to build skills for us with web development. However, not all things come free, like servers.\
-
 ## Authors of Chatify
 Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
 
