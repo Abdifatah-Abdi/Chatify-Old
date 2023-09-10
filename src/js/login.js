@@ -67,6 +67,7 @@ async function signInButtonOnClick() {
         undoErrorEffect(loginPasswordInput);
 
         setInfiniteCookie("id", record.fields.user_id);
+        window.location.href = "./chat.html";
         return;
     };
 
