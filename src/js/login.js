@@ -60,7 +60,8 @@ async function signInButtonOnClick() {
     for (let index = 0; index < parsedData.records.length; index++) {
         const record = parsedData.records[index];
 
-        if (!(loginEmailInput.value === record.fields.email && loginPasswordInput.value === record.fields.password))
+        if (!(loginEmailInput.value === record.fields.email && loginPasswordInput.value === record.fields.password ||
+            loginEmailInput.value === record.fields.username && loginPasswordInput.value === record.fields.password))
             continue;
 
         undoErrorEffect(loginEmailInput);
