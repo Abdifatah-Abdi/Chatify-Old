@@ -1,191 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatify - Login</title>
+	<!-- Meta Tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chatify - Login</title>
 
-    <!-- Scripts -->
-    <script src="../js/login.js" defer type="module"></script>
+	<!-- Scripts -->
+	<script src="../js/login.js" defer type="module"></script>
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/font-faces.css">
-    <link rel="stylesheet" href="../css/navigation-bar.css">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="../css/variables.css">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/font-faces.css">
+	<link rel="stylesheet" href="../css/navigation-bar.css">
 </head>
 
 <body>
-    <div class="sign-in-sign-up">
-        <div class="start active-selector" id="sign-in-selector">
-            <p>Sign in</p>
-        </div>
-        <div class="end" id="sign-up-selector">
-            <p>Sign up</p>
-        </div>
-    </div>
+	<div class="sign-in-sign-up">
+		<div class="start active-selector" id="sign-in-selector">
+			<p>Sign in</p>
+		</div>
+		<div class="end" id="sign-up-selector">
+			<p>Sign up</p>
+		</div>
+	</div>
 
-    <div id="sign-in-container">
-        <h1>Sign In</h1>
-        <h2>To continue to Chatify</h2>
+	<div id="sign-in-container">
+		<h1>Sign In</h1>
+		<h2>To continue to Chatify</h2>
 
-        <div class="error-messages-holder">
-            <div class="hidden invalid" id="incorrect-credentials-error">
-                <div class="invalid-title">Incorrect email or password!</div>
-                <div class="invalid-description">
-                    <a class="animated-underline">
-                        <p>Forgot Email/password?</p>
-                    </a>
-                </div>
-            </div>
+		<div class="error-messages-holder">
+			<div class="hidden invalid" id="incorrect-credentials-error">
+				<div class="invalid-title">Incorrect email or password!</div>
+				<div class="invalid-description">
+					<a class="animated-underline">
+						<p>Forgot Email/password?</p>
+					</a>
+				</div>
+			</div>
 
-            <div class="hidden invalid" id="fill-in-all-credentials-error">
-                <div class="invalid-title">Please fill in all forms!</div>
-            </div>
-        </div>
+			<div class="hidden invalid" id="fill-in-all-credentials-error">
+				<div class="invalid-title">Please fill in all forms!</div>
+			</div>
+		</div>
 
-        <div class="email-and-password">
-            <input type="email" name="email-input" class="email" autocomplete="off" autocapitalize="off"
-                placeholder="Email or Username" id="login-email-input">
+		<div class="email-and-password">
+			<input type="email" name="email-input" class="email" autocomplete="off" autocapitalize="off"
+				placeholder="Email or Username" id="login-email-input">
 
-            <input type="password" name="password-input" class="password" autocomplete="off" autocapitalize="off"
-                placeholder="Password" id="login-password-input">
+			<input type="password" name="password-input" class="password" autocomplete="off" autocapitalize="off"
+				placeholder="Password" id="login-password-input">
 
-            <div id="remember-box">
-                <input id="remember-me" type="checkbox" name="remember-box">
-                <label for="remember-me">Remember me</label>
-            </div>
+			<div id="remember-box">
+				<input id="remember-me" type="checkbox" name="remember-box">
+				<label for="remember-me">Remember me</label>
+			</div>
 
-            <input class="submit-input" id="sign-in-button" type="button" value="Sign In">
-        </div>
+			<input class="submit-input" id="sign-in-button" type="button" value="Sign In">
+		</div>
 
-        <div class="continue-with">
-            <p>Or Sign in with</p>
-            <div id="logos">
-                <a href="https://google.com/" class="socials" target="none">
-                    <img src="/assets/images/social_media_logos/google.svg" class="social-icon forbid-user-select"
-                        alt="Google">
-                    <p>Google</p>
-                </a>
-                <a href="https://facebook.com/" class="socials" target="none">
-                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-icon forbid-user-select"
-                        alt="Facebook">
-                    <p>Facebook</p>
-                </a>
-                <a href="https://github.com/" class="socials" target="none" class="end">
-                    <img src="/assets/images/social_media_logos/github-black.png"
-                        class="social-icon  forbid-user-select" alt="GitHub">
-                    <p>GitHub</p>
-                </a>
-            </div>
-        </div>
-        <footer>
-            <a class="forgot-password animated-underline" href="../html/settings.html">
-                <p>Forgot Email/password?</p>
-            </a>
-        </footer>
-    </div>
-    <div id="sign-up-container" class="hidden-login-container">
-        <h1>Sign Up</h1>
-        <h2>Create a free account to use Chatify's services!</h2>
+		<div class="continue-with">
+			<p>Or Sign in with</p>
+			<div id="logos">
+				<a href="https://google.com/" class="socials" target="none">
+					<img src="/assets/images/social_media_logos/google.svg" class="social-icon forbid-user-select"
+						alt="Google">
+					<p>Google</p>
+				</a>
+				<a href="https://facebook.com/" class="socials" target="none">
+					<img src="/assets/images/social_media_logos/facebook.svg" class="social-icon forbid-user-select"
+						alt="Facebook">
+					<p>Facebook</p>
+				</a>
+				<a href="https://github.com/" class="socials" target="none" class="end">
+					<img src="/assets/images/social_media_logos/github-black.png"
+						class="social-icon  forbid-user-select" alt="GitHub">
+					<p>GitHub</p>
+				</a>
+			</div>
+		</div>
 
-        <div class="error-messages-holder">
-            <div class="hidden invalid" id="taken-username-error">
-                <div class="invalid-title">Username already taken!</div>
-                <div class="invalid-description">Try another?</div>
-                <div class="usernames-container">
-                    <ul class="available-usernames-container">
-                        <li class="available-usernames">
-                            &bullet;
-                            <span class="animated-underline">
-                                <p class="available-username">Hi</p>
-                            </span>
-                        </li>
-                        <li class="available-usernames">
-                            &bullet;
-                            <span class="animated-underline">
-                                <p class="available-username">Hi</p>
-                            </span>
-                        </li>
-                    </ul>
-                    <ul class="available-usernames-container">
-                        <li class="available-usernames">
-                            &bullet;
-                            <span class="animated-underline">
-                                <p class="available-username">Hi</p>
-                            </span>
-                        </li>
-                        <li class="available-usernames">
-                            &bullet;
-                            <span class="animated-underline">
-                                <p class="available-username">Hi</p>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+		<div class="return">
+			<a class="animated-underline" href="./index.html">
+				⬅️
+				<p>Return</p>
+			</a>
+		</div>
 
-            <div class="hidden invalid" id="taken-email-error">
-                <div class="invalid-title">Email already taken!</div>
-                <div class="invalid-description">
-                    <a class="animated-underline">
-                        <p>Contact support?</p>
-                    </a>
-                </div>
-            </div>
+		<footer>
+			<a class="forgot-password animated-underline" href="../html/settings.html">
+				<p>Forgot email or password?</p>
+			</a>
+		</footer>
+	</div>
+	<div id="sign-up-container" class="hidden-login-container">
+		<h1>Sign Up</h1>
+		<h2>Create a free account to use Chatify's services!</h2>
 
-            <div class="hidden invalid" id="non-matching-password-error">
-                <div class="invalid-title">Passwords don't match!</div>
-                <div class="invalid-description">
-                    Passwords are case-sensitive. <br>
-                    Check for capitalized letters, spaces, symbols, etc.
-                </div>
-            </div>
+		<div class="error-messages-holder">
+			<div class="hidden invalid" id="taken-username-error">
+				<div class="invalid-title">Username already taken!</div>
+				<div class="invalid-description">Try another?</div>
+				<div class="usernames-container">
+					<ul class="available-usernames-container">
+						<li class="available-usernames">
+							&bullet;
+							<span class="animated-underline">
+								<p class="available-username">Hi</p>
+							</span>
+						</li>
+						<li class="available-usernames">
+							&bullet;
+							<span class="animated-underline">
+								<p class="available-username">Hi</p>
+							</span>
+						</li>
+					</ul>
+					<ul class="available-usernames-container">
+						<li class="available-usernames">
+							&bullet;
+							<span class="animated-underline">
+								<p class="available-username">Hi</p>
+							</span>
+						</li>
+						<li class="available-usernames">
+							&bullet;
+							<span class="animated-underline">
+								<p class="available-username">Hi</p>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
 
-            <div class="hidden invalid" id="fill-in-all-forms-error">
-                <div class="invalid-title">Please fill in all forms!</div>
-            </div>
-        </div>
+			<div class="hidden invalid" id="taken-email-error">
+				<div class="invalid-title">Email already taken!</div>
+				<div class="invalid-description">
+					<a class="animated-underline">
+						<p>Contact support?</p>
+					</a>
+				</div>
+			</div>
 
-        <div class="email-and-password">
-            <input type="text" name="create-username-input" class="email" id="create-username-input" autocomplete="off"
-                autocapitalize="off" placeholder="Username">
+			<div class="hidden invalid" id="non-matching-password-error">
+				<div class="invalid-title">Passwords don't match!</div>
+				<div class="invalid-description">
+					Passwords are case-sensitive. <br>
+					Check for capitalized letters, spaces, symbols, etc.
+				</div>
+			</div>
 
-            <input type="email" name="create-email-input" class="email" id="create-email-input" autocomplete="off"
-                autocapitalize="off" placeholder="Email">
+			<div class="hidden invalid" id="fill-in-all-forms-error">
+				<div class="invalid-title">Please fill in all forms!</div>
+			</div>
+		</div>
 
-            <input type="password" name="create-password-input" class="password" id="create-password-input"
-                autocomplete="off" autocapitalize="off" placeholder="Password">
+		<div class="email-and-password">
+			<input type="text" name="create-username-input" class="email" id="create-username-input" autocomplete="off"
+				autocapitalize="off" placeholder="Username">
 
-            <input type="password" name="create-confirm-password-input" class="password"
-                id="create-confirm-password-input" autocomplete="off" autocapitalize="off"
-                placeholder="Confirm Password">
+			<input type="email" name="create-email-input" class="email" id="create-email-input" autocomplete="off"
+				autocapitalize="off" placeholder="Email">
 
-            <input class="submit-input" id="sign-up-button" type="button" value="Sign Up">
-        </div>
+			<input type="password" name="create-password-input" class="password" id="create-password-input"
+				autocomplete="off" autocapitalize="off" placeholder="Password">
 
-        <div class="continue-with">
-            <p>Or Sign up with</p>
-            <div id="logos">
-                <a href="https://google.com/" class="socials" target="none">
-                    <img src="/assets/images/social_media_logos/google.svg" class="social-icon forbid-user-select"
-                        alt="Google">
-                    <p>Google</p>
-                </a>
-                <a href="https://facebook.com/" class="socials" target="none">
-                    <img src="/assets/images/social_media_logos/facebook.svg" class="social-icon forbid-user-select"
-                        alt="Facebook">
-                    <p>Facebook</p>
-                </a>
-                <a href="https://github.com/" class="socials end" target="none" class="end">
-                    <img src="/assets/images/social_media_logos/github-black.png" class="social-icon forbid-user-select"
-                        alt="GitHub">
-                    <p>GitHub</p>
-                </a>
-            </div>
-        </div>
-    </div>
+			<input type="password" name="create-confirm-password-input" class="password"
+				id="create-confirm-password-input" autocomplete="off" autocapitalize="off"
+				placeholder="Confirm Password">
+
+			<input class="submit-input" id="sign-up-button" type="button" value="Sign Up">
+		</div>
+
+		<div class="continue-with">
+			<p>Or Sign up with</p>
+			<div id="logos">
+				<a href="https://google.com/" class="socials" target="none">
+					<img src="/assets/images/social_media_logos/google.svg" class="social-icon forbid-user-select"
+						alt="Google">
+					<p>Google</p>
+				</a>
+				<a href="https://facebook.com/" class="socials" target="none">
+					<img src="/assets/images/social_media_logos/facebook.svg" class="social-icon forbid-user-select"
+						alt="Facebook">
+					<p>Facebook</p>
+				</a>
+				<a href="https://github.com/" class="socials end" target="none" class="end">
+					<img src="/assets/images/social_media_logos/github-black.png" class="social-icon forbid-user-select"
+						alt="GitHub">
+					<p>GitHub</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="return">
+			<a class="animated-underline" href="./index.html">
+				⬅️
+				<p>Return</p>
+			</a>
+		</div>
+	</div>
 </body>
 </html>
