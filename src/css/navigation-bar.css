@@ -22,7 +22,7 @@
     object-fit: cover;
 }
 
-#navigation-bar div {
+#navigation-bar>div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,54 +33,122 @@
 }
 
 .navigation-bar-link {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+    cursor: pointer;
+
     display: flex;
     align-items: center;
+
+    font-weight: 500;
 }
 
 #profile-menu {
-    width: 12em;
-    aspect-ratio: 1 / 1.2;
+    position: absolute;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    height: fit-content;
+
+    top: 4.5em;
+    right: 0.25em;
+    padding: 1em;
+
+    border-radius: 0.5em;
+
     background-color: #2b323b;
     border: 0.2em solid #3d4752;
-    position: absolute;
-    top: 4em;
-    right: 1em;
+
     z-index: 3;
-    padding: 0.5em;
-    border-radius: 0.5em;
+}
+
+.user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-bottom: 0.5em;
+}
+
+.user-info div:first-child {
+    margin-right: 0.5em;
+}
+
+.user-info div:first-child img {
+    width: 3.5em;
+    border-radius: 50%;
+}
+
+#profile-menu p:first-child {
+    margin-bottom: -0.3em;
+
+    font-size: 0.85em;
+}
+
+#profile-menu p:nth-child(2) {
+    font-size: 1.25em;
+}
+
+#profile-menu p:last-child {
+    font-size: 0.8em;
+}
+
+.user-info #user-email,
+.user-info #user-email span {
+
+    opacity: 0.6;
+    font-size: 0.8em;
+}
+
+.user-info div:last-child {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.user-info div:last-child button {
+    border-radius: 50%;
+
+    transition: opacity var(--adt);
+}
+
+.user-info div:last-child button:hover {
+    opacity: 0.6;
 }
 
 .profile-menu-item {
-    height: 2em;
+    cursor: pointer;
+
     width: 100%;
-    background-color: #2b323b;
-    padding: 1.2em;
+    height: 2em;
+
     display: flex;
     align-items: center;
+
+    margin-bottom: 0.3em;
+    padding: 1.2em;
+
     border-radius: 0.3em;
     font-size: 1em;
+
+    background-color: var(--sbbc);
+
+    transition: background-color var(--adt);
 }
 
 .profile-menu-item:not(#email-item):hover {
-    background-color: #3d4752;
-    cursor: pointer;
+    background-color: var(--sbch);
 }
 
 .profile-menu-item>img {
     height: 1em;
     aspect-ratio: 1 / 1;
-    margin-right: 0.2em;
 }
 
 .navigation-bar-link>img {
     height: 2.5em;
-    aspect-ratio: 1 / 1;
     border-radius: 50%;
-    display: none;
-    margin-left: 0.5em;
+    margin-right: 0.25em;
 }
 
 .navigation-bar-link:not(#login-button) {

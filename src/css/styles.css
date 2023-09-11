@@ -24,6 +24,13 @@ a {
     text-decoration: none;
 }
 
+button {
+    cursor: pointer;
+
+    border: 0;
+    background-color: inherit;
+}
+
 .button {
     cursor: pointer;
     background-color: #566576;

@@ -136,7 +136,7 @@ h2 {
 	flex-direction: row;
 	flex-wrap: wrap;
 
-	margin-bottom: 0.5;
+	margin-bottom: 1em;
 }
 
 .invalid {

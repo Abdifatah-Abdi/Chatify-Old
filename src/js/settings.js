@@ -1,9 +1,17 @@
+import { getCookie } from "./methods.js"
+
 const settingsMenu = document.getElementById('settings-menu');
 const right = document.getElementById('right');
 const uploadPFPInput = document.getElementById('pfp-upload');
 const uploadCornerPFPInput = document.getElementById('pfp-upload');
 const pfpPreview = document.getElementById('pfp-preview');
 const pfpIcon = document.getElementById('PFP');
+
+window.addEventListener("load", () => {
+    if (!getCookie("id")) {
+        window.location.href = "./login.html";
+    };
+});
 
 settingsMenu.querySelectorAll('div').forEach(option => {
     option.addEventListener("mouseup", function () {

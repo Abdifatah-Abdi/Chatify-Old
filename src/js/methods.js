@@ -40,6 +40,18 @@ export const delay = (milliseconds) => {
 export function random(minimum, maximum) {
 	return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 };
+
+export function getAncestors(element) {
+	let ancestors = [];
+
+	while (element) {
+		ancestors.unshift(element);
+		element = element.parentNode;
+	};
+
+	return ancestors;
+};
+
 // export function convertTimeToUserTimezone(timeString) {
 // 	// Parse the input time string
 // 	let [time, ampm] = timeString.split(" ");

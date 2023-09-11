@@ -1,4 +1,3 @@
-// import { File } from 'https://cdn.skypack.dev/megajs@1'
 import { getCookie, deleteCookie, authorization } from "./methods.js";
 
 const message = document.getElementsByClassName("message");
@@ -39,11 +38,93 @@ const sendMediaFileInput = document.getElementById("send-media-file-input");
 const fileNameText = document.getElementById('uploaded-file-text');
 let fileLink = '';
 
-if (getCookie("id")) {
-	sendMessageTextBox.disabled = false;
+window.addEventListener("load", async () => {
+	if (getCookie("id")) {
+		sendMessageTextBox.disabled = false;
+	} else {
+		window.location.href = "./login.html";
+	}
+
+	if (window.location.href.includes("127.0.0.1")) {
+		console.log("hi");
+	};
+
+	username[1].textContent = `#${userId}`
+
+	const groupsResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Groups", {
+		method: "GET",
+		headers: {
+			"Authorization": authorization,
+		},
+	});
+	const groupsData = await groupsResponse.json();
+
+	for (let index = 0; index < groupsData.records.length; index++) {
+		const record = groupsData.records[index];
+
+		const splitGroup = record.fields.group_members.split(",");
+		if (!splitGroup.includes(userId.toString()))
+			continue;
+
+		activeChat.children[0].textContent = record.fields.group_name;
+	};
+
+	const messageResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
+		method: "GET",
+		headers: {
+			"Authorization": authorization,
+		},
+	});
+	const messageData = await messageResponse.json();
+
+	// Sort the records based on message_id
+	const sortedRecords = messageData.records.sort((a, b) => a.fields.message_id - b.fields.message_id);
+
+	for (const record of sortedRecords) {
+		const isFromUser = record.fields.user_id == userId;
+		let messageElement = isFromUser ?
+			outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
+		messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
+		messageElement.childNodes[3].textContent =
+			`${formatTime(record.fields.time)}`;
+		messageElement.dataset.messageId = record.fields.message_id;
+		messageElement.dataset.messageGroupId = record.fields.group_id;
+		messageElement.dataset.messageUserId = record.fields.user_id;
+		messageElement.dataset.messageContent = record.fields.message;
+		messagesContainer.appendChild(messageElement);
+	}
+
+	onMessageLoad(); // This should be at the very end !!
+});
+
+/* Load necessary details
+*/
+
+let socket;
+if (window.location.href.includes("127.0.0.1")) {
+	socket = io("http://localhost:8080");
 } else {
-	window.location.href = "./login.html";
-}
+	socket = io("https://chatify.tunnelapp.dev/");
+};
+
+socket.on("message", message => {
+	console.log(message);
+	if (message.fields.user_id == userId.toString())
+		return;
+
+	if (message.fields.group_id != activeChatNumber)
+		return;
+
+	const messageElement = inboundMessage.cloneNode(true);
+	messageElement.childNodes[1].childNodes[3].childNodes[1].textContent = message.fields.message;
+	messageElement.childNodes[3].textContent = `${formatTime(message.fields.time)}`;
+	messageElement.dataset.messageId = message.fields.message_id;
+	messageElement.dataset.messageGroupId = message.fields.group_id;
+	messageElement.dataset.messageUserId = message.fields.user_id;
+	messageElement.dataset.messageContent = message.fields.message;
+
+	messagesContainer.appendChild(messageElement);
+});
 
 sendMediaHandler();
 function sendMediaHandler() {
@@ -125,79 +206,6 @@ function formatTime(time) {
 		return `${convertedTime.getDate()} at ${formattedHours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
 	}
 }
-
-/* Load necessary details
-*/
-const socket = io("http://localhost:8080");
-
-socket.on("message", message => {
-	console.log(message);
-	if (message.fields.user_id == userId.toString())
-		return;
-
-	if (message.fields.group_id != activeChatNumber)
-		return;
-
-	const messageElement = inboundMessage.cloneNode(true);
-	messageElement.childNodes[1].childNodes[3].childNodes[1].textContent = message.fields.message;
-	messageElement.childNodes[3].textContent = `${formatTime(message.fields.time)}`;
-	messageElement.dataset.messageId = message.fields.message_id;
-	messageElement.dataset.messageGroupId = message.fields.group_id;
-	messageElement.dataset.messageUserId = message.fields.user_id;
-	messageElement.dataset.messageContent = message.fields.message;
-	messagesContainer.appendChild(messageElement);
-});
-
-window.addEventListener("load", async () => {
-	username[1].textContent = `#${userId}`
-
-	const groupsResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Groups", {
-		method: "GET",
-		headers: {
-			"Authorization": authorization,
-		},
-	});
-	const groupsData = await groupsResponse.json();
-
-	for (let index = 0; index < groupsData.records.length; index++) {
-		const record = groupsData.records[index];
-
-		const splitGroup = record.fields.group_members.split(",");
-		if (!splitGroup.includes(userId.toString()))
-			continue;
-
-		activeChat.children[0].textContent = record.fields.group_name;
-	};
-
-	const messageResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Messages", {
-		method: "GET",
-		headers: {
-			"Authorization": authorization,
-		},
-	});
-	const messageData = await messageResponse.json();
-
-	// Sort the records based on message_id
-	const sortedRecords = messageData.records.sort((a, b) => a.fields.message_id - b.fields.message_id);
-
-	for (const record of sortedRecords) {
-		const isFromUser = record.fields.user_id == userId;
-		let messageElement = isFromUser ?
-			outboundMessage?.cloneNode(true) : inboundMessage?.cloneNode(true);
-		messageElement.childNodes[1].childNodes[isFromUser ? 1 : 3].childNodes[1].textContent = record.fields.message;
-		messageElement.childNodes[3].textContent =
-			`${formatTime(record.fields.time)}`;
-		messageElement.dataset.messageId = record.fields.message_id;
-		messageElement.dataset.messageGroupId = record.fields.group_id;
-		messageElement.dataset.messageUserId = record.fields.user_id;
-		messageElement.dataset.messageContent = record.fields.message;
-		messagesContainer.appendChild(messageElement);
-	}
-
-
-
-	onMessageLoad(); // This should be at the very end !!
-});
 
 /* Send messages
 */
