@@ -75,7 +75,7 @@ button {
 }
 
 .allow-user-select {
-    user-select: all;
+    user-select: text;
 }
 
 .forbid-user-select {

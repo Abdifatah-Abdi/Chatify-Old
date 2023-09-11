@@ -22,7 +22,7 @@ class NavigationBar extends HTMLElement {
 						<a class="navigation-bar-link animated-underline active" href="/index.html">
 							<p class="link-content">Home</p>
 						</a>
-						<a class="navigation-bar-link animated-underline" href="./chat.html">
+						<a class="navigation-bar-link animated-underline" href="/src/html/chat.html">
 							<p class="link-content">Chat</p>
 						</a>
 						<a class="navigation-bar-link animated-underline" href="#">
@@ -131,7 +131,7 @@ class NavigationBar extends HTMLElement {
 					<a class="navigation-bar-link animated-underline active" href="/index.html">
 						<p class="link-content">Home</p>
 					</a>
-					<a class="navigation-bar-link animated-underline" href="./login.html">
+					<a class="navigation-bar-link animated-underline" href="/src/html/chat.html">
 						<p class="link-content">Chat</p>
 					</a>
 					<a class="navigation-bar-link animated-underline" href="#">
@@ -144,7 +144,7 @@ class NavigationBar extends HTMLElement {
 						<p class="link-content">About</p>
 					</a>
 				</div>
-				<a class="navigation-bar-link" id="login-button" href="./login.html">
+				<a class="navigation-bar-link" id="login-button" href="/src/html/login.html">
 					<p class="link-content">Sign in / Sign up</p>
 				</a>
 			</nav>
