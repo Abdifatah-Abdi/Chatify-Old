@@ -12,14 +12,14 @@ class NavigationBar extends HTMLElement {
 			this.innerHTML = `
 				<nav id="navigation-bar">
 					<div>
-						<a href="index.html">
+						<a href="/index.html">
 							<img src="/assets/images/Logo160x.png" alt="Logo of site.">
 						</a>
 						<p>Chatify</p>
 					</div>
 
 					<div class="navigation-bar-middle">
-						<a class="navigation-bar-link animated-underline active" href="./index.html">
+						<a class="navigation-bar-link animated-underline active" href="/index.html">
 							<p class="link-content">Home</p>
 						</a>
 						<a class="navigation-bar-link animated-underline" href="./chat.html">
@@ -122,13 +122,13 @@ class NavigationBar extends HTMLElement {
 			this.innerHTML = `
 			<nav id="navigation-bar">
 				<div>
-					<a href="index.html">
+					<a href="/index.html">
 						<img src="/assets/images/Logo160x.png" alt="Logo of site.">
 					</a>
 					<p>Chatify</p>
 				</div>
 				<div class="navigation-bar-middle">
-					<a class="navigation-bar-link animated-underline active" href="./index.html">
+					<a class="navigation-bar-link animated-underline active" href="/index.html">
 						<p class="link-content">Home</p>
 					</a>
 					<a class="navigation-bar-link animated-underline" href="./login.html">
