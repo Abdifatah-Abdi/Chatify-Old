@@ -3,8 +3,7 @@ import { getCookie } from "./methods.js";
 const downloadPlatformSpan = document.getElementById("download-platform");
 const toTopButton = document.getElementById("to-top-button");
 
-document.addEventListener("load", () => {
-
+window.addEventListener("load", () => {
     toTopButton.addEventListener("mouseup", () => {
         window.scrollTo({ top: 0, behavior: 'smooth', })
     });

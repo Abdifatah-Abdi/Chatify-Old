@@ -1,11 +1,13 @@
 .main-information {
     display: flex;
+    height: 50%;
 
     font-weight: 600;
 
     padding: 2%;
 
     background-color: var(--bgc);
+    flex-wrap: wrap;
 }
 
 .main-information * {
@@ -15,17 +17,17 @@
 .left-side {
     width: 60%;
     height: 100%;
-    margin-right: 1em;
+    /* margin-right: 1em; */
+
+    border: 1px solid red;
 }
 
 .right-side {
-    width: 60%;
+    width: 30%;
     height: 100%;
-    margin-right: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: block;
+
+
+    border: 1px solid red;
 }
 
 .site-title {
@@ -54,10 +56,24 @@
 
     border-radius: 5em;
     border: 0;
+
+    transition: background-color var(--adt);
+}
+
+#download-button {
+    background-color: var(--pbc);
+}
+
+#download-button:hover {
+    background-color: var(--pbch);
 }
 
 #web-portal-button {
-    background-color: #3d4752;
+    background-color: var(--sbbc);
+}
+
+#web-portal-button:hover {
+    background-color: var(--sbch);
 }
 
 .why-choose-us {
@@ -154,10 +170,6 @@ footer {
     display: inline-flex;
     align-items: flex-start;
     flex-direction: column;
-}
-
-.link-container p {
-    font-weight: 300;
 }
 
 .section-title {
@@ -275,7 +287,6 @@ footer {
     transform-origin: bottom right;
 }
 
-
 .github-t::after {
     content: '';
     position: absolute;
@@ -319,6 +330,13 @@ footer {
     border: 0;
 
     color: white;
+    background-color: var(--pbc);
+
+    transition: background-color var(--adt);
+}
+
+#to-top-button:hover {
+    background-color: var(--pbch);
 }
 
 /* Scrollbar width*/

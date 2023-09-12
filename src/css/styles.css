@@ -33,14 +33,6 @@ button {
 
 .button {
     cursor: pointer;
-    background-color: #566576;
-
-    transition: background-color 500ms;
-}
-
-.button:hover {
-    color: white;
-    background-color: #67788c;
 }
 
 .animated-underline {
