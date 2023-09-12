@@ -39,10 +39,10 @@ class NavigationBar extends HTMLElement {
 					<a class="navigation-bar-link profile-menu" id="login-button">
 					<img src="/assets/images/profiles/default_profile.png" class="profile-menu"
 						alt="An image of a profile picture">
-					<p class="link-content profile-menu">Username</p>
+					<p class="link-content profile-menu" id="username-element">Loading...</p>
 					</a>
 
-					<div id="profile-menu" class="allow-user-select profile-menu">
+					<div id="profile-menu" class="allow-user-select profile-menu hidden">
 						<div class="user-info">
 						<div class="profile-menu">
 								<img src="/assets/images/profiles/default_profile.png" class="profile-menu"
@@ -51,8 +51,8 @@ class NavigationBar extends HTMLElement {
 
 						<div class="profile-menu">
 							<p class="profile-menu">Welcome back,</p>
-							<p id="username" class="profile-menu">Username</p>
-							<p id="user-email" class="profile-menu">Email:</p>
+							<p id="username" class="profile-menu">Loading...</p>
+							<p id="user-email" class="profile-menu">Email: loading...</p>
 						</div>
 
 						<div class="profile-menu">
@@ -89,23 +89,21 @@ class NavigationBar extends HTMLElement {
 						return;
 
 					username.textContent = record.fields.username;
+					usernameElement.textContent = record.fields.username;
 					email.textContent = `Email: ${record.fields.email}`;
 				};
-
-				if (window.location.pathname.substring(1) == 'chat.html')
-					username.textContent = userInfo.username;
 
 				loginButton.addEventListener("mouseup", () => {
 					profileMenu.classList.toggle("hidden");
 				});
 
 				settingsButton.addEventListener("mouseup", () => {
-					window.location.href = "./settings.html";
+					window.location.href = "/src/html/settings.html";
 				});
 
 				signOutButton.addEventListener('mouseup', () => {
 					deleteCookie("id");
-					window.location.href = "./index.html";
+					window.location.href = "/index.html";
 				});
 			});
 
@@ -159,6 +157,7 @@ customElements.define('navigation-bar', NavigationBar);
 const profileMenu = document.getElementById("profile-menu");
 const loginButton = document.getElementById("login-button");
 
+const usernameElement = document.getElementById("username-element");
 const username = document.getElementById("username");
 const email = document.getElementById("user-email");
 const signOutButton = document.getElementById("sign-out-button");
