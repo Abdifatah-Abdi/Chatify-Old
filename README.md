@@ -1,7 +1,7 @@
 # Chatify
 [Chatify](https://chatify.tunnelapp.dev)! A tool to communicate with family, friends, and communities online. Paired with great features like End-To-End encryption, customizability, a privacy-focused platform, and more.
 
-That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills. From what it seems, we're doing pretty well.
+That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills.
 
 ## Authors of Chatify
 Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
