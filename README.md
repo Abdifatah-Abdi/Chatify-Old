@@ -20,8 +20,8 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
 
 ## TODO List
 - For Chatting
-    - [ ] Media Uploading
-    - [ ] Pictures
+    - [x] Media Uploading
+    - [x] Pictures
     - [ ] GIFS and Videos
     - [ ] Embeds
     - [ ] Voice Recordings
@@ -33,7 +33,7 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [ ] Account Control Panels
     - [ ] Username updating
     - [ ] Password updating
-    - [ ] Profile pictures
+    - [x] Profile pictures
     - [ ] UI optimization
     - [ ] Increased responsiveness
     - [ ] Mobile support
