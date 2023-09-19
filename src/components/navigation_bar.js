@@ -38,7 +38,7 @@ class NavigationBar extends HTMLElement {
 
 					<a class="navigation-bar-link profile-menu" id="login-button">
 					<img src="/assets/images/profiles/default_profile.png" class="profile-menu"
-						alt="An image of a profile picture">
+						alt="PFP">
 					<p class="link-content profile-menu">Username</p>
 					</a>
 
@@ -46,7 +46,7 @@ class NavigationBar extends HTMLElement {
 						<div class="user-info">
 						<div class="profile-menu">
 								<img src="/assets/images/profiles/default_profile.png" class="profile-menu"
-									alt="An image of a profile picture">
+									alt="PFP">
 							</div>
 
 						<div class="profile-menu">
