@@ -1,3 +1,4 @@
+import { getUsername } from "./information.js";
 import { getCookie, deleteCookie, authorization } from "./methods.js";
 
 const message = document.getElementsByClassName("message");
@@ -9,8 +10,7 @@ const inboundMessage = document.querySelector(".inbound-clone");
 const outboundMessage = document.querySelector(".outbound-clone");
 const messagesContainer = document.getElementById("messages-container");
 
-const username = document.getElementById("username").querySelectorAll('span');
-// [0] for username, [1] for id.
+const username = document.getElementById("user-username");
 
 const activeChat = document.getElementById("active-chat");
 let activeChatNumber = Number(activeChat.getAttribute("data-group-id"));
@@ -43,13 +43,9 @@ window.addEventListener("load", async () => {
 		sendMessageTextBox.disabled = false;
 	} else {
 		window.location.href = "./login.html";
-	}
-
-	if (window.location.href.includes("127.0.0.1")) {
-		console.log("hi");
 	};
 
-	username[1].textContent = `#${userId}`
+	username.textContent = await getUsername();
 
 	const groupsResponse = await fetch("https://api.airtable.com/v0/appDfdVnrEoxMyFfF/Groups", {
 		method: "GET",
@@ -99,16 +95,8 @@ window.addEventListener("load", async () => {
 
 /* Load necessary details
 */
-
-let socket;
-if (window.location.href.includes("127.0.0.1")) {
-	socket = io("http://localhost:8080");
-} else {
-	socket = io("https://chatify.tunnelapp.dev/");
-};
-
+const socket = io(window.location.href.includes("127.0.0.1") ? "http://localhost:8080" : "https://chatify.tunnelapp.dev/");
 socket.on("message", message => {
-	console.log(message);
 	if (message.fields.user_id == userId.toString())
 		return;
 
@@ -156,16 +144,18 @@ function sendMediaHandler() {
 	});
 
 	sendMediaFileInput.addEventListener("change", async () => {
-		const endpoint = "upload_file.php";
 		const formData = new FormData();
 
-		console.log(URL.createObjectURL(sendMediaFileInput.files[0]));
-		formData.append("inpFile", sendMediaFileInput.files[0]);
+		Object.keys(sendMediaFileInput.files).forEach(key => {
+			formData.append(sendMediaFileInput.files.item(key).name, sendMediaFileInput.files.item(key));
+		});
 
-		fetch(endpoint, {
-			method: "post",
+		const response = await fetch("http://localhost:5500/upload", {
+			method: "POST",
 			body: formData,
-		}).catch(console.error);
+		});
+		const parsedData = await response.json();
+		console.log(parsedData);
 	});
 };
 
