@@ -95,7 +95,8 @@ window.addEventListener("load", async () => {
 
 /* Load necessary details
 */
-const socket = io(window.location.href.includes("127.0.0.1") ? "http://localhost:8080" : "https://chatify.tunnelapp.dev/");
+const socket = io(window.location.href.includes("127.0.0.1") ? "http://localhost:8080" : "https://dull-jeans-refuse.tunnelapp.dev/");
+
 socket.on("message", message => {
 	if (message.fields.user_id == userId.toString())
 		return;
