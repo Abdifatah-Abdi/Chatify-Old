@@ -174,7 +174,7 @@ signInButton.addEventListener('mouseup', async () => {
             SuccessEffect("Found your account!", 0);
             document.cookie = `id=${foundUser.fields.user_id}${expires};`
             await delay(1000);
-            window.location.href = 'chat.html';
+            window.location.href = '/src/html/chat.html';
         } else {
             ErrorEffect(loginPasswordInput, "Password incorrect!", 0);
         }
