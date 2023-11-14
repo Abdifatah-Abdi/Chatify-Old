@@ -40,7 +40,8 @@
     "axe/text-alternatives": [
       "default",
       {
-        "document-title": "off"
+        "document-title": "off",
+        "image-alt": "off"
       }
     ],
     "compat-api/html": [
@@ -54,7 +55,8 @@
     "axe/parsing": [
       "default",
       {
-        "duplicate-id-aria": "off"
+        "duplicate-id-aria": "off",
+        "duplicate-id": "off"
       }
     ]
   }

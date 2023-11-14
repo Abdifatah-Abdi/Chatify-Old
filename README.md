@@ -4,7 +4,7 @@
 That aside, we aren't expecting people to use Chatify over any other application like [Discord](https://discord.com) and [WhatsApp](https://whatsapp.com). We made this project test our skills.
 
 ## Authors of Chatify
-Meet our team! ...of 3 people. [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
+Meet our team! [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi), [Omar](https://github.com/Elyossef-Omar), and [Advay-c](https://github.com/advay-c).
 
 [Abdifatah-Abdi](https://github.com/Abdifatah-Abdi) is in charge of the backend of Chatify. This includes monitoring & using the DataBase, sockets, & the backend.
 
@@ -45,7 +45,7 @@ Chatify, unlike other chatting applications, uses plain HTML, JavaScript, and CS
     - [x] Storing accounts in a DataBase
     - [ ] Hashing and salting passwords in the database
     - [x] Logging into accounts
-    - [ ] Store IDs in cookies
+    - [x] Store IDs in cookies
 
 - For Chatify itself
     - [ ] Move away from Airtable and have a custom DataBase
