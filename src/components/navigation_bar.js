@@ -1,3 +1,4 @@
+import { getUsername } from "../js/information.js";
 import { deleteCookie, getCookie, authorization, getAncestors } from "../js/methods.js"
 
 class NavigationBar extends HTMLElement {
@@ -88,7 +89,7 @@ class NavigationBar extends HTMLElement {
 					if (!record.fields.user_id == getCookie("id"))
 						return;
 
-					username.textContent = record.fields.username;
+					username.textContent = getUsername();
 					usernameElement.textContent = record.fields.username;
 					email.textContent = `Email: ${record.fields.email}`;
 				};

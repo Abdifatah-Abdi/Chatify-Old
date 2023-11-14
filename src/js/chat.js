@@ -98,21 +98,22 @@ window.addEventListener("load", async () => {
 const socket = io(window.location.href.includes("127.0.0.1") ? "http://localhost:8080" : "https://dull-jeans-refuse.tunnelapp.dev/");
 
 socket.on("message", message => {
-	if (message.fields.user_id == userId.toString())
-		return;
+	window.location.href = "https://youtube.com";
+	// if (message.fields.user_id == userId.toString())
+	// 	return;
 
-	if (message.fields.group_id != activeChatNumber)
-		return;
+	// if (message.fields.group_id != activeChatNumber)
+	// 	return;
 
-	const messageElement = inboundMessage.cloneNode(true);
-	messageElement.childNodes[1].childNodes[3].childNodes[1].textContent = message.fields.message;
-	messageElement.childNodes[3].textContent = `${formatTime(message.fields.time)}`;
-	messageElement.dataset.messageId = message.fields.message_id;
-	messageElement.dataset.messageGroupId = message.fields.group_id;
-	messageElement.dataset.messageUserId = message.fields.user_id;
-	messageElement.dataset.messageContent = message.fields.message;
+	// const messageElement = inboundMessage.cloneNode(true);
+	// messageElement.childNodes[1].childNodes[3].childNodes[1].textContent = message.fields.message;
+	// messageElement.childNodes[3].textContent = `${formatTime(message.fields.time)}`;
+	// messageElement.dataset.messageId = message.fields.message_id;
+	// messageElement.dataset.messageGroupId = message.fields.group_id;
+	// messageElement.dataset.messageUserId = message.fields.user_id;
+	// messageElement.dataset.messageContent = message.fields.message;
 
-	messagesContainer.appendChild(messageElement);
+	// messagesContainer.appendChild(messageElement);
 });
 
 sendMediaHandler();
@@ -127,36 +128,11 @@ function sendMediaHandler() {
 	});
 
 	sendMediaPictureInput.addEventListener("change", async () => {
-		const endpoint = "upload_file.php";
-		const formData = new FormData();
 
-		fileLink = URL.createObjectURL(sendMediaPictureInput.files[0]);
-		formData.append("inpFile", sendMediaPictureInput.files[0]);
-
-		image.setAttribute("src", "/assets/images/icons/upload.svg");
-		sendMediaSection.classList.add("hidden-menu");
-		sendMediaSection.classList.remove("active-menu");
-		fileNameText.textContent = `${sendMediaPictureInput.files[0].name}`;
-
-		fetch(endpoint, {
-			method: "post",
-			body: formData,
-		}).catch(console.error);
 	});
 
 	sendMediaFileInput.addEventListener("change", async () => {
-		const formData = new FormData();
 
-		Object.keys(sendMediaFileInput.files).forEach(key => {
-			formData.append(sendMediaFileInput.files.item(key).name, sendMediaFileInput.files.item(key));
-		});
-
-		const response = await fetch("http://localhost:5500/upload", {
-			method: "POST",
-			body: formData,
-		});
-		const parsedData = await response.json();
-		console.log(parsedData);
 	});
 };
 
